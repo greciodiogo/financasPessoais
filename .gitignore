@@ -8,7 +8,6 @@
 /bazel-out
 # dependencies
 /node_modules
-/src/environments
 /src/assets/css/simple-line-icons
 /src/assets/css/alt
 /src/assets/js
