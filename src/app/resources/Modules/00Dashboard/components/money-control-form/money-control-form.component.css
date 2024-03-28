@@ -1,0 +1,119 @@
+
+*{
+  box-sizing: border-box;
+}
+
+/* ***************** */
+.registar_transacao {
+  width: 100%;
+  position: absolute;
+  bottom: -500px;
+  opacity: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem;
+  border-radius: 12px;
+  background-color: rgba(18, 59, 66);
+  transition: bottom 0.4s ease;
+}
+
+.active_position {
+  bottom: 0;
+  opacity: 1;
+}
+
+.btn_close:hover {
+  opacity: 1;
+}
+
+.btn_close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 20px;
+  cursor: pointer;
+  opacity: .8;
+  color: white;
+}
+
+.titleWrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: flex-start;
+}
+
+.titleWrapper i{
+  opacity: .8;
+}
+
+.registar_title{
+  padding: 1rem 0;
+  font-size: 22px;
+  color: var(--details-color);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+
+form button {
+  padding: 6px 16px;
+  border-radius: 6px;
+  background-color: rgba(0, 0, 0, 896);
+  color: white;
+  font-size: 14px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+form button:hover {
+  background-color: var(--details-color);
+}
+
+.registar-form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+}
+
+.registar-form-group label{
+  color: white;
+  opacity: .9;
+  font-size: 14px;
+}
+
+.registar-form-group input,
+.registar-form-group select{
+  height: 35px;
+  border: transparent;
+}
+
+.registar-form-group select option{
+  color: white;
+  background-color: transparent;
+}
+
+.registar-form-group select,
+.registar-form-group input,
+.registar-form-group textarea{
+  width: 100%;
+  border-radius: 6px;
+  background-color: rgba(0, 0, 0, 0.296);
+  border: 1px solid transparent;
+  color: white;
+  font-size: 14px;  
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.registar-form-group textarea{
+  padding: 10px;
+}
+
+/* ***************** */
