@@ -16,7 +16,6 @@
 /src/assets/plugins
 /src/app/resources
 /src/app/shared
-/src/app/core
 
 # profiling files
 chrome-profiler-events.json
