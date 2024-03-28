@@ -1,0 +1,54 @@
+
+<div class="dashboard-painel">
+  <div class="dashboard-item">
+    <div class="dashboard-item-icon">
+      <span class="">
+        <i class="fa fa-home" *ngIf="!dashboardService.loading">
+          <img width="20" height="20" src="../../../../../../assets/img/sidebar/money-integral.png" alt="">
+        </i>
+      </span>
+    </div>
+    <div class="dashboard-item-content">
+      <!-- <ngx-skeleton-loader *ngIf="dashboardService.loading" [theme]="{width: '200px', 'border-radius': '0', height: '17px',
+          'margin-bottom': '10px'}">
+      </ngx-skeleton-loader> -->
+      <span class="dashboard-item-label" *ngIf="!dashboardService.loading">Poupanças</span>
+        <span class="dashboard-item-price" *ngIf="!dashboardService.loading">{{ this.configService.numberFormat(dashboard.valorPoupancas || 0)
+          }} AOA</span>
+    </div>
+  </div>
+  <div class="dashboard-item">
+    <div class="dashboard-item-icon">
+      <span class="">
+        <i class="fa fa-home" *ngIf="!dashboardService.loading">
+          <img width="20" height="20" src="../../../../../../assets/img/sidebar/money-income.png" alt="">
+        </i>
+      </span>
+    </div>
+    <div class="dashboard-item-content">
+      <!-- <ngx-skeleton-loader *ngIf="dashboardService.loading" [theme]="{width: '200px', 'border-radius': '0', height: '17px',
+          'margin-bottom': '10px'}">
+      </ngx-skeleton-loader> -->
+      <span class="dashboard-item-label" *ngIf="!dashboardService.loading">Receitas</span>
+        <span class="dashboard-item-price" *ngIf="!dashboardService.loading">{{ this.configService.numberFormat(dashboard.valorReceitas || 0)
+          }} AOA</span>
+    </div>
+  </div>
+  <div class="dashboard-item">
+    <div class="dashboard-item-icon">
+      <span class="">
+        <i class="fa fa-home" *ngIf="!dashboardService.loading">
+          <img width="20" height="20" src="../../../../../../assets/img/sidebar/money-detail.png" alt="">
+        </i>
+      </span>
+    </div>
+    <div class="dashboard-item-content">
+      <!-- <ngx-skeleton-loader *ngIf="dashboardService.loading" [theme]="{width: '200px', 'border-radius': '0', height: '17px',
+          'margin-bottom': '10px'}">
+      </ngx-skeleton-loader> -->
+      <span class="dashboard-item-label" *ngIf="!dashboardService.loading">Despesas</span>
+        <span class="dashboard-item-price" *ngIf="!dashboardService.loading">{{ this.configService.numberFormat( dashboard.valorDespesas || 0)
+          }} AOA</span>
+    </div>
+  </div>
+</div>
