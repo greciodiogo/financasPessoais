@@ -13,7 +13,6 @@
 /src/assets/js
 /src/assets/jspdf-fonts
 /src/assets/plugins
-/src/app/resources/Modules/03Simulador
 
 # profiling files
 chrome-profiler-events.json

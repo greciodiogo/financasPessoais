@@ -1,0 +1,35 @@
+legend.fieldset-border {
+    border: none !important;
+    box-shadow: none !important;
+    border-bottom: 3px solid gray !important;
+}
+
+
+/* 
+.size{
+    display: block;
+    height: 418px;
+    width: 721px;
+} */
+
+.box {
+    position: relative !important;
+    /* border-radius: 3px; */
+    background: transparent !important; 
+    border-top: none !important;
+    margin-bottom: 20px !important;
+    width: 100% !important;
+    box-shadow: none;
+    padding-left: 50px !important;
+}
+
+.box-body {
+    background: transparent !important;
+}
+
+/* 
+.size-grafico-barras{
+    display: block;
+    height: 418px;
+    width: 721px;
+} */

@@ -1,0 +1,33 @@
+<div class="box box-solid">
+    <!--div class="box-header">
+        
+    </div-->
+    <!-- /.card-header -->
+    <div class="box-body">
+        <div class="row">
+            <div class="col-md-12" style="position: relative;" data-backdrop="static">
+                <div class="mid"
+                    style="size: 4px; position: absolute;top: 0;left: 0;width: 100%; display: flex; align-items: center; justify-content: center; height: 260px;">
+                    <mat-spinner *ngIf="this.loading || this.dashboardService.loading"></mat-spinner>
+                </div>
+
+                <div class="chart">
+                    <div class="input-data col-md-3 col-sm-12 col-xs-12">
+                        <select class="form-control form-control-self"
+                            (change)="TrocarValorAno($event)">
+                            <option [value]="ano" *ngFor="let ano of this.anos">
+                                {{ano}}
+                            </option>
+                        </select>
+                    </div>
+                    <!-- Sales Chart Canvas -->
+                    <div>
+                        <app-backdrop-blur *ngIf="this.loading || this.dashboardService.loading"
+                            message="Carregar Facturas..."></app-backdrop-blur>
+                        <canvas id="myChart" class="dimensions-chart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

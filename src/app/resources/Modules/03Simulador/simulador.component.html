@@ -1,0 +1,115 @@
+<div class="dashboard">
+  
+  <div class="user-dashboard">
+
+    <div class="cards-wrapper">
+      <div class="dashboard-title">
+        Metas
+      </div>
+      <div class="dashboard-painel">
+        <div class="dashboard-item">
+          <div class="dashboard-item-icon">
+            <span class="">
+              <i class="fa fa-home" *ngIf="!dashboardService.loading">
+                <img width="20" height="20" src="../../../../../../assets/img/sidebar/money-bank.png" alt="">
+              </i>
+            </span>
+          </div>
+          <div class="dashboard-item-content">
+            <!-- <ngx-skeleton-loader *ngIf="dashboardService.loading" [theme]="{width: '200px', 'border-radius': '0', height: '17px',
+                'margin-bottom': '10px'}">
+            </ngx-skeleton-loader> -->
+            <span class="dashboard-item-label" *ngIf="!dashboardService.loading">Total Disponível</span>
+              <span class="dashboard-item-price" *ngIf="!dashboardService.loading">{{configService.numberFormat(userSession.saldo_actual)}} {{userSession?.moeda?.codigo_iso}}</span>
+          </div>
+        </div>
+        <div class="dashboard-item">
+          <div class="dashboard-item-icon">
+            <span class="">
+              <i class="fa fa-home" *ngIf="!dashboardService.loading">
+                <img width="20" height="20" src="../../../../../../assets/img/sidebar/money-integral.png" alt="">
+              </i>
+            </span>
+          </div>
+          <div class="dashboard-item-content">
+            <!-- <ngx-skeleton-loader *ngIf="dashboardService.loading" [theme]="{width: '200px', 'border-radius': '0', height: '17px',
+                'margin-bottom': '10px'}">
+            </ngx-skeleton-loader> -->
+            <span class="dashboard-item-label" *ngIf="!dashboardService.loading">Poupanças</span>
+              <span class="dashboard-item-price" *ngIf="!dashboardService.loading">{{ this.configService.numberFormat(dashboard.dividas || 0)
+                }} AOA</span>
+          </div>
+        </div>
+      </div>
+      <div class="grafico-left">
+          <legend class="fieldset-border mt-3" style="color: white;">
+              <i class="fas fa-line-chart"></i>
+              <span>Simulador</span>
+          </legend>
+          <div class="simulador_container">
+            <div class="container">
+              <form [formGroup]="form">
+            
+                <div class="form-group">
+                  <div class="desc_group">
+                    <label for="valorFinanciamento">Valor Pretendido?</label>
+                    <span>{{ this.configService.numberFormat(this.valorFinanciamento) || 0}} AOA</span>
+                  </div>
+                  <input type="range" class="range" maxlength="1000000" min="1" max="1000000" formControlName="valorFinanciamento" [(ngModel)]="valorFinanciamento"  (keyup)="calcularPagamentoMensal()">     
+                </div>
+            
+                <div class="form-group">
+                  <div class="desc_group">
+                    <label for="prazoFinanciamento">Prazo da poupança (meses)?</label>
+                    <span>{{ this.prazoFinanciamento.toFixed(1) || 0}}</span>
+                  </div>
+                  <input type="range" class="range"  maxlength="48" min="1" max="48" formControlName="prazoFinanciamento" [(ngModel)]="prazoFinanciamento"  (keyup)="calcularPagamentoMensal()">     
+                </div>
+            
+                <div class="form-group">
+                  <div class="desc_group">
+                    <label for="taxaJurosAnual">Valor a poupa por mês?</label>
+                    <span>{{ this.configService.numberFormat(this.taxaJurosAnual) || 0}}</span>
+                  </div>
+                  <input type="range" class="range"  maxlength="1000000" min="1000" max="1000000" formControlName="taxaJurosAnual" [(ngModel)]="taxaJurosAnual"  (keyup)="calcularPagamentoMensal()">     
+                </div>
+            
+                <!-- <div class="form-group">
+                  <div class="desc_group">
+                    <label for="pagamentoMensal">Pagamento Mensal:</label>
+                    <span>{{ this.configService.numberFormat(this.pagamentoMensal) || 0}} AOA</span>
+                  </div>
+                  <input type="number" value="pagamentoMensal"  formControlName="pagamentoMensal" [(ngModel)]="pagamentoMensal"  (keyup)="calcularPagamentoMensal()">
+                </div> -->
+                <button type="button" (click)="calcularPagamentoMensal()">Gerar Meta</button>
+            
+              </form>
+            </div>
+            
+          </div>
+      </div>
+    </div>
+
+    <div class="feature-container">
+      <div class="categories_wrapper">
+      <div class="dashboard-title">
+        Minhas Metas<p class="totalItems"><span>{{'5'}}</span></p>
+      </div>
+        <p class="category-item">Todas</p>
+      </div>
+      <div class="wrapper_cards">
+        <div class="credit-card"></div>
+        <div class="credit-card"></div>
+        <div class="credit-card"></div>
+        <div class="credit-card"></div>
+        <div class="credit-card"></div>
+      </div>
+      <div class="pagination_control">
+        <pagination-controls pageChange="5" previousLabel="Anterior" maxSize="6"
+          nextLabel="Próximo" directionLinks="true" responsive="true" id="listFact"></pagination-controls>
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
