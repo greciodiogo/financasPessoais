@@ -1,0 +1,211 @@
+
+{
+    "navbar": {
+    "principaloption": "Home",
+    "Facturasoption": "Invoices",
+    "ContacorrenteOption":"Current Account",
+    "Minhascontasoption":"My bills",
+    "Comprasoption":"Purchase History",
+    "Saldocarteiraoption":"Wallet Balance",
+    "Dadopessoaisoption":"Personal data",
+    "Pagamentosoption":"Payments",
+    "Lojasoption":"Stores",
+    "Carregamentosaldooption":"balance loading",
+    "pesquisarplasholder":"Search",
+
+    "meuperfil":"My Profile",
+    "alterarpassword":"Change Password",
+    "terminarsessao":"End Session"
+  },
+  "principal":{
+    "ola_legend":"Hello",
+    "acompanheH_legend":"Track your history",
+    "gerirConta_Button":"Manage Accounts",
+    "QtdFacturas_legend":"Number of Invoices",
+    "QtdCompras_legend":"Quantity of Purchases",
+    "TotalDividas_legend":"Total in Dividends",
+    "QtdServicos_legend":"Number of Services",
+    "QtdPagamentos_legend":"Quantity of Payments",
+    "PainelEstatistico_legend":"Statistical Dashboard",
+    "TotaisFactPano":"TOTAL INVOICES OVER THE YEAR",
+    "seleccioneAno_select":"Select year",
+    "total_em_ao":"Total  (in AOA)",
+    "carregarfacturas":"Load Invoices ...",
+    "meses":["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", " December"],
+    "dividas": "Debts",
+    "pagamentos":"Payments"
+   },
+
+   "facturas":{
+    "facturacao_legend":"Invoicing",
+    "valorAberto_legend":"Open value",
+    "facturas_legend":"Overdue Invoices",
+    "entrada_label":"Entries",
+    "data_inicio_label":"Start Date",
+    "data_fim_label":"End Date",
+    "documento_label":"Document",
+    "filtro_label":"Filter",
+    "factura_label":"Invoice",
+    "pesquisarpor":"Find invoices by",
+    "tipodedocumento_pl":"Document type",
+    "selecione":"Select",
+    "table":{
+      "nfactura":"Invoice No.",
+      "estado":"State",
+      "Saldado":"Settled",
+      "valorAberto":"Open value",
+      "total":"Total",
+      "imposto":"Tax",
+      "datafacturacao":"Billing Date",
+      "accao":"Action"
+    },
+    "carregardados":"We are loading data",
+    "nofactura":"No invoice found for "
+  },
+
+  "conta_corrente":{
+    "label":["Receipt Invoices", "Invoices", "Receipts", "Credit Notes"],
+    "TotaisFactAoa":"Invoicing Totals (in AOA)",
+    "valor_facturas_legend":"Total in Invoices",
+    "totalFacturas_legend":"Total in Invoices/Receipts",
+    "valorTotalRecibos_legend":"Total value in Receipts",
+    "conta_corrente_legend":"Current Account",
+    "todas_legend":"All",
+    "conta_label":"Account",
+    "estado_label":"State",
+    "facturacao_label":"Invoicing",
+    "filtrar_button":"Filter",
+    "facturas_fecibo ":"Invoices Receipt",
+    "Recibos":"Receipts",
+    "Notas_credito":"Credit notes",
+    "Facturas_em_Aberto":"Open Invoices",
+    "Total_Aberto":"Total Open",
+    "table":{
+      "nfactura":"Invoice No.",
+      "documento":"Document",
+      "conta":"Account",
+      "data":"Date",
+      "total":"Total",
+      "valorAberto":"Open value",
+      "accao":"Action"
+    },
+    "imprimir":"Print"
+  },
+  "minhas_contas":{
+    "itemencontrado":"Items found",
+    "pesqPestado":"Search by state",
+    "pesqPtipofacuracao":"Search by type of billing",
+    "pesqPtipoconta":"Search by account type",    
+    "filtrodados_label":"Data filter",
+    "todas":"All",
+    "salvas":"Saved",
+    "descricao":"Description",
+    "nconta":"ACCOUNT NO.",
+    "filtroservicos":"Service Filter",
+    "activo_state":"Active",
+    "inactivo_state":"Inactive",
+    "servicos":"Services",
+    "pais":"Country",
+    
+    "detalhesDcontaN":"Account Details",
+    "tipo_conta":"Account Type",
+    "Morada":"Address",
+    "documentacao":"Documentation",
+    "semdocumentacao":"NO DOCUMENTATION",
+    "aguardaravaliacao":"WAIT FOR VALIDATION",
+    "emanalise":"IN ANALYSIS",
+    "dataregistro":"Registration Date",
+    "obs1":"Review account no. ",
+    "obs2":"details, for any questions regarding the portal, click on the help button.",
+
+    "filtrar_servicos": "Filter Services",
+    "SelecionetipoFiltro": "Select a Filter Type",
+    "listaservicos": "List of Services",
+    "tecnologia": "Technology",
+    "tarifario": "Tariff",
+    "chaveservico": "Service Key",
+    "datacriacao": "Creation Date"
+  },
+  "saldo_carteira":{
+    "saldo_carteira_label":"Wallet Balance",
+    "valor_divida_label":"Debit Portfolio Value",
+    "historico_pedido_button":"Order History",
+    "movimentos_button":"Movements",
+    "table":{
+     "valor":"Value",
+     "referencia_bancaria":"Bank Reference",
+     "banco":"Bank",
+     "contabancaria":"Bank account",
+     "data_pagamento":"Payment Date",
+     "estado":"State"
+    },
+    "table2":{
+      "tipo_movimento":"Movements Types",
+      "operacao":"Operation"
+     }
+ },
+
+"pagamentos":{
+  "pesquisarpor":"Find Payments by",
+  "nenhum_pagamento":"No payments found for",
+  "formaspagamento":"Payment methods",
+  "table":
+      {
+        "valorRecebido":"Amount received",
+        "troco":"Change",
+        "desconto":"Discount",
+        "estado":"State",
+        "dataEmissao":"Issuance date",
+        "pagamentoem":"Payments by"
+      }
+},
+"lojas":{
+  "voltar":"Back",
+  "naoexistemlojas":"There are no stores in this province...",
+  "encontrarlojasAt":"Find Angola Telecom stores",
+  "encontrarlojas_button":"Find stores",
+  "seleccioneprovincia":"Select province"
+},
+"pagination":{
+  "proximo":"Next",
+  "anterior":"Previous",
+  "mostrandode":"Showing ",
+  "a":"to",
+  "de":"of",
+  "registo":"record"
+},
+"minhas_compras":{
+  "procurar_p_sigla":"Search for purchases by invoice acronym",
+  "preco_unit_label":"Unit Price:"
+},
+"carregamento_saldo":{
+  "data_carregamento":"Loading Date",
+  "pesquisar_carregamento":"Search Loading by",
+  "historico_carregamento":"Upload history",
+  "nenhum_Historico":"No loading history found",
+  "nocompra":"No Purchases found from"
+},
+
+"dados_pessoais":{
+  "informacoes_cliente":"Customer information",
+  "seguranca":"Security",
+  "nacionalidade_label":"Nationality",
+  "telefone_label":"Phone",
+  "email":"Email",
+  "tipo_de_identidade":"Identity Type",
+  "N_d_Documento":"Document Number",
+  "solicitar_alteracao":"Request Change",
+
+  "mudanca_credenciais":"Credentials Change",
+  "tipo_de_cliente":"Customer Type",
+  "palavra_passe_actual":"Current Password",
+  "nova_palavra_passe":"New Password",
+  "confirmar_palavra_passe":"Confirm Password",
+  "alterar":"Change"
+},
+"loading":{
+  "aguarde":"Wait",
+  "acarregar":"Loading data"
+}
+
+}

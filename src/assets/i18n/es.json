@@ -1,0 +1,212 @@
+
+{
+    "navbar": {
+    "principaloption": "Principal",
+    "Facturasoption": "Facturas",
+    "ContacorrenteOption":"Cuenta Corriente",
+    "Minhascontasoption":"Mis cuentas",
+    "Comprasoption":"Histórico Compras",
+    "Saldocarteiraoption":"Saldo billetera",
+    "Dadopessoaisoption":"Datos Personales",
+    "Pagamentosoption":"Pagamentos",
+    "Lojasoption":"Tiendas",
+    "Carregamentosaldooption":"Cargas Saldo",
+    "pesquisarplasholder":"Buscar",
+
+    "meuperfil":"Mi Perfil",
+    "alterarpassword":"Cambiar Contraseña",
+    "terminarsessao":"Finalisar Sesión"
+  },
+
+  "principal":{
+    "ola_legend":"Holá",
+    "acompanheH_legend":"Sigue tu historial",
+    "gerirConta_Button":"Gestionar cuentas",
+    "QtdFacturas_legend":"Cantidad de Facturas",
+    "QtdCompras_legend":"Cantidad de Compras",
+    "TotalDividas_legend":"Total en Deudas",
+    "QtdServicos_legend":"Cantidad de Servicios",
+    "QtdPagamentos_legend":"Cantidad de Pagos",
+    "PainelEstatistico_legend":"Panel Estadístico",
+    "TotaisFactPano":"TOTAL DE FACTURAS DEL AÑO",
+    "seleccioneAno_select":"Seleccione el ano",
+    "total_em_ao":"Total  (en AOA)",
+    "carregarfacturas":"Cargar facturas ...",
+    "meses":["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", " Diciembre"],
+    "dividas": "Deudas",
+    "pagamentos":"Pagos"
+  },
+
+   "facturas":{
+    "facturacao_legend":"Facturación",
+    "valorAberto_legend":"Valor en Abierto",
+    "facturas_legend":"Facturas Vencidas",
+    "entrada_label":"Entrada",
+    "data_inicio_label":"Fecha Inicio",
+    "data_fim_label":"Fecha Fin",
+    "documento_label":"Documento",
+    "filtro_label":"Filtro",
+    "factura_label":"Factura",
+    "pesquisarpor":"Pesquisar factura por",
+    "tipodedocumento_pl":"Tipo de Documento",
+    "selecione":"Seleccione",
+    "table":{
+      "nfactura":"Factura no.",
+      "estado":"Estado",
+      "Saldado":"Saldado",
+      "valorAberto":"Valor en Abierto",
+      "total":"Total",
+      "imposto":"Imposto",
+      "datafacturacao":"Fecha Facturación",
+      "accao":"Acción"
+    },
+    "carregardados":"Estamos a cargando los datos",
+    "nofactura":"Ninguna factura encontrada de "
+  },
+
+  "conta_corrente":{
+    "label":["Facturas Recibo", "Facturas", "Recibos", "Notas de Crédito"],
+    "TotaisFactAoa":"Total de Facturación (en AOA)",
+    "valor_facturas_legend":"Total en Facturas",
+    "totalFacturas_legend":"Total en Facturas/Recibos",
+    "valorTotalRecibos_legend":"Valor total en los Recibos",
+    "conta_corrente_legend":"Cuenta Corriente",
+    "todas_legend":"Todas",
+    "conta_label":"Cuenta",
+    "estado_label":"Estado",
+    "facturacao_label":"Facturación",
+    "filtrar_button":"Filtrar",
+
+    "Facturas_Recibo ":"Facturas Recibo",
+    "Recibos":"Recibos",
+    "Notas_credito":"Notas de crédito",
+    "Facturas_em_Aberto":"Facturas en Abierto",
+    "Total_Aberto":"Total en Aberto",
+    "table":{
+      "nfactura":"Factura no.",
+      "documento":"Documento",
+      "conta":"Cuenta",
+      "data":"Fecha",
+      "total":"Total",
+      "valorAberto":"Valor en Abierto",
+      "accao":"Acción"
+    },
+    "imprimir":"Imprimir"
+  },
+  "minhas_contas":{
+    "itemencontrado":"Itens encontrados",
+    "pesqPestado":"Buscar por estado",
+    "pesqPtipofacuracao":"Buscar por tipo de facturación",
+    "pesqPtipoconta":"Buscar por tipo de cuenta",
+    "filtrodados_label":"Filtro de datos",
+    "todas":"Todas",
+    "salvas":"Salvas",
+    "descricao":"Descripción",
+    "nconta":"CUENTA NO.",
+    "filtroservicos":"Filtro de Servicios",
+    "activo_state":"Activa",
+    "inactivo_state":"Inactiva",
+    "servicos":"Servicios",
+    "pais":"País",
+    
+    "detalhesDcontaN":"Detalles de Cuenta ",
+    "tipo_conta":"Tipo de Cuenta",
+    "Morada":"Dirección",
+    "documentacao":"Documentación",
+    "semdocumentacao":"SIM DOCUMENTACIÓN",
+    "aguardaravaliacao":"ESPERAR VALIDACIÓN",
+    "emanalise":"EN ANÁLISIS",
+    "dataregistro":"Fecha de Registro",
+    "obs1":"Analise los detalles de la cuenta n. ",
+    "obs2":", para cualquer duda sobre el portal has click al botón de ayúda.",
+
+    "filtrar_servicos": "Filtrar Servicios",
+    "SelecionetipoFiltro": "Seleccione un tipo de Filtro",
+    "listaservicos": "Lista de Servicios",
+    "tecnologia": "Tecnologia",
+    "tarifario": "Tarifa",
+    "chaveservico": "Clave de Servicio",
+    "datacriacao": "Fecha de creación"
+  },
+  "saldo_carteira":{
+    "saldo_carteira_label":"Saldo de billetera",
+    "valor_divida_label":"Valor billetera en Deuda",
+    "historico_pedido_button":"Histórico Pedido",
+    "movimentos_button":"Movimientos",
+    "table":{
+     "valor":"Valor",
+     "referencia_bancaria":"Referencia Bancaria",
+     "banco":"Banco",
+     "contabancaria":"Cuenta Bancária",
+     "data_pagamento":"Fecha Pago",
+     "estado":"Estado"
+    },
+    "table2":{
+      "tipo_movimento":"Tipo Movimientos",
+      "operacao":"Operación"
+     }
+ },
+"pagamentos":{
+  "nenhum_pagamento":"Ningun pago encontrado de",
+  "pesquisarpor":"Buscar pagos por",
+  "formaspagamento":"Formas de pago",
+  "table":
+      {
+        "valorRecebido":"Valor Recibido",
+        "troco":"Cambio",
+        "desconto":"Descuento",
+        "estado":"Estado",
+        "dataEmissao":"Fecha Emissão",
+        "pagamentoem":"Pago por"
+      }
+},
+"lojas":{
+  "voltar":"Volver",
+  "naoexistemlojas":"No existen tiendas en esta província...",
+  "encontrarlojasAt":"Encontrar tiendas Angola Telecom",
+  "encontrarlojas_button":"Encontrar tiendas",
+  "seleccioneprovincia":"Seleccione la província"
+},
+"pagination":{
+  "proximo":"Próximo",
+  "anterior":"Anterior",
+  "mostrandode":"Mostrando de",
+  "a":"hasta",
+  "de":"de",
+  "registo":"registro"
+},
+"minhas_compras":{
+  "procurar_p_sigla":"Buscar compras por siglas de factura",
+  "preco_unit_label":"Precio unitario:"
+},
+"carregamento_saldo":{
+  "data_carregamento":"Fecha de carga",
+  "pesquisar_carregamento":"Buscar cargando por",
+  "historico_carregamento":"Historial de carga",
+  "nenhum_Historico":"No se encontró ningún historial de carga",
+  "nocompra":"Ninguna Compra encontrada de "
+},
+
+"dados_pessoais":{
+  "informacoes_cliente":"Informaciones del cliente",
+  "seguranca":"Seguridad",
+  "nacionalidade_label":"Nacionalidad",
+  "telefone_label":"Teléfono",
+  "email":"Correo",
+  "tipo_de_identidade":"Tipo de Identidad",
+  "N_d_Documento":"Documento N.",
+  "solicitar_alteracao":"Solicitar Cambio",
+
+  "mudanca_credenciais":"Cambio de Credenciales",
+  "tipo_de_cliente":"Tipo de Cliente",
+  "palavra_passe_actual":"Contraseña Actual",
+  "nova_palavra_passe":"Contraseña nueva",
+  "confirmar_palavra_passe":"Confirmar Contraseña",
+  "alterar":"Cambiar"
+},
+"loading":{
+  "aguarde":"Espera",
+  "acarregar":"Cargando los datos"
+}
+
+}

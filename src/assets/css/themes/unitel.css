@@ -1,0 +1,51 @@
+.main-header, .btn-info {
+  background-color: #d95b23 !important;
+}
+.nav-sidebar > .nav-item .nav-icon, .sidebar-dark-info .nav-sidebar>
+.nav-item>.nav-link.active, .sidebar-light-info .nav-sidebar>.nav-item>.nav-link.active, .user-panel, .table > thead,
+.sidebar-dark-info .nav-treeview>.nav-item>.nav-link.active, .sidebar-dark-info .nav-treeview>.nav-item>.nav-link.active:hover
+{
+  background-color: #d95b23 !important;
+}
+
+.sidebar-dark-info .nav-treeview>.nav-item>.nav-link:hover {
+  color: #fff;
+  background: #d95b23;
+}
+
+.nav-sidebar>.nav-item .nav-icon {
+  border: 1px solid #d95b23;
+}
+
+.sidebar-dark-info .nav-sidebar > .nav-item.menu-open > .nav-link,
+.sidebar-dark-info .nav-sidebar > .nav-item:hover > .nav-link,
+[class*=sidebar-dark-] .nav-sidebar>.nav-item.menu-open>.nav-link, [class*=sidebar-dark-] .nav-sidebar>.nav-item:hover>.nav-link, [class*=sidebar-dark-] .nav-sidebar>.nav-item>.nav-link:focus
+, [class*=sidebar-dark-] .nav-treeview>.nav-item>.nav-link:focus, [class*=sidebar-dark-] .nav-treeview>.nav-item>.nav-link:hover
+{
+  color: #fff;
+  background-color: #5c0e8a !important;
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background-color: #d95b23
+}
+.sidebar::-webkit-scrollbar {
+  width: 8px;
+  background: #d95b23
+}
+.sidebar::-webkit-scrollbar-thumb {
+  background: #d95b23
+}
+
+
+.layout-fixed .main-sidebar {
+  border-right: 1px solid #5c0e8a;
+}
+
+.main-footer {
+  width: 100%;
+  bottom: 0;
+  padding: 28px;
+  background: url(/assets/img/logo_unitel_unig_itgest.png) #d95b23 50% 31% no-repeat padding-box !important;
+  background-size: 9% !important;
+}

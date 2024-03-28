@@ -1,0 +1,172 @@
+
+.filter-color{
+  color: #fff !important;
+}
+
+.filter-color-search:hover{
+  color: #fff;
+  background-color: #e30e22;
+}
+
+.filter-color-button{
+  color: #fff !important;
+  background-color: #e30e22;
+  border: 1px solid #e30e22;
+}
+
+.filter-color-button:hover {
+  color: #fff;
+  background-color: #e30e22;
+  border-color: #e30e22;
+}
+
+.mat-raised-button.mat-button-disabled.mat-button-disabled{
+  color: #fff !important;
+}
+.subtitleColor > h4{
+  background: #f2f4f6;
+  color: #036DA8;
+  border: 1px solid #e30e22;
+  margin-bottom: 0px;
+}
+
+.bgDarkSection {
+  background-color: #343a40!important;
+}
+
+.cabecTableColor > thead > tr > th{
+  color: #fff !important;
+  background-color: #e30e22 !important;
+}
+
+.cabecTableSecundaryColor{
+  color: #fff !important;
+  background-color: #036DA8 !important;
+}
+
+.cabecTableColor2 > tbody > tr > th{
+  color: #fff !important;
+  background-color: #e30e22 !important;
+}
+
+.cabecTableColor4 > tr{
+  color: #fff !important;
+  background-color: #e30e22 !important;
+}
+
+.cabecTableColor3 > th{
+  color: #fff !important;
+  background-color: #e30e22 !important;
+}
+
+.colorTabSection{
+  background-color: #e30e22 !important;
+  color: #fff !important;
+}
+
+.colorTabSectionSecundary{
+  background-color: #7e7979 !important;
+  color: #fff !important;
+}
+
+.subtitleColor2{
+  background: #eeeeee;
+  color: #000000;
+  padding: 9px 22px;
+  border: 1px solid #e30e22;
+  border-radius: 4px;
+}
+
+.subtitleColor3{
+  background: #e30e22;
+  color: #fff;
+  padding: 9px 22px;
+  border: 1px solid #e30e22;
+  border-radius: 4px;
+}
+
+.borderDiv > h4{
+  background: #eee;
+  padding: 12px 9px;
+  border: 1px solid #e30e22 !important;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 21px;
+}
+
+.infoAmbiente > h1{
+  padding: 20px;
+  background: #fff;
+  text-align: center;
+  font-size: 71px;
+  margin-bottom: 40px;
+  color: #e30e22;
+}
+
+.labelInfo{
+  padding: 8px;
+  border-radius: 4px;
+  font-size: 18px;
+  border: 1px solid #e30e22 !important;
+}
+
+.infoSaldo > h3{
+  background: #eee;
+  padding: 22px;
+  border: 1px solid #e30e22;
+  border-radius:4px;
+}
+/*
+ * Cor do button radius
+ */
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+  border-color: #e30e22 !important;
+}
+
+.mat-radio-button.mat-accent .mat-radio-inner-circle{
+  background-color: #e30e22 !important;
+}
+
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-persistent-ripple{
+  background-color: #e30e22 !important;
+}
+
+h4.label {
+  color: #fff;
+  background-color: #e30e22 !important;
+}
+
+.text-color{
+  color: #e30e22;
+}
+
+.boxDiv{
+  color: #fff;
+  border-radius: 5px;
+  background-color: #e30e22 !important;
+  padding: 8px;
+}
+
+.dividerLine{
+  border-left: 2px solid #e30e22;
+}
+
+.reportingResumeTable{
+  color: #fff;
+  background-color: #e30e22 !important;
+  padding: 10px;
+}
+
+.borderColorResumeReporting{
+  color: #e30e22 !important;
+  font-size: 40px
+}
+
+.table-header{
+  background-color: #e30e22 !important;
+}
+
+/*icon color from comentary*/
+.bg-red {
+  background-color: #e30e22!important;
+}

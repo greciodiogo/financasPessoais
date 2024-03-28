@@ -1,0 +1,224 @@
+{
+  "navbar": {
+    "principaloption": "Principal",
+    "Facturasoption": "Facturas",
+    "ContacorrenteOption": "Conta Corrente",
+    "Minhascontasoption": "Minhas contas",
+    "Comprasoption": "Histórico Compras",
+    "Saldocarteiraoption": "Saldo Carteira",
+    "Dadopessoaisoption": "Dados Pessoais",
+    "Pagamentosoption": "Pagamentos",
+    "Lojasoption": "Lojas",
+    "Carregamentosaldooption": "Carregamento Saldo",
+    "pesquisarplasholder": "Pesquisar",
+    "meuperfil": "Meu Perfil",
+    "alterarpassword": "Alterar Password",
+    "terminarsessao": "Terminar Sessão"
+  },
+  "principal": {
+    "ola_legend": "Olá",
+    "acompanheH_legend": "Acompanhe o seu histórico",
+    "gerirConta_Button": "Gerir Contas",
+    "QtdFacturas_legend": "Quantidade de Facturas",
+    "QtdCompras_legend": "Quantidade de Compras",
+    "TotalDividas_legend": "Total em Dividas",
+    "QtdServicos_legend": "Quantidade de Serviços",
+    "QtdPagamentos_legend": "Quantidade de Pagamentos",
+    "PainelEstatistico_legend": "Painel Estatístico",
+    "TotaisFactPano": "Objectivos atingidos",
+    "seleccioneAno_select": "Seleccione o ano",
+    "total_em_ao": "Total  (em AOA)",
+    "carregarfacturas": "Carregar Facturas ...",
+    "meses": [
+      "Janeiro",
+      "Fevereiro",
+      "Março",
+      "Abril",
+      "Maio",
+      "Junho"
+    ],
+    "dividas": "Dívidas",
+    "pagamentos": "Pagamentos"
+  },
+  "facturas": {
+    "facturacao_legend": "Facturação",
+    "valorAberto_legend": "Valor em Aberto",
+    "facturas_legend": "Facturas Vencidas",
+    "entrada_label": "Entrada",
+    "data_inicio_label": "Data Inicio",
+    "data_fim_label": "Data Fim",
+    "documento_label": "Documento",
+    "filtro_label": "Filtro",
+    "factura_label": "Factura",
+    "pesquisarpor": "Pesquisar factura por",
+    "tipodedocumento_pl": "Tipo de Documento",
+    "selecione": "Seleccione",
+    "table": {
+      "nfactura": "Nº da Factura",
+      "estado": "Estado",
+      "Saldado": "Saldado",
+      "valorAberto": "Valor Em Aberto",
+      "total": "Total",
+      "imposto": "Imposto",
+      "datafacturacao": "Data Facturação",
+      "accao": "Acção"
+    },
+    "carregardados": "Estamos a carregar os dados",
+    "nofactura": "Nenhuma factura encontrada de "
+  },
+  "conta_corrente": {
+    "label": [
+      "Facturas Recibo",
+      "Facturas",
+      "Recibos",
+      "Notas de Credito"
+    ],
+    "TotaisFactAoa": "Totais de Facturação (em AOA)",
+    "valor_facturas_legend": "Total em Facturas",
+    "totalFacturas_legend": "Total em Facturas/Recibos",
+    "valorTotalRecibos_legend": "Valor total em Recibos",
+    "conta_corrente_legend": "Conta Corrente",
+    "todas_legend": "Todas",
+    "conta_label": "Conta",
+    "estado_label": "Estado",
+    "facturacao_label": "Facturação",
+    "filtrar_button": "Filtrar",
+    "Facturas_Recibo ": "Facturas Recibo",
+    "Recibos": "Recibos",
+    "Notas_credito": "Notas de crédito",
+    "Facturas_em_Aberto": "Facturas em Aberto",
+    "Total_Aberto": "Total em Aberto",
+    "table": {
+      "nfactura": "Nº da Factura",
+      "documento": "Documento",
+      "conta": "Conta",
+      "data": "Data",
+      "total": "Total",
+      "valorAberto": "Valor Em Aberto",
+      "accao": "Acção"
+    },
+    "imprimir":"Imprimir"
+  },
+  "minhas_contas": {
+    "itemencontrado": "Itens encontrados",
+    "pesqPestado": "Pesquisar por estado",
+    "pesqPtipofacuracao": "Pesquisar por tipo de faturação",
+    "pesqPtipoconta": "Pesquisar por tipo de conta",
+    "filtrodados_label": "Filtro de dados",
+    "todas": "Todas",
+    "salvas": "Salvas",
+    "descricao": "Descrição",
+    "nconta": "CONTA Nº",
+    "filtroservicos": "Filtro de Serviços",
+    "activo_state": "Activa",
+    "inactivo_state": "Inactiva",
+    "servicos": "Serviços",
+    "detalhesDcontaN": "Detalhes da Conta",
+    "tipo_conta": "Tipo de Conta",
+    "Morada": "Morada",
+    "documentacao": "Documentação",
+    "semdocumentacao": "SEM DOCUMENTAÇÃO",
+    "aguardaravaliacao": "AGUARDAR VALIDAÇÃO",
+    "emanalise": "EM ANALISE",
+    "dataregistro": "Data de Registo",
+    "pais": "País",
+    "obs1": "Analise os detalhes da conta nº ",
+    "obs2": ", para qualquer dúvida relactivamente ao portal click no botão de ajúda.",
+    
+    "filtrar_servicos": "Filtrar Serviços",
+    "SelecionetipoFiltro": "Selecione um tipo de Filtro",
+    "listaservicos": "Lista de Serviços",
+    "tecnologia": "Tecnologia",
+    "tarifario": "Tarifario",
+    "chaveservico": "Chave de Serviço",
+    "datacriacao": "Data de Criação"
+  },
+  "saldo_carteira": {
+    "saldo_carteira_label": "Saldo em Carteira",
+    "valor_divida_label": "Valor Carteira em Divida",
+    "historico_pedido_button": "Histórico Pedido",
+    "movimentos_button": "Movimentos",
+    "table": {
+      "valor": "Valor",
+      "referencia_bancaria": "Referência Bancaria",
+      "banco": "Banco",
+      "contabancaria": "Conta Bancária",
+      "data_pagamento": "Data Pagamento",
+      "estado": "Estado"
+    },
+    "table2": {
+      "tipo_movimento": "Tipo Movimento",
+      "operacao": "Operação"
+    }
+  },
+  "pagamentos": {
+    "nenhum_pagamento": "Nenhum pagamento encontrado de",
+    "pesquisarpor": "Pesquisar Pagamentos por",
+    "formaspagamento": "Formas de pagamentos",
+    "table": {
+      "valorRecebido": "Valor Recebido",
+      "troco": "Troco",
+      "desconto": "Desconto",
+      "estado": "Estado",
+      "dataEmissao": "Data Emissão",
+      "pagamentoem": "Pagamento em"
+    }
+  },
+  "lojas": {
+    "voltar": "Voltar",
+    "naoexistemlojas": "Não existem lojas nesta província...",
+    "encontrarlojasAt": "Encontrar lojas Angola Telecom",
+    "encontrarlojas_button": "Encontrar lojas",
+    "seleccioneprovincia": "Selecionar província"
+  },
+  "pagination": {
+    "proximo": "Próximo",
+    "anterior": "Anterior",
+    "mostrandode": "Mostrando de",
+    "a": "a",
+    "de": "de",
+    "registo": "registo"
+  },
+  "minhas_compras": {
+    "procurar_p_sigla": "Pesquisar compras pela sigla da factura",
+    "preco_unit_label": "Preço Unitário:"
+  },
+  "carregamento_saldo": {
+    "data_carregamento": "Data de Carregamento",
+    "pesquisar_carregamento": "Pesquisar Carregamento por",
+    "historico_carregamento": "Histórico de carregamentos",
+    "nenhum_Historico": "Nenhum Histórico de carregamento encontrado",
+    "nocompra": "Nenhuma Compra encontrada de "
+  },
+  "dados_pessoais": {
+    "informacoes_cliente": "Informações do cliente",
+    "seguranca": "Segurança",
+    "nacionalidade_label": "Nacionalidade",
+    "telefone_label": "Telefone",
+    "email": "Email",
+    "tipo_de_identidade": "Tipo de Identidade",
+    "N_d_Documento": "Nº do Documento",
+    "solicitar_alteracao": "Solicitar Alteração",
+    "mudanca_credenciais": "Mudança de Credenciais",
+    "tipo_de_cliente": "Tipo de Cliente",
+    "palavra_passe_actual": "Palavra Passe Actual",
+    "nova_palavra_passe": "Nova Palavra-passe",
+    "confirmar_palavra_passe": "Confirmar Palavra Passe",
+    "alterar": "Alterar"
+  },
+  "loading": {
+    "aguarde": "Aguarde",
+    "acarregar": "A carregar os dados"
+  },
+  "ajuda":{
+    "ondeestamosemluanda":"Onde estamos localizados em Luanda?",
+    "ondeestamosResposta":"Endereço: Rua das Quipacas, 186, 3º Andar, Luanda",
+    "oquesaoaditivos":"O que são ADITIVOS?",
+    "oquesaoaditivosResposta":"É um novo pacote de oferta criadas para complementar os planos Movinet. Os ADITIVOS oferecem benefícios de Voz/SMS para Movicel.",
+    "quantosereitaxado":"Quanto serei taxado em desvios de chamadas por ocupação e desvios de chamadas por não atendimento?",
+    "quantosereitaxadoResposta":"Esses serviços são de âmbito grátis, pelo qual o cliente não é taxado",
+    "quaisoscontactos":"Quais os nossos contactos",
+    "emrelacaoasoutras":"E em relação as outras operadoras?",
+    "emrelacaoasoutrasResposta":"A vantagem é enorme. Para além de ser mais econômico."
+  }
+}

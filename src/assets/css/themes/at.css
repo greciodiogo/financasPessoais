@@ -1,0 +1,223 @@
+/* .main-header, .btn-info {
+  background-color: var(--mainColor) !important;
+} */
+.nav-sidebar > .nav-item .nav-icon, .sidebar-dark-info .nav-sidebar>
+.nav-item>.nav-link.active, .sidebar-light-info .nav-sidebar>.nav-item>.nav-link.active, .user-panel, 
+.sidebar-dark-info .nav-treeview>.nav-item>.nav-link.active, .sidebar-dark-info .nav-treeview>.nav-item>.nav-link.active:hover
+{
+  background-color: var(--mainColor) !important;
+}
+
+.sidebar-dark-info .nav-treeview>.nav-item>.nav-link:hover {
+  color: #fff;
+  background: var(--mainColor);
+}
+
+.nav-sidebar>.nav-item .nav-icon {
+  border: 1px solid var(--mainColor);
+}
+
+.sidebar-dark-info .nav-sidebar > .nav-item.menu-open > .nav-link,
+.sidebar-dark-info .nav-sidebar > .nav-item:hover > .nav-link,
+[class*=sidebar-dark-] .nav-sidebar>.nav-item.menu-open>.nav-link, [class*=sidebar-dark-] .nav-sidebar>.nav-item:hover>.nav-link, [class*=sidebar-dark-] .nav-sidebar>.nav-item>.nav-link:focus
+, [class*=sidebar-dark-] .nav-treeview>.nav-item>.nav-link:focus, [class*=sidebar-dark-] .nav-treeview>.nav-item>.nav-link:hover
+{
+  color: #fff;
+  background-color: #036DA8 !important;
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background-color: var(--mainColor)
+}
+.sidebar::-webkit-scrollbar {
+  width: 8px;
+  background: var(--mainColor)
+}
+.sidebar::-webkit-scrollbar-thumb {
+  background: var(--mainColor)
+}
+
+
+.layout-fixed .main-sidebar {
+  border-right: 1px solid #036DA8;
+}
+
+.main-footer {
+  width: 100%;
+  bottom: 0;
+  padding: 28px;
+  background: url(/assets/img/logo_at_unig_itgest.png) var(--mainColor) 50% 31% no-repeat padding-box !important;
+  background-size: 9% !important;
+}
+
+.filter-color{
+  color: #fff !important;
+}
+
+.filter-color-search:hover{
+  color: #fff;
+  background-color: var(--mainColor);
+}
+
+.filter-color-button{
+  color: #fff !important;
+  background-color: var(--mainColor);
+  border: 1px solid var(--mainColor);
+}
+
+.filter-color-button:hover {
+  color: #fff;
+  background-color: var(--mainColor);
+  border-color: var(--mainColor);
+}
+
+.mat-raised-button.mat-button-disabled.mat-button-disabled{
+  color: #fff !important;
+}
+.subtitleColor > h4{
+  background: #f2f4f6;
+  color: #036DA8;
+  border: 1px solid var(--mainColor);
+  margin-bottom: 0px;
+}
+
+.bgDarkSection {
+  background-color: #343a40!important;
+}
+
+.cabecTableColor > thead > tr > th{
+  color: #fff !important;
+  background-color: var(--mainColor) !important;
+}
+
+.cabecTableSecundaryColor{
+  color: #fff !important;
+  background-color: #036DA8 !important;
+}
+
+.cabecTableColor2 > tbody > tr > th{
+  color: #fff !important;
+  background-color: var(--mainColor) !important;
+}
+
+.cabecTableColor4 > tr{
+  color: #fff !important;
+  background-color: var(--mainColor) !important;
+}
+
+.cabecTableColor3 > th{
+  color: #fff !important;
+  background-color: var(--mainColor) !important;
+}
+
+.colorTabSection{
+  background-color: var(--mainColor) !important;
+  color: #fff !important;
+}
+
+.colorTabSectionSecundary{
+  background-color: #7e7979 !important;
+  color: #fff !important;
+}
+
+.subtitleColor2{
+  background: #eeeeee;
+  color: #000000;
+  padding: 9px 22px;
+  border: 1px solid var(--mainColor);
+  border-radius: 4px;
+}
+
+.subtitleColor3{
+  background: var(--mainColor);
+  color: #fff;
+  padding: 9px 22px;
+  border: 1px solid var(--mainColor);
+  border-radius: 4px;
+}
+
+.borderDiv > h4{
+  background: #eee;
+  padding: 12px 9px;
+  border: 1px solid var(--mainColor) !important;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 21px;
+}
+
+.infoAmbiente > h1{
+  padding: 20px;
+  background: #fff;
+  text-align: center;
+  font-size: 71px;
+  margin-bottom: 40px;
+  color: var(--mainColor);
+}
+
+.labelInfo{
+  padding: 8px;
+  border-radius: 4px;
+  font-size: 18px;
+  border: 1px solid var(--mainColor) !important;
+}
+
+.infoSaldo > h3{
+  background: #eee;
+  padding: 22px;
+  border: 1px solid var(--mainColor);
+  border-radius:4px;
+}
+/*
+ * Cor do button radius
+ */
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+  border-color: var(--mainColor) !important;
+}
+
+.mat-radio-button.mat-accent .mat-radio-inner-circle{
+  background-color: var(--mainColor) !important;
+}
+
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-persistent-ripple{
+  background-color: var(--mainColor) !important;
+}
+
+h4.label {
+  color: #fff;
+  background-color: var(--mainColor) !important;
+}
+
+.text-color{
+  color: var(--mainColor);
+}
+
+.boxDiv{
+  color: #fff;
+  border-radius: 5px;
+  background-color: var(--mainColor) !important;
+  padding: 8px;
+}
+
+.dividerLine{
+  border-left: 2px solid var(--mainColor);
+}
+
+.reportingResumeTable{
+  color: #fff;
+  background-color: var(--mainColor) !important;
+  padding: 10px;
+}
+
+.borderColorResumeReporting{
+  color: var(--mainColor) !important;
+  font-size: 40px
+}
+
+.table-header{
+  /* background-color: #036DA8 !important; */
+}
+
+/*icon color from comentary*/
+.bg-red {
+  background-color: var(--mainColor)!important;
+}

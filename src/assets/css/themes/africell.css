@@ -1,0 +1,51 @@
+.main-header, .btn-info {
+  background-color: #a01775 !important;
+}
+.nav-sidebar > .nav-item .nav-icon, .sidebar-dark-info .nav-sidebar>
+.nav-item>.nav-link.active, .sidebar-light-info .nav-sidebar>.nav-item>.nav-link.active, .user-panel, .table > thead,
+.sidebar-dark-info .nav-treeview>.nav-item>.nav-link.active, .sidebar-dark-info .nav-treeview>.nav-item>.nav-link.active:hover
+{
+  background-color: #a01775 !important;
+}
+
+.sidebar-dark-info .nav-treeview>.nav-item>.nav-link:hover {
+  color: #fff;
+  background: #a01775;
+}
+
+.nav-sidebar>.nav-item .nav-icon {
+  border: 1px solid #a01775;
+}
+
+.sidebar-dark-info .nav-sidebar > .nav-item.menu-open > .nav-link,
+.sidebar-dark-info .nav-sidebar > .nav-item:hover > .nav-link,
+[class*=sidebar-dark-] .nav-sidebar>.nav-item.menu-open>.nav-link, [class*=sidebar-dark-] .nav-sidebar>.nav-item:hover>.nav-link, [class*=sidebar-dark-] .nav-sidebar>.nav-item>.nav-link:focus
+, [class*=sidebar-dark-] .nav-treeview>.nav-item>.nav-link:focus, [class*=sidebar-dark-] .nav-treeview>.nav-item>.nav-link:hover
+{
+  color: #fff;
+  background-color: #881e66 !important;
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background-color: #a01775
+}
+.sidebar::-webkit-scrollbar {
+  width: 8px;
+  background: #a01775
+}
+.sidebar::-webkit-scrollbar-thumb {
+  background: #a01775
+}
+
+
+.layout-fixed .main-sidebar {
+  border-right: 1px solid #881e66;
+}
+
+.main-footer {
+  width: 100%;
+  bottom: 0;
+  padding: 28px;
+  background: url(/assets/img/logo_africell_unig_itgestt.png) #a01775 50% 31% no-repeat padding-box !important;
+  background-size: 9% !important;
+}
