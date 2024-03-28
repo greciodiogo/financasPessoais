@@ -1,0 +1,280 @@
+@import '~ngx-toastr/toastr';
+
+*{
+    margin: 0;
+    padding: 0;
+    border: none; outline: none;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+:root {
+  --mainColor: #010f1f;
+  /* --sc-bg: #020c17; */
+  --sc-bg: rgb(40, 40, 40);
+  --sc-bg: rgb(37 81 88 / 60%);
+  --details-color: rgb(255 101 0 / 79%);
+  --tc: rgba(2, 2, 2, 0.723);
+}
+
+@media (max-width: 768px) {
+  
+    .ngx-pagination {
+      flex-wrap: wrap !important;
+    }
+    
+      .ngx-pagination li {
+          width: 20px;
+          height: 20px;
+          margin-left: 5px;
+        }
+    
+        .ngx-pagination{
+          font-size: 1px !important;
+        }
+    }
+    
+    .ngx-pagination li:nth-of-type(2){
+      display: none !important;
+    }
+    
+    .ngx-pagination a{
+      padding: 0;
+    }
+    
+    .ngx-pagination .current {
+      border-radius: 8px !important;
+      background-color: var(--details-color) !important;
+    }
+  
+    .ngx-pagination{
+      font-size: 13px !important;
+      color: white !important;
+    }
+    
+    .ngx-pagination{  
+        display: flex !important;
+        align-items: center !important;
+        padding: 0 !important;
+        color: white !important;
+    }
+    
+    .ngx-pagination a:hover {
+      background-color: rgb(37 81 88 / 92%) !important;
+    }
+
+    .ngx-pagination a {
+      color: white !important;;
+    }
+
+    .ngx-pagination li:hover {
+      background-color: rgb(37 81 88 / 92%) !important;
+    }
+
+    .ngx-pagination li {
+      border-radius: 8px !important;
+      margin-top: 10px;
+      margin-bottom: 20px !important;
+      margin-left: 8px;
+      width: 40px;
+      height: 40px;
+      background-color: rgb(37 81 88 / 92%);
+      color: white !important;
+      display: flex !important;
+      cursor: pointer !important;
+      align-items: center;
+      justify-content: center;
+      padding: 0 10px;
+    }
+
+    .ngx-pagination li:first-child:hover,
+    .ngx-pagination li:last-child:hover {
+      background-color: rgb(37 81 88 / 92%) !important;
+    }
+    .ngx-pagination li:last-child {
+      width: 83px !important;
+    }
+    .ngx-pagination li:first-child {
+      width: 75px;
+    }
+    .ngx-pagination a:hover{
+      background-color: rgb(37 81 88 / 92%) !important;
+    }
+
+    .pagination{
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+    
+    table, table thead,
+    table header{
+      font-size: 14px;
+      z-index: 0;
+      color: white;
+    }
+    
+    table thead{
+      height: 36px;
+    }
+    
+    table thead th {
+      color: white;
+      vertical-align: inherit;
+    }
+  
+    @media (max-width: 690px) {
+      .tabela-container{
+          overflow-x: scroll !important;
+      }
+  }
+  
+    /* estilização do scrollbar começa aqui  */
+  
+  *::-webkit-scrollbar {
+    width: 0;
+  }
+  
+  *::-webkit-scrollbar-track {
+    background: transparent;
+    border: 3px solid transparent;
+  }
+  
+  *::-webkit-scrollbar-thumb {
+    background: rgb(204, 204, 204);
+    border: 9px solid white;
+    border-radius: 24px;
+    width: 0;
+  } 
+  
+  
+.modal-header {
+  border-bottom: 1px solid #bec2c6;
+}
+
+
+
+.inputBox {
+  border: none; outline: none;
+  height: 48px;
+  width: 100%;
+  padding: 12px 20px;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0 4px 18px rgba(43, 43, 61,.1); 
+  border: 1px solid #bec2c6;
+}
+
+.dropdown{
+  position: relative;
+  width: 100%;
+  height: 44px;
+  margin-bottom: 30px;
+}
+
+.dropdown::before, .inputBox:before{
+  content: '';
+  position: absolute;
+  right: 20px;
+  top: 40%;
+  z-index: 10000;
+  width: 8px;
+  height: 8px;
+  border: 2px solid #333;
+  border-top: 2px solid #fff;
+  border-right: 2px solid #fff;
+  transform: rotate(-45deg);
+  transition: .5s;
+  pointer-events: none;
+
+}
+
+.dropdown input {
+  border: none;outline: none;
+  position: absolute;
+  top: 0; 
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  padding: 12px 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 18px rgba(43, 43, 61,.1); 
+  border: 1px solid #bec2c6;
+  cursor: pointer;
+}
+
+.dropdown .option {
+  position: absolute;
+  top: 60px;
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0 4px 18px rgba(43, 43, 61,.1);
+  
+  border: 1px solid #bec2c6; 
+  border-radius: 10px;
+  overflow: hidden;
+  display: none;
+  z-index: 999;
+}
+
+.dropdown.actived .option{
+  display: block;
+}
+
+.dropdown .option div {
+  padding: 12px 20px;
+  cursor: pointer;
+}
+
+.dropdown .option div:hover {
+  background-color: var(--mainColor);
+  color: white;
+}
+
+input[type="date"] {
+  width: 100%;
+  padding: 0; margin: 0;
+  padding: 12px;
+  font-size: 14px;
+  border-radius: 12px;
+  border: none;outline: none;
+  background-color: white;
+  border: 1px solid #bec2c6;
+  box-shadow: 0 4px 18px rgba(43, 43, 61,.1);
+}
+
+.is-invalid {
+  border: 1px solid rgba(255, 0, 0, 0.603);
+}
+
+
+
+.slideshow-container {
+  display: flex;
+  gap: 30px;
+  overflow: hidden;
+  width: 750px;
+}
+
+.slide {
+  width: 100%;
+  transition: transform 0.5s ease-in-out;
+}
+
+
+.slide.active {
+  flex: 1 0 100%;
+}
+
+:host ::ng-deep .dashboard-title {
+  /* Estilos para o título do componente */
+}
+
+:host ::ng-deep .grafico-left {
+  /* Estilos para o contêiner do gráfico */
+}
+
+:host ::ng-deep .transactions-container {
+  /* Estilos para o contêiner das últimas transações */
+}
