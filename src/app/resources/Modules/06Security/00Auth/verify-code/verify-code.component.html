@@ -1,0 +1,47 @@
+<div class="{{ (is_modal? 'modal fade' :'') }} overlay"  id="modalVerifyCode" data-backdrop="static">
+    <div class="modal-dialog modal-lg " style="max-width: 1200px; border-radius: 7px;">
+        <div class="modal-content {{ ( !is_modal? 'modal-content-notboxshadow' :'') }}">
+            <form [formGroup]="validateCodeForm">
+                <div class="modal-header" style="display: none !important;">
+                    <h4 class="modal-title">{{ title }}</h4>
+                    <button class="close" #closeModal type="reset" (click)="onReset()" data-dismiss="modal">&times;</button>
+                </div>
+                <app-loading [show]="loading" title="Aguarde" subTitle="Estamos processar a informação"></app-loading>
+                <div class="modal-body">
+                    <label class="information">Para terminar o processo de registo, informe o código que recebeu por email.</label>
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <input  type="text" class="form-control design-input next_input" formControlName="code1" 
+                            maxlength="1" (input)="onInputChange($event, input2)" #input1/>                            
+                        </div>
+                        <div class="col-sm-2">
+                            <input type="text" class="form-control design-input next_input" formControlName="code2" 
+                            maxlength="1" (input)="onInputChange($event, input3)" #input2/>
+                        </div>                                                      
+                        <div class="col-sm-2">
+                            <input type="text" class="form-control design-input next_input" formControlName="code3" 
+                            maxlength="1" (input)="onInputChange($event, input4)" #input3/>
+                        </div>
+                        <div class="col-sm-2">
+                            <input type="text" class="form-control design-input next_input" formControlName="code4" 
+                            maxlength="1" (input)="onInputChange($event, input5)" #input4/>                            
+                        </div>
+                        <div class="col-sm-2">
+                            <input type="text" class="form-control design-input next_input" formControlName="code5" 
+                            maxlength="1" (input)="onInputChange($event, input6)" #input5/>
+                        </div>                                                      
+                        <div class="col-sm-2">
+                            <input type="text" class="form-control design-input next_input" formControlName="code6" 
+                            maxlength="1" (input)="onLastInput($event)" #input6/>
+                        </div>
+                    </div>
+                    <!-- <button class="validarBtn"  type="submit" (click)="validarCode()">Validar</button> -->
+                    <button class="validarBtn" [disabled]="isButtonDisabled"  type="submit" (click)="sendCodeToPhone()">{{this.countdown ? countdownText : 'Reenviar código'}}</button>
+                    <!-- <a class="resendBtn" href="#" (click)="sendCodeToPhone()">Reenviar código</a> -->
+                    <a class="resendBtn" (click)="close()" style="cursor: pointer;">Fechar</a>
+                </div>
+               
+            </form>
+        </div>
+    </div>
+</div>

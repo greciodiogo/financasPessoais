@@ -11,9 +11,7 @@ import { environment as env } from '@env/environment';
 import { ToastrService } from 'ngx-toastr';
 import Swal from 'sweetalert2';
 import 'sweetalert2/src/sweetalert2.scss';
-import { Permission } from '@app/resources/Modules/06Security/01Acl/models/Permission';
 import { Token } from '@app/resources/Modules/06Security/00Auth/models/token';
-import { PermissionFields } from '@app/resources/Modules/06Security/01Acl/models/PermissionFields';
 import { FormGroup } from '@angular/forms';
 @Injectable({
   providedIn: 'root',
@@ -38,15 +36,15 @@ export class AuthService {
     return new Token().deserialize(this.getItemLocalStorage.token);
   }
 
-  get permissions(): Permission[] {
-    const permissions: Permission[] = !this.isLoggedIn
+  get permissions(): any[] {
+    const permissions: any[] = !this.isLoggedIn
       ? []
       : this.getItemLocalStorage.permissions.map((permission) => permission);
     return permissions;
   }
 
-  get permissionFields(): PermissionFields[] {
-    const permissionFields: PermissionFields[] = !this.isLoggedIn
+  get permissionFields(): any[] {
+    const permissionFields: any[] = !this.isLoggedIn
       ? []
       : this.getItemLocalStorage.permissionFields.map((permission) => permission);
     return permissionFields;

@@ -8,7 +8,7 @@ export class Server {
   constructor(
     port: number,
     host: string = '127.16.10.1',
-    app_name:string='financas',
+    app_name:string='at',
     protocol: string = 'http',
     prefix: string = 'api'
   ) {
