@@ -1,0 +1,28 @@
+<div class="transaction-item" [class.lg_size]="largeSize">
+  
+  <div class="transaction-group">
+    <div class="titleWrapper">
+      <i class="fa fa-home">
+        <img
+          width="24"
+          height="24"
+          [src]="'../../../../../../assets/img/sidebar/' + (transaction?.categoria_id==1 ? 'income.png' : 'withdraw.png')"
+          alt=""
+        />
+      </i>
+      <span>{{ transaction?.transacaoDescricao || "Descrição" }}</span>
+    </div>
+     <div *ngIf="transaction && transaction.categoria_id==1" class="transaction-price transaction-credit">
+      <span>+</span>  
+      {{configService.formatNumber(transaction.valor) }}
+     </div>
+     <div *ngIf="transaction && transaction.categoria_id==2" class="transaction-price transaction-debit">
+      <span>-</span>
+      {{configService.formatNumber(transaction.valor) }}
+     </div>
+  </div>
+  <div class="transaction-group">
+    <span class="transaction-date">{{ transaction && transaction.created_at }}</span>
+    <span class="transaction-category">{{ transaction?.transacaoTipo?.descricao || "---" }}</span>
+  </div>
+</div>

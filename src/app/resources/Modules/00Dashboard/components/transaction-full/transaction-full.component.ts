@@ -1,0 +1,72 @@
+import {
+  Component,
+  OnInit,
+  EventEmitter,
+  Output,
+  Input,
+  SimpleChanges,
+  ViewChild,
+} from "@angular/core";
+import { FnService } from "@app/shared/services/fn.helper.service";
+// import { LanguageService } from "@app/shared/services/language.service";
+// import { TranslateService } from "@ngx-translate/core";
+import { Transaction } from "../../interfaces/transaction";
+import { DashboardService } from '@app/shared/services/dashboard.service';
+import { Observable, Subject } from "rxjs";
+import { Pagination } from "@app/shared/models/pagination";
+import { MoneyControlFormComponent } from "../money-control-form/money-control-form.component";
+import { DashboardComponent } from "../../pages/dashboard.component";
+
+@Component({
+  selector: "app-transaction-full",
+  templateUrl: "./transaction-full.component.html",
+  styleUrls: ["./transaction-full.component.css"],
+})
+
+export class TransactionFullComponent implements OnInit {
+  
+  @Input() transactionData: any = []
+  @Input() largeSize: boolean = false;
+  @Output() public handleEdit = new EventEmitter<any>();
+  @Output() public loadList = new EventEmitter<any>();
+  
+  @ViewChild(MoneyControlFormComponent, { static: true })
+  public moneyControlFormComponent: MoneyControlFormComponent;
+
+  @ViewChild(DashboardComponent, { static: true })
+  public dashboardComponent: DashboardComponent;
+
+  public imageTitle = "income.png"
+  public categoriasTransaction
+  
+  @Input() pagination: Pagination
+
+  
+  public observableObj: Observable<any>;
+  public subjectObj = new Subject<number>();
+
+  constructor(
+    public configService: FnService,
+    public dashboardService: DashboardService
+    // public languageservice: LanguageService,
+    // public translate: TranslateService,
+
+  ) {}
+
+  ngOnInit() {
+    // this.languageservice.currentLanguage$.subscribe((language) => {
+    //   this.translate.use(language);
+    // });
+  }
+
+  public transactionTitle = ""
+
+  public getPageFilterData(page) {
+    this.loadList.emit(page);
+  }
+
+  public onHandleEdit(data){
+    this.handleEdit.emit(data)
+  }
+}
+

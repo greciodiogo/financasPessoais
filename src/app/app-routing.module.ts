@@ -48,15 +48,6 @@ export const routes: Routes = [
     loadChildren: () => import('./resources/Modules/00Dashboard/dashboard.module').then((m) => m.DashboardModule),
   },
   {
-    path: 'account',
-    data: {
-      title: 'signup', 
-      layout: { customLayout: false, layoutNavigationTop: true },
-    },
-    loadChildren: () => import('./resources/Modules/06Security/00Auth/authentication.module').then((m) => m.AuthenticationModule),
-  },
- 
-  {
     path: 'definicoes',
     data: {
       title: 'definicoes', 
@@ -67,63 +58,12 @@ export const routes: Routes = [
   {
     path: '',
     data: {
-      title: 'Facturas',
-    },
-    loadChildren: () =>
-      import('./resources/Modules/04Facturas/facturas.module').then(
-        (m) => m.FacturasModule
-      ),
-  },
-  {
-    path: '',
-    data: {
       title: 'Simulador',
     },
     loadChildren: () =>
       import('./resources/Modules/03Simulador/simulador.module').then(
         (m) => m.SimuladorModule
       ),
-  },
-  {
-    path: '',
-    data: {
-      title: 'faqs',
-    },
-    loadChildren: () =>
-      import('./resources/Modules/11FAQS/faqs.module').then(
-        (m) => m.FAQSModule
-      ),
-  },
-  {
-    path: 'cliente',
-    data: {
-      title: 'Conta Corrente',
-      layout: { customLayout: false, layoutNavigationTop: true },
-    },
-    loadChildren: () =>
-      import(
-        './resources/Modules/01Clientes/cliente.module'
-      ).then((m) => m.ClienteModule),
-  },
- 
-  {
-    path: '',
-    data: {
-      title: 'Login',
-    },
-    children: [
-      {
-        path: 'login',
-        data: {
-          title: 'Login',
-          layout: { customLayout: false, layoutNavigationTop: true },
-        },
-        loadChildren: () =>
-          import(
-            './resources/Modules/06Security/00Auth/authentication.module'
-          ).then((m) => m.AuthenticationModule),
-      },
-    ],
   },
   {
     path: '404',

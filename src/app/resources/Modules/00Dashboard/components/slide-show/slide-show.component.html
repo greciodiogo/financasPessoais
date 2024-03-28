@@ -1,0 +1,12 @@
+<div class="carousel-container" *ngIf="slides.length > 0">
+  <ng-container *ngFor="let slide of slides; let i = index">
+    <div class="slide" [class.active]="currentIndex === i">
+      <!-- <ng-container *ngTemplateOutlet="slide.template"></ng-container> -->
+    </div>
+  </ng-container>
+  <div *ngIf="indicators" class="carousel-dot-container">
+    <span *ngFor="let dot of slide; let i=index"; class="dot" [class.active]="currentIndex === i">
+      
+    </span>
+  </div>
+</div>

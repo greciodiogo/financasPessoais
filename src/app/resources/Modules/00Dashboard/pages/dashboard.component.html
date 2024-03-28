@@ -1,0 +1,92 @@
+<div class="dashboard">
+
+    <div class="cards-wrapper">
+      <div class="dashboard-title">
+        Meu Dashboard 💳
+      </div>
+      <div class="full-width">
+        <app-dashboard-home ></app-dashboard-home>
+      </div>
+        
+      <div class="slideshow-container">
+        <ng-container>
+          <!-- <div class="slide" [class.active]="true">
+            <div class="dashboard-title font-sm">
+              Estatística
+            </div>
+            <div class="grafico-left">
+              <app-grafico [dashboard]="this.dashboard"></app-grafico>
+            </div>
+          </div> -->
+          <div class="slide" [class.active]="false">
+            <div class="dashboard-title">
+              Últimos Movimentos
+            </div>
+            <div class="transactions-container">
+              <app-transaction-full [largeSize]="true" [transactionData]="transactionData" [pagination]="pagination"
+              (loadList)="getPageFilterData($event)" (handleEdit)="handleEditTransaction($event)"
+              ></app-transaction-full>
+            </div>
+          </div>
+        </ng-container>
+    </div>
+    
+  </div>
+
+    <div class="feature-side">
+      
+      <div class="feature-container">
+
+        <div class="user-details">
+          <div class="user-details-container">
+            <div class="user-details-avatar">
+              <i class="fa fa-home">
+                <img width="70" height="70" src="../../../../../../assets/img/Grécio_Diogo.png" alt="">
+              </i>
+            </div>
+            <span class="user-details-title">cartão virtual</span>
+            <h5 class="user-name">{{userSession?.usuario?.nome || 'user'}}</h5>
+          </div>
+        </div>
+
+        <div class="services-container">
+         <app-menu-item iconeTitle="income.png" itemTitle="Receber" (click)="toggleRecieveBtn(1)"></app-menu-item>
+         <app-menu-item iconeTitle="withdraw.png" itemTitle="Retirar" (click)="toggleRecieveBtn(2)"></app-menu-item>
+         <app-menu-item iconeTitle="money.png" itemTitle="Finanças"></app-menu-item>
+         <app-menu-item iconeTitle="document-file.png" itemTitle="Histórico"></app-menu-item>
+        </div>
+
+        <div class="credit-card">
+          <div class="credit-title">
+            <h5>{{userSession?.moeda?.descricao}}</h5>
+          </div>
+          <div class="credit-date">
+            <div class="credit-date-container">
+              <p>{{ this.diaMes }}</p>
+            </div>
+          </div>
+          <div class="credit-group">
+            <span>Total Disponível</span>
+            <h4>{{configService.numberFormat(userSession.saldo_actual)}} {{userSession?.moeda?.codigo_iso}}</h4>
+          </div>
+        </div>
+
+        <app-money-control-form [formType]="formType" [activePosition]="activePosition" (close)="onClose()"></app-money-control-form>
+      </div>
+      
+      
+      <div class="dashboard-title sc-color">
+        Últimos Movimentos
+      </div>
+      <app-transaction [transaction]="lastTransaction"></app-transaction>
+
+      <div class="transactions see-all">
+        <button>
+          Ver todos Movimentos
+          <span>→</span>
+        </button>
+      </div>
+    
+    </div>
+   
+</div>
