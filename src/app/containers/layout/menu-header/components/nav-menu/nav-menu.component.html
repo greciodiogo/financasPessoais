@@ -1,0 +1,50 @@
+  <div class="secondaryHeader">
+    <div class="max__content">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav nav__items">
+      <li id="home" class="nav-item dropdown2">
+        <a routerLink="/dashboard" routerLinkActive="active" class="nav-link"><i class="fa fa-home"></i> {{'navbar.principaloption' | translate}}</a>
+      </li>
+        <li id="facturas" class="nav-item dropdown dropdown2">
+          <a  routerLink="/facturas" routerLinkActive="active" class="nav-link"><i class="fa fa-folder-open"></i> {{'navbar.Facturasoption' | translate}}</a>
+        </li>
+        <li id="conta-corrente" class="nav-item dropdown dropdown2">
+          <a routerLink="/cliente/conta-corrente" routerLinkActive="active" class="nav-link"><i class="fa fa-cc"></i> {{'navbar.ContacorrenteOption' | translate}} </a>
+        </li>
+        <li id="minhas-contas" class="nav-item dropdown dropdown2">
+          <a routerLink="/cliente/minhas-contas" routerLinkActive="active" class="nav-link"><i class="fa fa-folder"></i> {{'navbar.Minhascontasoption' | translate}}</a>
+        </li>
+        <li id="compras" class="nav-item dropdown dropdown2">
+          <a  routerLink="/cliente/compras" routerLinkActive="active" class="nav-link"><i class="fa fa-shopping-cart"></i> {{'navbar.Comprasoption' | translate}}</a>
+        </li> 
+        <li id="saldo-carteira" class="nav-item dropdown dropdown2">
+          <a  routerLink="/cliente/saldo-carteira" routerLinkActive="active" class="nav-link"><i class="fa fa-dollar"></i> {{'navbar.Saldocarteiraoption' | translate}}</a>
+        </li>
+
+        <li id="carregamentos-saldo" class="nav-item dropdown dropdown2">
+          <a  routerLink="/cliente/carregamentos-saldo" routerLinkActive="active" class="nav-link"><i class="fa fa-folder"></i> {{'navbar.Carregamentosaldooption' | translate}}</a>
+        </li> 
+    </ul>
+    <ul class="navbar-nav nav__items menu2">
+      <li class="nav-item dropdown dropdown2">
+        <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">
+          <div class="user__icone2">
+            <img class="image" src="../../../../assets/img/dot-menu.png">
+          </div>
+        </a>
+        <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 menu-item1 shadow">
+          <!-- <li id="dados-pessoais2"><a routerLink="/cliente/dados-pessoais" class="dropdown-item"><i class="fa fa-folder-open"></i> {{'navbar.Dadopessoaisoption' | translate}}</a></li> -->
+          <li id="facturas2"><a routerLink="/facturas" routerLinkActive="active" class="dropdown-item"><i class="fa fa-folder-open"></i> {{'navbar.Facturasoption' | translate}}</a></li>
+          <li id="conta-corrente2"><a routerLink="/cliente/conta-corrente" routerLinkActive="active" class="dropdown-item"><i class="fa fa-cc"></i> {{'navbar.ContacorrenteOption' | translate}}</a></li>
+          <li id="minhas-contas2"><a routerLink="/cliente/minhas-contas" routerLinkActive="active" class="dropdown-item"><i class="fa fa-folder"></i> {{'navbar.Minhascontasoption' | translate}}</a></li>
+          <li id="compras2"><a routerLink="/cliente/compras" routerLinkActive="active" class="dropdown-item"><i class="fa fa-shopping-cart"></i> {{'navbar.Comprasoption' | translate}}</a></li> 
+          <li id="saldo-carteira2"><a routerLink="/cliente/saldo-carteira" routerLinkActive="active" class="dropdown-item"><i class="fa fa-dollar"></i> {{'navbar.Saldocarteiraoption' | translate}}</a></li>
+          <li id="carregamentos-saldo2"><a routerLink="/cliente/carregamentos-saldo" routerLinkActive="active" class="dropdown-item"><i class="fa fa-folder"></i> {{'navbar.Carregamentosaldooption' | translate}}</a></li> 
+        </ul>
+      </li>
+  </ul>
+</div>
+  </div>
+  <!-- /.navbar -->
+
+  <!-- <app-redefinir-password-user-logado [is_modal]="true" [user]="this.authenticated.user"></app-redefinir-password-user-logado> -->

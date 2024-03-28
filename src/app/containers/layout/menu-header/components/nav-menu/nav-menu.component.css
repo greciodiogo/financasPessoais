@@ -1,0 +1,154 @@
+*{
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+}
+
+.secondaryHeader {
+    width: 100%;
+    background-color: var(--mainColor);
+    border-top: -1mm solid #bec2c6;
+    /* height: 60px; */
+    box-shadow: none;
+    margin-bottom: 50px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.secondaryHeader .max__content{
+    max-width: 1800px;
+    padding: 0 1rem !important;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.secondaryHeader .max__content > .nav__items {
+    display: flex !important;
+    flex-direction: row;
+    align-items: center;
+    gap: 2px;;
+}
+
+.secondaryHeader .max__content > .nav__items > li{
+    padding: 8px 0 !important;
+}
+
+    .secondaryHeader .max__content > .nav__items > li > a{
+    font-size: 19px;
+    background-color: transparent;
+    color: white;
+    padding: .8rem 1.2rem !important;
+    border-radius: 8px;
+}
+
+.secondaryHeader .max__content > .nav__items > li > a.active{
+    color: var(--mainColor);
+    background-color: white;
+}
+
+.secondaryHeader .max__content > .nav__items > li > a:hover {
+    color: var(--mainColor) !important;
+    background-color: white;
+    opacity: .75;
+}
+
+.secondaryHeader .max__content:last-child > .menu2 > li:last-child > a:hover {
+    background-color: transparent !important;
+    color: white !important;
+}
+
+.user__icone2 {
+    /* width: 40px !important;
+    height: 40px !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center; */
+}
+
+
+
+.user__icone2 img{
+    width: 40px;
+    height: 40px;
+}
+
+.nav-icones{
+    width: 24px !important;
+    height: 24px !important;
+    background-color: transparent !important;
+}
+
+.dropdown-toggle::after {
+    display: none !important;
+}
+
+    #carregamentos-saldo2,
+    #pagamentos2,
+    #saldo-carteira2,
+    #compras2,
+    #minhas-contas2,
+    #facturas2{
+        display: none;
+    }
+
+
+
+@media (max-width: 1135px) {
+    #pagamentos,
+    #carregamentos-saldo{
+        display: none;
+    }
+    #pagamentos2,
+    #carregamentos-saldo2{
+        /* display: block; */
+        display: block;
+    }
+}
+@media (max-width: 775px) {
+    #saldo-carteira{
+        display: none;
+    }
+    #saldo-carteira2{
+        display: block;
+    }
+}
+@media (max-width: 630px) {
+    #compras{
+        display: none;
+    }
+    #compras2{
+        display: block;
+    }
+}
+@media (max-width: 395px) {
+    #minhas-contas{
+        display: none;
+    }
+    #minhas-contas2{
+        display: block;
+    }
+}
+
+@media (max-width: 508px) {
+    #facturas{
+        display: none;
+    }
+    #facturas2{
+        display: block;
+    }
+}
+
+
+.dropdown-item{
+    padding: 1rem !important;
+}
+
+
+.menu-item1 {    
+    transform: translate(-128px, 82px) !important;
+    width: 200px !important;
+}
