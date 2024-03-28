@@ -125,7 +125,8 @@ export class ApiService implements http {
     return this.http
       .post<any>(`${env.app_url}${path}`, body, {
         headers: {
-          Authorization: authorization ? this.jwtService.tokenGetter() : '',
+          // Authorization: authorization ? this.jwtService.tokenGetter() : '',
+          Authorization: '',
         },
         reportProgress: true,
         observe: 'events',
@@ -144,7 +145,8 @@ export class ApiService implements http {
         responseType: 'blob' as 'json',
         reportProgress: true,
         headers: {
-          Authorization: authorization ? this.jwtService.tokenGetter() : '',
+          // Authorization: authorization ? this.jwtService.tokenGetter() : '',
+          Authorization: '',
         },
       })
       .pipe(

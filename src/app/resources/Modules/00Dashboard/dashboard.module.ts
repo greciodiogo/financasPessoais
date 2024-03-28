@@ -2,7 +2,6 @@ import { BoxModule } from '../../../shared/components/box/box.module';
 import { NgModule } from '@angular/core';
 import { DashboardComponent } from './pages/dashboard.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
-import { ConnectionModule } from '@app/shared/components/connection/connection.module';
 import { GraficoComponent } from './components/grafico/grafico.component';
 import { SharedMaterialModule } from '@app/shared/sharedMaterial.module';
 import { FormsModule } from '@angular/forms';
@@ -18,7 +17,6 @@ import { SlideShowComponent } from './components/slide-show/slide-show.component
 @NgModule({
   imports: [
     DashboardRoutingModule,
-    ConnectionModule,
     BoxModule,
     SharedMaterialModule,
     FormsModule,

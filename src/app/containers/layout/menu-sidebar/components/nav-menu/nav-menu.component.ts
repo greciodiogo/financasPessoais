@@ -1,7 +1,5 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { AuthService } from "@app/core/security/authentication/auth.service";
-import { ConnectionMonitoringService } from "@app/shared/components/connection/connection-monitoring.service";
-
 import { LanguageService } from "@app/shared/services/language.service";
 import { TranslateService } from "@ngx-translate/core";
 
@@ -19,7 +17,6 @@ export class NavMenuComponent implements OnInit {
 
   constructor(
     public auth: AuthService, 
-    public connectionService: ConnectionMonitoringService,
     // public languageservice:LanguageService,
     // public translate:TranslateService
     ) { }

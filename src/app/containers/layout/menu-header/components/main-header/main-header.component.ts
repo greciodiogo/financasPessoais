@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { AuthService } from "@app/core/security/authentication/auth.service";
-import { ConnectionMonitoringService } from "@app/shared/components/connection/connection-monitoring.service";
 import { OnlineStatusService } from "../../services/conectionStatus.service";
 import { Router } from '@angular/router';
 
@@ -23,7 +22,6 @@ export class MainHeaderComponent implements OnInit {
    flag:string=''
   constructor(
     public auth: AuthService,
-    public connectionService: ConnectionMonitoringService,
     private onlineStatusService: OnlineStatusService,
     public languageservice: LanguageService,
     public translate: TranslateService,

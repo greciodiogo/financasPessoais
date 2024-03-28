@@ -1,6 +1,5 @@
 import { BoxModule } from '../../../shared/components/box/box.module';
 import { NgModule } from '@angular/core';
-import { ConnectionModule } from '@app/shared/components/connection/connection.module';
 import { GraficoComponent } from './components/grafico/grafico.component';
 import { GraficoPizzaComponent } from './components/grafico-pizza/grafico-pizza.component';
 import { SharedMaterialModule } from '@app/shared/sharedMaterial.module';
@@ -14,7 +13,6 @@ import { BarraProgressoComponent } from './components/barra-progresso/barra-prog
 @NgModule({
   imports: [
     SimuladorRoutingModule,
-    ConnectionModule,
     BoxModule,
     SharedMaterialModule,
     FormsModule,
