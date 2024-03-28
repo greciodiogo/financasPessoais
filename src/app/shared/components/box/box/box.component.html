@@ -1,0 +1,23 @@
+<!-- small box -->
+<div class="mb-3 small-box {{ boxColor }}" style="margin: 0 0 18px 0 !important; background-color: var(--sc-bg);">
+  <app-loading [show]="loading" animationType="circle" title="{{'facturas.carregardados' | translate}}" subTitle="" titleFontSize="18" subTitleFontSize="13"></app-loading>
+  <div class="inner">
+    <h3 *ngIf="simpleNumber" >{{ this.boxNumber }} </h3>
+    <h3 *ngIf="!simpleNumber">{{ this.fnService.numberFormat(boxNumber) }} </h3>
+    <h5>{{ boxText }}</h5>
+  </div>
+  <div class="icon">
+    <i class="{{ boxIcon }}"></i>
+  </div>
+
+  <a routerLink="{{ boxLink.url }}" *ngIf="visible && boxLink.url && (boxLink.permission||boxLink.permission)"
+    class="small-box-footer {{ linkTextAlign }}">{{ extraText==null?extraText: this.fnService.numberFormat(extraText) }} {{ boxLink.name }}
+    <i class="fa fa-arrow-circle-right" style="float: right;"></i></a>
+
+    <div *ngIf="visible">
+      <a href="javascript:void(0)" *ngIf="(!boxLink.url || !boxLink.permission)" 
+      class="small-box-footer {{ linkTextAlign }}">{{ extraText==null?'': this.fnService.numberFormat(extraText) }} <i class="fa fa-arrow-circle-right text-right" style="float: right;"></i></a>
+  
+    </div>
+ 
+</div>

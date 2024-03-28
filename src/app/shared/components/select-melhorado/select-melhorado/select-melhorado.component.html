@@ -1,0 +1,15 @@
+<div class="input-box-group">
+  <label style="padding-left: 5px;">{{ title }}</label>
+  <div class="dropdown" [class.active]="isDropdownActive" (click)="toggleDropdown()">
+    <input
+      type="text"
+      class="textBox"
+      [placeholder]="selectType || placeholder || ('facturas.selecione' | translate)"
+      readonly
+      [(ngModel)]="selectType"
+    />
+    <div class="option">
+      <div (click)="setState(option.texto)" *ngFor="let option of optionData">{{ option.texto }}</div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+.small-box>.small-box-footer {
+  padding: 8px 25px !important;
+  font-size: 16px !important;
+  height: 36px;
+}
+.small-box {
+  border-radius: 8px !important
+}
+
+*{
+  color: white;
+  opacity: .8;
+}

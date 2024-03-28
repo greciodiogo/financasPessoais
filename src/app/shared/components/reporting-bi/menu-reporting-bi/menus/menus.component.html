@@ -1,0 +1,270 @@
+<div class="sidenav-reporting">
+  <nav class="mt-2">
+    <ul class="nav nav-pills nav-sidebarr flex-column">
+      <li *ngIf="this.canActivateRouterLink('clientes-reporting-bi')" class="nav-item">
+        <a (click)="
+            toggleMenuSecound($event, {
+              title: 'Clientes',
+              itensMenu: [
+                {
+                  name: 'Relatórios Clientes',
+                  url: '/reportingbi/relatorio-cliente',
+                  permission: 'relatorios-clientes-reporting-bi'
+                },
+
+                {
+                  name: 'Relatórios Geral dos Adiantamento',
+                  url: '/reportingbi/relatorio-adiantamento',
+                  permission: 'relatorios-geral-adiantamento-reporting-bi'
+                }
+              ]
+            })
+          " href="javascript:void(0);" class="nav-link report-nav">
+          <div class="direct-chat-msg right">
+            <div class="direct-chat-text">
+              <i class="fa fa-list nav-icon-report"></i>
+              Clientes
+            </div>
+          </div>
+        </a>
+      </li>
+
+      <li *ngIf="this.canActivateRouterLink('facturacao-reporting-bi')" class="nav-item">
+        <a (click)="
+            toggleMenuSecound($event, {
+              title: 'Facturação',
+              itensMenu: [
+                {
+                  name: 'Facturação - Diária',
+                  url: '/reportingbi/relatorio/financeira/facturacao-diaria-pre-pago/pre-pago',
+                  permission: 'facturacao-diaria-reporting-bi'
+                },
+                {
+                  name: 'Facturação - Mensal Pre - Pago',
+                  url: '/reportingbi/relatorio/financeira/facturacao-mensal-pre-pago/pre-pago',
+                  permission: 'facturacao-mensal-reporting-bi'
+                },
+
+                {
+                  name: 'Facturação - Mensal Pós - Pago',
+                  url: '/reportingbi/relatorio/financeira/facturacao-mensal-pre-pago/pos-pago',
+                  permission: 'facturacao-mensal-reporting-bi'
+                },
+
+                {
+                  name: 'Facturação - Paga',
+                  url: '/reportingbi/relatorio/financeira/facturacao-paga-pre-pago/pre-pago',
+                  permission: 'facturacao-paga-reporting-bi'
+                },
+                {
+                  name: 'Facturação - Por Agente Comercial',
+                  url: '/reportingbi/relatorio/financeira/facturacao-agente-comercial-pre-pago/pre-pago',
+                  permission: 'facturacao-por-agente-comercial-reporting-bi'
+                }
+              ]
+            })
+          " href="javascript:void(0);" class="nav-link report-nav">
+          <div class="direct-chat-msg right">
+            <div class="direct-chat-text">
+              <i class="fa fa-list nav-icon-report"></i>
+              Facturação
+            </div>
+          </div>
+        </a>
+      </li>
+
+      <li *ngIf="this.canActivateRouterLink('cobrancas-reporting-bi')" class="nav-item">
+        <a (click)="
+            toggleMenuSecound($event, {
+              title: 'Cobranças',
+              itensMenu: [
+                {
+                  name: 'Relatório de Contas Correntes',
+                  url: '/reportingbi/relatorio-conta-corrente',
+                  permission: 'resumo-conta-corrente-reporting-bi'
+                },  
+
+                {
+                  name: 'Submissões',
+                  url: '/reportingbi/relatorio-submissoes',
+                  permission: 'submissoes-reporting-bii'
+                }, 
+
+                {
+                  name: 'Relatório de Recebimento',
+                  url: '/reportingbi/relatorio/cobrancas/receita-recebida-pre-pago/pos-pago',
+                  permission: 'receita-recebida-reporting-bi'
+                },
+              ]
+            })
+          " href="javascript:void(0);" class="nav-link report-nav">
+          <div class="direct-chat-msg right">
+            <div class="direct-chat-text">
+              <i class="fa fa-list nav-icon-report"></i>
+              Cobranças
+            </div>
+          </div>
+        </a>
+      </li>
+
+      <li *ngIf="this.canActivateRouterLink('lojas-reporting-bi')" class="nav-item">
+        <a (click)="
+            toggleMenuSecound($event, {
+              title: 'Lojas',
+              itensMenu: [
+                {
+                  name: 'Movimentos de Caixa',
+                  url: '/reportingbi/relatorio/lojas/movimentos-caixa',
+                  permission: 'movimento-caixa-reporting-bi'
+                },
+
+                {
+                  name: 'Relatório de Lojas',
+                  url: '/reportingbi/relatorio/lojas/relatorio-lojas-resumo',
+                  permission: 'venda-loja-produto-reporting-bi'
+                },
+
+                {
+                  name: 'Vendas Por Lojas Por Produto',
+                  url: '/reportingbi/relatorio/lojas/vendas-loja-produtos',
+                  permission: 'loja-reporting-bi'
+                },
+
+                {
+                  name: 'Vendas - Fecho de Caixas',
+                  url: '/reportingbi/relatorio/lojas/vendas-fecho-caixa',
+                  permission: 'venda-fecho-caixa-reporting-bi'
+                }, 
+
+                {
+                  name: 'Relatório de Stock',
+                  url: '/reportingbi/relatorio/lojas/stock-relatorio',
+                  permission: 'stock-relatorio-reporting-bi'
+                }, 
+
+                {
+                  name: 'Relatório de Caixas Estacionados ',
+                  url: '/reportingbi/relatorio/lojas/caixas-estacionados-relatorio',
+                  permission: 'caixas-estacionados-relatorio-reporting-bi'
+                }, 
+
+                
+              ]
+            })
+          " href="javascript:void(0);" class="nav-link report-nav">
+          <div class="direct-chat-msg right">
+            <div class="direct-chat-text">
+              <i class="fa fa-list nav-icon-report"></i>
+              Lojas
+            </div>
+          </div>
+        </a>
+      </li>
+
+      <li *ngIf="this.canActivateRouterLink('mediacao-reporting-bi')" class="nav-item">
+        <a (click)="
+            toggleMenuSecound($event, {
+              title: 'Mediação',
+              itensMenu: [
+                {
+                  name: 'Fixo Exterior',
+                  url: '#',
+                  permission: 'fixo-exterior-reporting-bi'
+                },
+                {
+                  name: 'Fixo Fixo',
+                  url: '#',
+                  permission: 'fixo-fixo-reporting-bi'
+                },
+                {
+                  name: 'Fixo Movel',
+                  url: '#',
+                  permission: 'fixo-movel-reporting-bi'
+                },
+                {
+                  name: 'Exterior Fixo',
+                  url: '#',
+                  permission: 'exterior-fixo-reporting-bi'
+                }
+              ]
+            })
+          " href="javascript:void(0);" class="nav-link report-nav">
+          <div class="direct-chat-msg right">
+            <div class="direct-chat-text">
+              <i class="fa fa-list nav-icon-report"></i>
+              Mediação
+            </div>
+          </div>
+        </a>
+      </li>
+
+      <li *ngIf="this.canActivateRouterLink('outros-reporting-bi')" class="nav-item">
+        <a (click)="
+            toggleMenuSecound($event, {
+              title: 'Outros',
+              itensMenu: [
+                {
+                  name: 'Imposto de Valor Acrescentado',
+                  url: '/reportingbi/report-iva',
+                  permission: 'imposto-de-valor-acrescentado-reporting-bi'
+                },
+
+                {
+                  name: 'Depósito de Adiantamentos',
+                  url: '/reportingbi/deposito-adiantamento',
+                  permission: 'deposito-adiantamento-reporting-bi'
+                },
+
+                {
+                  name: 'Depósito de Lojas',
+                  url: '/reportingbi/deposito-lojas',
+                  permission: 'deposito-lojas-reporting-bi'
+                },
+
+                {
+                  name: 'Performance - Gestor',
+                  url: '/reportingbi/performance-gestor',
+                  permission: 'performance-gestor-reporting-bi'
+                },                 
+
+                {
+                  name: 'Performance - Assistente',
+                  url: '/reportingbi/performance-assistente',
+                  permission: 'performance-assistente-reporting-bi'
+                }
+              ]
+            })
+          " href="javascript:void(0);" class="nav-link report-nav">
+          <div class="direct-chat-msg right">
+            <div class="direct-chat-text">
+              <i class="fa fa-list nav-icon-report"></i>
+              Outros
+            </div>
+          </div>
+        </a>
+      </li>
+
+      <li *ngIf="this.canActivateRouterLink('reporting-bi')" class="nav-item">
+        <a (click)="
+            toggleMenuSecound($event, {
+              title: 'Business Intelligence',
+              itensMenu: [
+                {
+                  name: 'Resumo de Lojas',
+                  url: '/reportingbi/bi/resumoLoja',
+                  permission: 'venda-fecho-caixa-reporting-bi'
+                }
+              ]
+            })
+          " href="javascript:void(0);" class="nav-link report-nav">
+          <div class="direct-chat-msg right">
+            <div class="direct-chat-text">
+              <i class="fa fa-list nav-icon-report"></i>
+              Business Intelligence
+            </div>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>
