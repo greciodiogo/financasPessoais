@@ -23,10 +23,15 @@ jobs:
     needs: install  # Inherits checkout from install job
 
     steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
       - name: Restore node_modules
         uses: actions/cache@v2
         with:
           path: node_modules
+          key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }} 
+          
       - name: Run ts-prune
         run: yarn ts-prune --error  # Assuming yarn for this job
 
