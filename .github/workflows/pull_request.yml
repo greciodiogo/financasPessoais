@@ -1,0 +1,46 @@
+name: Pull Request
+
+on: [pull_request]
+
+jobs:
+  install:
+    name: Install dependencies
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Cache node_modules
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}  # Assuming npm
+      - name: Install dependencies
+        run: npm install  # Assuming npm
+
+  unusedexports:
+    name: Find unused exports
+    runs-on: ubuntu-latest
+    needs: install  # Inherits checkout from install job
+
+    steps:
+      - name: Restore node_modules
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+      - name: Run ts-prune
+        run: yarn ts-prune --error  # Assuming yarn for this job
+
+  ci:  # Corrected job name
+    name: Continuous Integration
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Using Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16
+      - name: Install dependencies
+        run: npm install  # Assuming npm
+      - name: Build and test
+        run: npm run build && npm run test
