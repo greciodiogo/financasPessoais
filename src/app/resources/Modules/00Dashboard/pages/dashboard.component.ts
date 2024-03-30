@@ -98,6 +98,10 @@ export class DashboardComponent implements OnInit, OnDestroy {
     this.activePosition = false;
   }
 
+  onCloseModal() {
+    this.activeMultipleTransactionForm = false;
+  }
+
   setFormTitle(type: number){
     this.formType = type;
   }
