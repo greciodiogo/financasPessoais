@@ -65,5 +65,13 @@ export class DashboardService extends BaseStorageService{
     }), map((data) => Object(data).data)
     );
   }
+
+  public createMultiplasTransacoes(body: any): Observable<any> {
+      this.loading = true;
+    return this.http.post(`transacoes/createMultiplasTransacoes`, body).pipe(finalize(() => {
+      //this.loading = false;
+    }), map((data) => Object(data).data)
+    );
+  }
 }
   

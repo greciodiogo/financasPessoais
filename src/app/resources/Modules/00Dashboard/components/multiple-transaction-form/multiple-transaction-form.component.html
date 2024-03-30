@@ -1,0 +1,76 @@
+<div class="registar_transacao" [class.active_position]="activePosition">
+    <div class="registar_transacao_container">
+        <div class="btn_close" (click)="onClose()">
+        <i>x</i>
+        </div>
+        <div class="titleWrapper">
+            <i class="fa fa-home" *ngIf="formType!=3">
+            <img width="24" height="24" [src]="'../../../../../../assets/img/sidebar/'+imageTitle" alt="">
+            </i>
+            <h3 class="registar_title">{{formType==3 ? "Alterar movimento" : (formType== 1 ? 'Receber em Múltiplas Transações' : 'Retirar em Múltiplas Transações')}}</h3>
+        </div>
+        <form [formGroup]="moneyControlForm" (submit)="onSubmit();">
+            <ng-container formArrayName="data">
+                <ng-container  *ngFor="let f of trx.controls; let i = index">
+                    <div class="registar_transacao_group" [formGroup]="f">
+                        <div class="registar-form-group-row">
+                            <div class="registar-form-group">
+                                <!-- <label for="">Descrição</label> -->
+                                <input class="form-control" type="text" placeholder="Descrição" formControlName="transacaoDescricao" required>
+                                <!-- [ngClass]="{ 'is-invalid': submitted && f.transacaoDescricao.errors, 'is-valid': f.transacaoDescricao.touched && !f.transacaoDescricao.errors }"> -->
+                                <!-- <div *ngIf="submitted && f['transacaoDescricao'].errors" class="invalid-feedback">
+                                <div *ngIf="f['transacaoDescricao'].errors.required">O campo Descrição é obrigatório</div>
+                                </div> -->
+                            </div>
+                            <div class="registar-form-group">
+                                <!-- <label for="">transacao_tipos_id</label> -->
+                                <select class="form-control" formControlName="transacao_tipos_id" required>
+                                <!-- [ngClass]="{ 'is-invalid': submitted && f.transacao_tipos_id.errors, 'is-valid': f.transacao_tipos_id.touched && !f.transacao_tipos_id.errors }"> -->
+                                <!-- <option value="null" selected>transacao_tipos_id</option> -->
+                                <option value="null">Categoria</option>
+                                <option [value]="item.id" *ngFor="let item of categories">{{item?.descricao}}</option>
+                                </select>
+                                <!-- <div *ngIf="submitted && f['transacao_tipos_id'].errors" class="invalid-feedback">
+                                <div *ngIf="f['transacao_tipos_id'].errors.required">O campo transacao_tipos_id é obrigatório</div>
+                                </div> -->
+                            </div>
+                        </div>          
+                        <div class="registar-form-group-row">
+                            <div class="registar-form-group">
+                                <!-- <label for="">Valor</label> -->
+                                <input class="form-control" type="number" formControlName="valor" placeholder="Valor" min="0" required>
+                                <!-- [ngClass]="{ 'is-invalid': submitted && f.valor.errors, 'is-valid': f.valor.touched && !f.valor.errors }"> -->
+                                <!-- <div *ngIf="submitted && f['valor'].errors" class="invalid-feedback">
+                                <div *ngIf="f['valor'].errors.required">O campo Equipa é obrigatório</div>
+                                </div> -->
+                            </div>
+                            <div class="registar-form-group">
+                                <!-- <label for="">created_at</label> -->
+                                <input class="form-control" type="date" formControlName="created_at" required>
+                                <!-- [ngClass]="{ 'is-invalid': submitted && f.created_at.errors, 'is-valid': f.created_at.touched && !f.created_at.errors }"> -->
+                                <!-- <div *ngIf="submitted && f['created_at'].errors" class="invalid-feedback">
+                                <div *ngIf="f['created_at'].errors.required">O campo Equipa é obrigatório</div>
+                                </div> -->
+                            </div>
+                        </div>
+                        <div class="registar-form-group">
+                            <!-- <label for="">Observação</label> -->
+                            <textarea class="form-control" name="" formControlName="transacaoMotivo" id="" cols="30" rows="2" placeholder="Observação">
+                            <!-- [ngClass]="{ 'is-invalid': submitted && f.transacaoMotivo.errors, 'is-valid': f.transacaoMotivo.touched && !f.transacaoMotivo.errors }"> -->
+                        </textarea>
+                            <!-- <div *ngIf="submitted && f['transacaoMotivo'].errors" class="invalid-feedback">
+                            <div *ngIf="f['transacaoMotivo'].errors.required">O campo Equipa é obrigatório</div>
+                            </div> -->
+                        </div>
+                    </div>
+                </ng-container>
+            </ng-container>
+            <button mat-mini-fab class="btnAddTransacao" type="button" (click)="handleAddTransacao()"><mat-icon class="add-course-btn">add</mat-icon></button>
+            <button class="btnSubmit" type="submit">
+                {{formType== 1 ? 'Receber' : 'Retirar'}} 
+                <span *ngIf="valor">{{this.configService.numberFormat(valor)}} AOA</span>
+            </button>
+        </form>
+    
+    </div>
+</div>
