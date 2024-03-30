@@ -1,4 +1,4 @@
-# Enbi
+# Finanças Pessoais
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.1.2.
 
@@ -26,15 +26,3 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
-
-ng build --configuration movicel-prod
-ng build --configuration movicel-qas
- 
-ng build --configuration at-prod
-ng build --configuration at-qas
-
-ng build --configuration unitel-prod
-ng build --configuration unitel-qas
-
-ng build --configuration africell-prod
-ng build --configuration africell-qas
