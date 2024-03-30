@@ -52,7 +52,7 @@
         <div class="services-container">
          <app-menu-item iconeTitle="income.png" itemTitle="Receber" (click)="toggleRecieveBtn(1)"></app-menu-item>
          <app-menu-item iconeTitle="withdraw.png" itemTitle="Retirar" (click)="toggleRecieveBtn(2)"></app-menu-item>
-         <app-menu-item iconeTitle="money.png" itemTitle="Finanças"></app-menu-item>
+         <app-menu-item iconeTitle="money.png" itemTitle="Finanças" (click)="toggleMultpileTransaction()"></app-menu-item>
          <app-menu-item iconeTitle="document-file.png" itemTitle="Histórico"></app-menu-item>
         </div>
 
@@ -90,3 +90,5 @@
     </div>
    
 </div>
+
+<app-multiple-transaction-form [activePosition]="activeMultipleTransactionForm" (close)="onClose()"></app-multiple-transaction-form>

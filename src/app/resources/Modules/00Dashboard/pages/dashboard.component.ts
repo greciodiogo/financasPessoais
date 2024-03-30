@@ -82,11 +82,16 @@ export class DashboardComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {}
 
   public activePosition: boolean = false;
+  public activeMultipleTransactionForm: boolean = false;
   public diaMes  = `${new Date().getDate()} / ${new Date().getMonth() + 1}`
 
   toggleRecieveBtn(type): void {
     this.activePosition = true;
     this.setFormTitle(type)
+  }
+
+  toggleMultpileTransaction(): void {
+    this.activeMultipleTransactionForm = true
   }
 
   onClose() {
