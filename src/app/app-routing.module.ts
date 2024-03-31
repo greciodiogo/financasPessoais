@@ -66,6 +66,33 @@ export const routes: Routes = [
       ),
   },
   {
+    path: '',
+    data: {
+      title: 'Login',
+    },
+    children: [
+      {
+        path: 'login',
+        data: {
+          title: 'Login',
+          layout: { customLayout: false, layoutNavigationTop: true },
+        },
+        loadChildren: () =>
+          import(
+            './resources/Modules/06Security/00Auth/authentication.module'
+          ).then((m) => m.AuthenticationModule),
+      },
+    ],
+  },
+  {
+    path: '',
+    data: {
+      title: 'signup', 
+      layout: { customLayout: false, layoutNavigationTop: true },
+    },
+    loadChildren: () => import('./resources/Modules/06Security/00Auth/authentication.module').then((m) => m.AuthenticationModule),
+  },
+  {
     path: '404',
     component: P404Component,
     data: {

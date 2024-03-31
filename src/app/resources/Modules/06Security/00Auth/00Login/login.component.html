@@ -1,61 +1,62 @@
-<div class="login-container">
-  <div>
-    <img class="at-logo" src="assets/img/at.png" alt="User Image" style="width: 26%; border-radius: 8px;">
+<div class="login">
+  <div class="login-container">
+    
+    <div class="login-bg"></div>
+    <div class="form-side">
+      <h3 class="logo">Finanças Pessoais</h3>
 
-    <form class="login-form" [formGroup]="loginForm" (ngSubmit)="autenticate()" style="position: relative;"><br>
-      <app-loading [show]="loading" title="Aguarde" subTitle="Estamos a validar as suas credenciais de acesso"></app-loading>
-      <p class="text-muted"></p>
+      <form class="login-form" [formGroup]="loginForm" (ngSubmit)="autenticate()" style="position: relative;"><br>
+        <app-loading [show]="loading" title="Aguarde" subTitle="Estamos a validar as suas credenciais de acesso"></app-loading>
+        <p class="text-muted"></p>
 
-      <div class="row">
-        <!-- <div class="col-md-12 offset-4">
-          <h3>ANGOLA TELECOM</h3>
-          <br>
-        </div> -->
+        <div class="row">
 
-        <mat-form-field appearance="outline" class="example-full-width col-md-12 col-xs-12 col-sm-12">
-          <mat-label>Utilizador</mat-label>
-          <input type="text" matInput formControlName="username" placeholder="utilizador">
-          <mat-icon matSuffix>person</mat-icon>
+          <div class="registar-form-group">
+            <!-- <label for="">Descrição</label> -->
+            <input class="form-control" type="text" placeholder="Utilizador" formControlName="username" required
+            [ngClass]="{ 'is-invalid': submitted && f.username.errors, 'is-valid': f.username.touched && !f.username.errors }">
+            <!-- <div *ngIf="submitted && f['username'].errors" class="invalid-feedback">
+              <div *ngIf="f['username'].errors.required">O campo Descrição é obrigatório</div>
+            </div> -->
+          </div>
 
-          <mat-error>É obrigatório informar o nome de Utilizador</mat-error>
-        </mat-form-field>
+          <div class="registar-form-group">
+            <!-- <label for="">Descrição</label> -->
+            <input class="form-control" type="password" placeholder="senha" formControlName="password" required
+            [ngClass]="{ 'is-invalid': submitted && f.password.errors, 'is-valid': f.password.touched && !f.password.errors }">
+            <!-- <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
+              <div *ngIf="f['password'].errors.required">O campo Descrição é obrigatório</div>
+            </div> -->
+          </div>
 
-        <mat-form-field appearance="outline" class="example-full-width col-md-12 col-xs-12 col-sm-12" style="margin-top: 10px;">
-          <mat-label>Password</mat-label>
-          <input type="password" matInput formControlName="password" placeholder="Palavra-passe">
-          <mat-icon matSuffix>lock</mat-icon>
-
-          <mat-error>É obrigatório informar a palavra-passe</mat-error>
-        </mat-form-field>
-      </div>
-
-      <div class="row">
-        <div class="col-sm-12">
-          <button class="btn btn-lg btn-block btn-login" style="height: 67px;"><h2>Entrar</h2></button>
-        </div>  
-      </div>
-
-      <div class="row help-password" style="margin-top: 30px; border-radius: 4px;"> 
-        <div class="col-md-4">
-          <label class="rememberme"> 
-            <a  routerLink="/account/signup" routerLinkActive="active" class="forget-password">Criar nova conta</a>
-          </label>
+        </div>
+        <div class="row">
+          <button class="btnLogin" [disabled]="this.loginForm.pristine || this.loginForm.invalid" [class.optionalBtn]="this.loginForm.pristine || this.loginForm.invalid">Entrar</button>
         </div>
 
-        <div class="col-md-8 text-right">
-          <div class="forgot-password">
-          <a routerLink="/account/recuperar" class="forget-password">Recuperar Palavra-passe</a>
+        <div class="row help-password" style="margin-top: 10px; border-radius: 4px;"> 
+          <div class="col-md-4">
+            <label class="rememberme"> 
+              <a  routerLink="/signup" routerLinkActive="active" class="forget-password">Criar conta</a>
+            </label>
           </div>
-        </div> 
+
+          <div class="col-md-8 text-right">
+            <div class="forgot-password">
+            <a routerLink="/account/recuperar" class="forget-password">Recuperar Palavra-passe</a>
+            </div>
+          </div> 
+        </div>
+
+        <div class="row">
+          <button class="btnLogin">Continuar como Convidado</button>
+        </div>
+      </form>
+
+
+      <div class="copyright">
+        <p>2023 - 2024 Finanças Pessoais | Todos os Direitos Reservados</p>
       </div>
-
-    </form>
-
-    <div class="copyright">
-      <p>2019-2020 UNIG | Todos os Direitos Reservados</p>
     </div>
-  </div>
-
-  <div class="login-bg"></div>
-
-</div> 
+  </div> 
+</div>
