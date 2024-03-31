@@ -62,7 +62,7 @@ export class MultipleTransactionFormComponent implements OnInit {
   }
 
   get f() {
-    return this.moneyControlForm.controls;
+    return this.moneyControlForm.controls as unknown as FormGroup;
   }
 
   get trx() {
@@ -100,6 +100,7 @@ export class MultipleTransactionFormComponent implements OnInit {
   onReset() {
     this.submitted = false;
     this.moneyControlForm.reset();
+    this.trx.clear()
     this.close.emit();
   }
 
