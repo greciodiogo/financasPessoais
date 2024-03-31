@@ -16,6 +16,7 @@ import { Transaction } from "../interfaces/transaction";
 import { Pagination } from "@app/shared/models/pagination";
 import { Observable, Subject } from "rxjs";
 import { MoneyControlFormComponent } from "../components/money-control-form/money-control-form.component";
+import { AuthService } from "@app/core/security/authentication/auth.service";
 
 @Component({
   selector: "app-dashboard",
@@ -52,6 +53,8 @@ export class DashboardComponent implements OnInit, OnDestroy {
   formType: number = 1
 
   constructor(
+    
+    public authenticated: AuthService,
     public dashboardService: DashboardService,
     public configService: FnService,
   ) {}
@@ -75,7 +78,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.getDashboardInit();
-    this.findDefaultUser()
     this.findAllTransactions()
   }
 
@@ -98,6 +100,10 @@ export class DashboardComponent implements OnInit, OnDestroy {
     this.activePosition = false;
   }
 
+  onCloseModal() {
+    this.activeMultipleTransactionForm = false;
+  }
+
   setFormTitle(type: number){
     this.formType = type;
   }
@@ -106,26 +112,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
   public dataFormatada = `${this.dataHora.getDate().toString().padStart(2, "0")}.${(this.dataHora.getMonth() + 1).toString().padStart(2, "0")}.${this.dataHora.getFullYear()} ${this.dataHora.getHours().toString().padStart(2, "0")}:${this.dataHora.getMinutes().toString().padStart(2, "0")}:${this.dataHora.getSeconds().toString().padStart(2, "0")}`;
   
   public userSession = {
-    saldo_actual: 0,
-    moeda: {
-      moeda: "",
-      codigo_iso: "",
-      descricao: ""
-    },
-    usuario: {
       nome: ""
-    }
-  }
-
-  public findDefaultUser(){
-    this.dashboardService.loading = true
-    this.dashboardService.findDefaultUser().subscribe(
-      (response)=>{
-        this.userSession = response;
-        this.dashboardService.loading = false
-    },
-    (error) => (this.dashboardService.loading = false)
-    )
   }
 
   public findAllTransactions(){

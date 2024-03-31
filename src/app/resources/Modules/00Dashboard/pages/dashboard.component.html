@@ -45,7 +45,7 @@
               </i>
             </div>
             <span class="user-details-title">cartão virtual</span>
-            <h5 class="user-name">{{userSession?.usuario?.nome || 'user'}}</h5>
+            <h5 class="user-name">{{ this.authenticated?.user?.nome || 'unknown'}}</h5>
           </div>
         </div>
 
@@ -58,7 +58,7 @@
 
         <div class="credit-card">
           <div class="credit-title">
-            <h5>{{userSession?.moeda?.descricao}}</h5>
+            <h5>Angola Kwanza</h5>
           </div>
           <div class="credit-date">
             <div class="credit-date-container">
@@ -67,7 +67,7 @@
           </div>
           <div class="credit-group">
             <span>Total Disponível</span>
-            <h4>{{configService.numberFormat(userSession.saldo_actual)}} {{userSession?.moeda?.codigo_iso}}</h4>
+            <h4>{{configService.numberFormat(transactionData?.data[0]?.conta?.saldo_actual)}} AOA</h4>
           </div>
         </div>
 
@@ -91,4 +91,4 @@
    
 </div>
 
-<app-multiple-transaction-form [activePosition]="activeMultipleTransactionForm" (close)="onClose()"></app-multiple-transaction-form>
+<app-multiple-transaction-form [activePosition]="activeMultipleTransactionForm" (close)="onCloseModal()"></app-multiple-transaction-form>

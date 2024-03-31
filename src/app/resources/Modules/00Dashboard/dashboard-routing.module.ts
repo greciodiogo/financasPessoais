@@ -8,7 +8,7 @@ const routes: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent,
-    // canActivate: [AuthGuard, PermissionGuard],
+    canActivate: [AuthGuard, PermissionGuard],
     data: {
       title: "Dashboard",
       expectedPermission: "dashboard",
