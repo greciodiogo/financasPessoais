@@ -1,107 +1,83 @@
-<div class="login-container">
-    <div> 
-      <app-loading [show]="this.userService.loading" title="Aguarde" subTitle="Estamos processar a informação"></app-loading>
-
-      <form class="login-form" [formGroup]="signupForm" style="position: relative;"><br><br><br><br>
-        <app-loading [show]="loading" title="Aguarde" subTitle="Estamos a validar as suas credenciais de acesso"></app-loading> 
-        <div>
-            <fieldset class="fieldset-border">
-                <legend class="fieldset-border" >Validar Dados</legend>
-                <div class="row"> 
-                    <div class="col-md-10">
-                      <mat-form-field appearance="outline" class="example-full-width col-md-12">
-                          <mat-label>Telefone</mat-label>
-                          <input type="text" matInput formControlName="telephone" [(ngModel)]="this.telephone" placeholder="Nº Telefone"
-                          maxlength="9">
-                          <mat-icon matSuffix>phone</mat-icon> 
-                          <mat-error>Nome é obrigatório</mat-error>
-                        </mat-form-field>
-                    </div>
-                    <div class="col-md-2">
-                        <button class="btn btn-lg btn-block btn-login btn-default"  mat-raised-button
-                        style="height: 53px; border-radius: 6px; margin: 2px 0; color: #fff; background-color: var(--mainColor) ;"
-                        (click)="verifyNumberCliente()"> Verificar</button>
-                    </div>
-                </div>
-            </fieldset>
-            
-            <fieldset class="fieldset-border">
-                <legend class="fieldset-border">Dados Pessoais</legend>
-                <div class="row">
-                    <div class="col-md-6">
-                      <mat-form-field appearance="outline" class="example-full-width col-md-12">
-                          <mat-label>Nome</mat-label>
-                          <input type="text" matInput formControlName="name" [(ngModel)]="cliente.first_name" placeholder="Nome" readonly="true">
-                          <mat-icon matSuffix>person</mat-icon> 
-                          <mat-error>Nome é obrigatório</mat-error>
-                        </mat-form-field>
-                    </div>
-                    <div class="col-md-6">
-                      <mat-form-field appearance="outline" class="example-full-width col-md-12 ">
-                          <mat-label>Sobrenome</mat-label>
-                          <input type="text" matInput formControlName="username" [(ngModel)]="cliente.last_name" placeholder="Sobrenome" readonly="true">
-                          <mat-icon matSuffix>person</mat-icon> 
-                          <mat-error>Sobrenome é obrigatório</mat-error>                              
-                        </mat-form-field>
-                    </div>
-                    <div class="col-md-12">
-                      <mat-form-field appearance="outline" class="example-full-width col-md-12">
-                          <mat-label>Email</mat-label>
-                          <input type="text" matInput formControlName="email" [(ngModel)]="cliente.email" placeholder="Email" readonly="true">
-                          <mat-icon matSuffix>envelop</mat-icon> 
-                          <mat-error>E-mail é obrigatório</mat-error>
-                        </mat-form-field>
-                    </div>                        
-                  </div>
-            </fieldset>
-            
-            <fieldset class="fieldset-border">
-              <legend class="fieldset-border">Credenciais</legend>
-              <div class="row">                       
-                  <div class="col-md-6">
-                    <mat-form-field appearance="outline" class="example-full-width col-md-12 col-xs-12 col-sm-12" style="margin-top: 10px;">
-                        <mat-label>Password</mat-label>
-                        <input type="password" matInput formControlName="password" placeholder="Palavra-passe" 
-                        [type]="hide ? 'password' : 'text'">
-                        <mat-icon matSuffix (click)="hide = !hide" style="cursor: pointer;">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>                         
-                        <mat-error>É obrigatório informar a palavra-passe</mat-error>
-                    </mat-form-field>
-                  </div>
-                  <div class="col-md-6">
-                    <mat-form-field appearance="outline" class="example-full-width col-md-12 col-xs-12 col-sm-12" style="margin-top: 10px;">
-                        <mat-label>Confirmar Password</mat-label>
-                        <input type="password" matInput formControlName="confirmpassword" placeholder="Repetir Palavra-passe"
-                        [type]="hide2 ? 'password' : 'text'">
-                        <mat-icon matSuffix (click)="hide2 = !hide2" style="cursor: pointer;">{{hide2 ? 'visibility_off' : 'visibility'}}</mat-icon> 
-                        <mat-error>É obrigatório informar a palavra-passe</mat-error>
-                    </mat-form-field>
-                  </div>
-                </div>
-            </fieldset>          
-        </div>
-        <div class="row">
-          <div class="col-sm-12">
-            <button class="btn btn-lg btn-block btn-login btn-success"  data-toggle="modal" 
-            data-target="#modalVerifyCode" (click)="sendCodeToPhone()" [disabled]="this.signupForm.pristine || this.signupForm.invalid"
-            style="height: 60px; background-color: var(--mainColor); border-radius: 1px solid var(--mainColor);"><h3>Seguinte</h3></button>
-          </div>  
-        </div>
-  
-        <div class="row help-password" style="border: 1px solid #fff;margin-top: 30px; border-radius: 4px;"> 
-          <div class="col-md-4">
-            <label class="rememberme"> 
-              <a  routerLink="/login" routerLinkActive="active" class="forget-password">Entrar</a>
-            </label>
-          </div> 
-        </div>  
-      </form>
-  
-      <div class="copyright">
-        <p>2019-2020 UNIG | Todos os Direitos Reservados</p>
-      </div>
-    </div>
-  
+<div class="login">
+  <div class="login-container">
+    
     <div class="login-bg"></div>
-  
+      <div class="form-side"> 
+        <h3 class="logo">Finanças Pessoais</h3>
+        <app-loading [show]="this.userService.loading" title="Aguarde" subTitle="Estamos processar a informação"></app-loading>
+
+        <form class="login-form" [formGroup]="signupForm" style="position: relative;">
+          <app-loading [show]="loading" title="Aguarde" subTitle="Estamos a validar as suas credenciais de acesso"></app-loading> 
+          <div class="row">
+ 
+              <h4 class="form-title">Dados Pessoais</h4>
+              <div class="registar-form-row">
+                    <div class="registar-form-group">
+                      <!-- <label for="">Descrição</label> -->
+                      <input class="form-control" type="text" placeholder="Nome" [(ngModel)]="cliente.first_name" formControlName="name" required
+                      [ngClass]="{ 'is-invalid': submitted && f.name.errors, 'is-valid': f.name.touched && !f.name.errors }">
+                      <!-- <div *ngIf="submitted && f['name'].errors" class="invalid-feedback">
+                        <div *ngIf="f['name'].errors.required">O campo Nome é obrigatório</div>
+                      </div> -->
+                    </div>
+                    <div class="registar-form-group">
+                      <!-- <label for="">Descrição</label> -->
+                      <input class="form-control" type="text" placeholder="Sobrenome" [(ngModel)]="cliente.last_name" formControlName="username" required
+                      [ngClass]="{ 'is-invalid': submitted && f.username.errors, 'is-valid': f.username.touched && !f.name.errors }">
+                      <!-- <div *ngIf="submitted && f['username'].errors" class="invalid-feedback">
+                        <div *ngIf="f['username'].errors.required">O campo Sobrenome é obrigatório</div>
+                      </div> -->
+                    </div>
+              </div>
+              <div class="registar-form-group">
+                <!-- <label for="">Descrição</label> -->
+                <input class="form-control" type="email" placeholder="Email" [(ngModel)]="cliente.email" formControlName="email" required
+                [ngClass]="{ 'is-invalid': submitted && f.email.errors, 'is-valid': f.email.touched && !f.email.errors }">
+                <!-- <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+                  <div *ngIf="f['email'].errors.required">O campo Email é obrigatório</div>
+                </div> -->
+              </div>    
+              
+              <h4 class="form-title">Credenciais</h4>
+              <div class="registar-form-row">         
+                  <div class="registar-form-group">
+                    <!-- <label for="">Descrição</label> -->
+                    <input class="form-control" type="password" placeholder="senha" formControlName="password" required
+                    [ngClass]="{ 'is-invalid': submitted && f.password.errors, 'is-valid': f.password.touched && !f.password.errors }">
+                    <!-- <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
+                      <div *ngIf="f['password'].errors.required">O campo Password é obrigatório</div>
+                    </div> -->
+                </div>      
+
+                  <div class="registar-form-group">
+                    <!-- <label for="">Descrição</label> -->
+                    <input class="form-control" type="password" placeholder="Repetir senha" formControlName="confirmpassword" required
+                    [ngClass]="{ 'is-invalid': submitted && f.confirmpassword.errors, 'is-valid': f.confirmpassword.touched && !f.confirmpassword.errors }">
+                    <!-- <div *ngIf="submitted && f['confirmpassword'].errors" class="invalid-feedback">
+                      <div *ngIf="f['confirmpassword'].errors.required">O campo Password é obrigatório</div>
+                    </div> -->
+                  </div>
+
+                </div>
+          </div>
+          <div class="row">
+            <button class="btnLogin"  data-toggle="modal"
+           type="submit" (click)="sendCodeToPhone()" [class.optionalBtn]="this.signupForm.pristine || this.signupForm.invalid" [disabled]="this.signupForm.pristine || this.signupForm.invalid">Seguinte</button>
+          </div>
+    
+          <div class="row help-password" style="border: 1px solid #fff;margin-top: 10px; border-radius: 4px;"> 
+            <div class="col-md-4">
+              <label class="rememberme"> 
+                <a  routerLink="/login" routerLinkActive="active" class="forget-password">Entrar</a>
+              </label>
+            </div> 
+          </div>  
+        </form>
+    
+        <div class="copyright">
+          <p>2023 - 2024 Finanças Pessoais | Todos os Direitos Reservados</p>
+        </div>
+      </div>    
+  </div>
 </div>
 <app-verify-code [is_modal]="true" [telephone]="telephone" [password]="password" *ngIf="showModal == 2"></app-verify-code>

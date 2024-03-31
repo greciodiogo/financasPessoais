@@ -4,20 +4,14 @@ import {finalize, first} from 'rxjs/operators';
 import { AuthService } from '@app/core/security/authentication/auth.service'; 
 import { WizardComponent } from 'angular-archwizard';
 import { UserService } from '../../02Users/services/user.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { VerifyCodeComponent } from '../verify-code/verify-code.component';
+import { LoginService } from '@app/core/security/authentication/login.service';
 export interface Cliente {
   first_name?: string;
   last_name?: string;
   email?: string;
-  // telefone?: string;
-  // morada?: string;
-  // nacionalidade?: string;
-  // numIdentidade?: string;
-  // tipoIdentidade?: string;
-  // dispositivo?: string;
-  // tipoCliente?: string;
 }
 @Component({
   selector: 'app-sign-up',
@@ -29,6 +23,8 @@ export class SignUpComponent implements OnInit {
   public verifyCodeComponent: VerifyCodeComponent;
 
 
+  
+  user
   signupForm: FormGroup;
   loading = false;
   submitted = false;
@@ -43,7 +39,9 @@ export class SignUpComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     public userService: UserService,
+    private router: Router,
     public auth: AuthService, 
+    public login: LoginService
   ) { 
     
   }
@@ -66,27 +64,6 @@ export class SignUpComponent implements OnInit {
     return this.signupForm.controls;
   }
 
-  verifyNumberCliente(){    
-    this.userService.loading = true
-    this.userService.verifyInfoCliente(this.telephone)
-    .pipe(finalize(()=>    this.userService.loading = false ))
-    .subscribe(
-      (response) => {
-        this.retornoInforCliente(response)
-        this.signupForm.patchValue({telephone: this.telephone, country_code: '+244'});
-        this.showModal = 1;  
-      },(error=>{
-        this.userService.loading = false;
-        this.signupForm.reset();
-      })
-    )
-  }
-
-  retornoInforCliente(data: any) {
-    this.cliente.first_name = data.first_name;
-    this.cliente.last_name = data.last_name;
-    this.cliente.email = data.email;
-  }
 
   sendCodeToPhone(){ 
     if(this.signupForm.value.password == this.signupForm.value.confirmpassword){
@@ -108,5 +85,28 @@ export class SignUpComponent implements OnInit {
         // footer: '<a href="#">Why do I have this issue?</a>'
       });
     } 
+  }
+
+  public autenticate(user: any) {
+    this.login.login(user.telephone, user.password)
+      .pipe(first(), finalize(() => { }))
+      .subscribe(
+        data => {
+          this.router.navigate([this.returnUrl]);
+        },
+        error => {
+          console.log(error);
+        });
+  }
+
+  public async registerClient(user: any) {
+    this.userService.store(user).subscribe(
+      (response) => {   
+        this.autenticate(this.user);
+      },
+      (error) => {
+        console.log(error)
+      }
+    )
   }
 }
