@@ -10,7 +10,7 @@ import { finalize, tap } from 'rxjs/operators';
 import { environment as env } from '@env/environment';
 import { ToastrService } from 'ngx-toastr';
 import Swal from 'sweetalert2';
-import 'sweetalert2/src/sweetalert2.scss';
+// import 'sweetalert2/src/sweetalert2.scss';
 import { Token } from '@app/resources/Modules/06Security/00Auth/models/token';
 import { FormGroup } from '@angular/forms';
 @Injectable({
@@ -131,11 +131,11 @@ export class AuthService {
       customClass: {
         container: 'container-class',
         popup: 'popup-class',
-        header: 'header-class',
+        // header: 'header-class',
         title: 'title-class',
         closeButton: 'close-button-class',
         icon: 'warning',
-        content: 'content-class',
+        // content: 'content-class',
         input: 'input-class',
         actions: 'actions-class',
         confirmButton: 'btn btn-success',

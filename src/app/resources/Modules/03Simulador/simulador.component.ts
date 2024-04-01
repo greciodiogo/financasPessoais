@@ -14,7 +14,7 @@ import { GraficoPizzaComponent } from "./components/grafico-pizza/grafico-pizza.
 import { DashboardService } from "@app/shared/services/dashboard.service";
 
 import { LanguageService } from "@app/shared/services/language.service";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from "@angular/forms";
 
 @Component({
   selector: "app-simulador",
@@ -48,7 +48,7 @@ export class SimuladorComponent implements OnInit, OnDestroy {
   public log: Array<Object> = new Array<Object>();
 
   // *************************
-    form:   FormGroup;
+    form:   UntypedFormGroup;
     valorFinanciamento: number = 200000;
     prazoFinanciamento: number = 3;
     taxaJurosAnual: number = 1000;
@@ -65,7 +65,7 @@ export class SimuladorComponent implements OnInit, OnDestroy {
     private ngZone: NgZone,
     private cdr: ChangeDetectorRef,
     public languageservice: LanguageService,
-    private fb: FormBuilder
+    private fb: UntypedFormBuilder
   ) {  }
 
 

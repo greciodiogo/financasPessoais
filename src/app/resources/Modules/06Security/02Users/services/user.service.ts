@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { UntypedFormGroup } from '@angular/forms';
 import { ApiService } from '@app/core/providers/api.service';
 import { BaseStorageService } from '@app/core/services/base-storage.service';
 import { debounceTime, finalize, map } from 'rxjs/operators';
@@ -12,11 +12,11 @@ export class UserService extends BaseStorageService {
     super(`users`);
   }
 
-  updateStatus(form: FormGroup, id){
+  updateStatus(form: UntypedFormGroup, id){
     return this.update(form, id,"/updateStatus")
   }
 
-  resetPassword(form: FormGroup,id){
+  resetPassword(form: UntypedFormGroup,id){
     return this.update(form,id,"/password/resetByUser")
   }
 

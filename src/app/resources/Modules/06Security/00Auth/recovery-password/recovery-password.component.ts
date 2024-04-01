@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { RecoveryPasswordService } from '../../02Users/services/recoveryPassword.service';
 import { finalize, first } from 'rxjs/operators';
 import { ActivatedRoute } from '@angular/router';
@@ -11,13 +11,13 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class RecoveryPasswordComponent implements OnInit {
 
-  recoveryPasswordForm: FormGroup;
+  recoveryPasswordForm: UntypedFormGroup;
   loading = false;
   submitted = false;
   returnUrl: string;
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private recuperarPassword: RecoveryPasswordService,
     private route: ActivatedRoute, 
   ) { }

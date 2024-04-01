@@ -10,7 +10,7 @@ import {
 } from "@angular/core";
 import { FnService } from "@app/shared/services/fn.helper.service";
 import { LanguageService } from "@app/shared/services/language.service";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from "@angular/forms";
 import { DashboardService } from '@app/shared/services/dashboard.service';
 import { first } from "rxjs/operators";
 
@@ -22,7 +22,7 @@ import { first } from "rxjs/operators";
 
 export class MoneyControlFormComponent implements OnInit {
   
-  public moneyControlForm: FormGroup;
+  public moneyControlForm: UntypedFormGroup;
   public loading: boolean = false;
   public submitted = false;
   public disabledButton = false
@@ -41,7 +41,7 @@ export class MoneyControlFormComponent implements OnInit {
   
   constructor(
     public configService: FnService,
-    public formBuilder: FormBuilder,
+    public formBuilder: UntypedFormBuilder,
     public dashboardService: DashboardService,
   ) {
     this.createForm()
@@ -88,7 +88,7 @@ export class MoneyControlFormComponent implements OnInit {
     this.onReset()
   }
 
-  createOrEdit(formulario: FormGroup, isCreate: boolean = true, id) {
+  createOrEdit(formulario: UntypedFormGroup, isCreate: boolean = true, id) {
 
     const categoryValidate = this.formType==3 ? 
       this.transaction.categoria_id : 

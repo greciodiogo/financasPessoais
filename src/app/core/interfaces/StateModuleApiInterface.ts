@@ -1,5 +1,5 @@
 import { HttpParams } from "@angular/common/http";
-import { FormGroup } from "@angular/forms";
+import { UntypedFormGroup } from "@angular/forms";
 
 export interface StateModuleApiInterface{ 
 
@@ -7,9 +7,9 @@ export interface StateModuleApiInterface{
   
   show(id: number): any;
   
-  store(form: FormGroup, id): any;
+  store(form: UntypedFormGroup, id): any;
 
-  update(form: FormGroup, id): any;
+  update(form: UntypedFormGroup, id): any;
 
   delete(id: number): void;
 

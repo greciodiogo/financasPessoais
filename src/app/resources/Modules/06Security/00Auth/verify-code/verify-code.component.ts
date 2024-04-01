@@ -1,5 +1,5 @@
 import { Component, ElementRef, EventEmitter, Input, OnInit, Output, QueryList, Renderer2, ViewChild, ViewChildren } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, Validators, UntypedFormArray } from '@angular/forms';
 import { UserService } from '../../02Users/services/user.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LoginService } from '@app/core/security/authentication/login.service';
@@ -38,10 +38,10 @@ export class VerifyCodeComponent implements OnInit {
   @Output() private loadList = new EventEmitter<any>();
 
   submitted: boolean = false;
-  validateCodeForm: FormGroup;
+  validateCodeForm: UntypedFormGroup;
   codeSent: number;
   returnUrl: string;
-  code: FormArray;
+  code: UntypedFormArray;
 
   user
   isButtonDisabled: boolean = true;
@@ -50,7 +50,7 @@ export class VerifyCodeComponent implements OnInit {
 
   constructor(
     private renderer: Renderer2,
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private userService: UserService,
     private route: ActivatedRoute,
     private router: Router,

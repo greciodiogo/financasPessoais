@@ -1,6 +1,6 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {Router, ActivatedRoute} from '@angular/router';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {UntypedFormBuilder, UntypedFormGroup, Validators} from '@angular/forms';
 import {finalize, first} from 'rxjs/operators';
 import { LoginService } from '@core/security/authentication/login.service';
 import { AuthService } from '@app/core/security/authentication/auth.service';
@@ -16,13 +16,13 @@ import { AuthService } from '@app/core/security/authentication/auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  loginForm: FormGroup;
+  loginForm: UntypedFormGroup;
   loading = false;
   submitted = false;
   returnUrl: string;
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     public auth: AuthService,
     public login: LoginService,
     private router: Router,

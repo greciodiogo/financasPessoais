@@ -5,7 +5,7 @@ import {
   Input,
   Output,
 } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 
 export interface List{
   name:string;
@@ -47,16 +47,16 @@ export class ButtonFileUploadComponent {
 
   public formartValid:boolean = true;
 
-  public formImport: FormGroup;
+  public formImport: UntypedFormGroup;
   public fileToUpload: File = null;
 
   isCompleted: boolean = false;
 
   constructor() {
-    this.formImport = new FormGroup({
-      importFile: new FormControl('', Validators.required),
-      tipoAnexo: new FormControl(''),
-      data_validade: new FormControl('')
+    this.formImport = new UntypedFormGroup({
+      importFile: new UntypedFormControl('', Validators.required),
+      tipoAnexo: new UntypedFormControl(''),
+      data_validade: new UntypedFormControl('')
     });
     this.Config.labelItem= 'Tipo de documento'
     this.Config.labelFile= 'Arquivo'

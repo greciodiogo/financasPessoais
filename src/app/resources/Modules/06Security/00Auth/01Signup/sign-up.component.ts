@@ -1,5 +1,5 @@
 import {Component, OnInit, Output, ViewChild} from '@angular/core'; 
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {UntypedFormBuilder, UntypedFormGroup, Validators} from '@angular/forms';
 import {finalize, first} from 'rxjs/operators'; 
 import { AuthService } from '@app/core/security/authentication/auth.service'; 
 import { WizardComponent } from 'angular-archwizard';
@@ -25,7 +25,7 @@ export class SignUpComponent implements OnInit {
 
   
   user
-  signupForm: FormGroup;
+  signupForm: UntypedFormGroup;
   loading = false;
   submitted = false;
   returnUrl: string;
@@ -37,7 +37,7 @@ export class SignUpComponent implements OnInit {
   hide2 = true;
   
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     public userService: UserService,
     private router: Router,
     public auth: AuthService, 

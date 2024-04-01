@@ -7,7 +7,7 @@ import {
   Output,
   ViewChild,
 } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { AnexosService } from '@app/resources/Modules/09Anexos/services/anexos.service';
 import { first, finalize } from 'rxjs/operators';
 
@@ -27,11 +27,11 @@ export class UploadAnexoModalComponent implements OnInit {
   @Output() public loadList = new EventEmitter<any>();
 
   files: any[] = [];
-  public form: FormGroup;
+  public form: UntypedFormGroup;
   public submitted = false;
   loading: boolean = false;
   constructor(
-    public formBuilder: FormBuilder,
+    public formBuilder: UntypedFormBuilder,
     public anexosService: AnexosService
   ) {}
 

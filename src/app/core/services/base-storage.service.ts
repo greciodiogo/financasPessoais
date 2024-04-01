@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { FormGroup } from '@angular/forms';
+import { UntypedFormGroup } from '@angular/forms';
 import { map, debounceTime, finalize, catchError } from 'rxjs/operators';
 import { ApiService } from '@core/providers/api.service';
 import { HttpParams } from '@angular/common/http';
@@ -118,7 +118,7 @@ export abstract class BaseStorageService implements StateModuleApiInterface {
    * @param params
    */
 
-  storeOrUpdate(form: FormGroup, id = null): Observable<any> {
+  storeOrUpdate(form: UntypedFormGroup, id = null): Observable<any> {
     return id == null ? this.store(form) : this.update(form, id);
   }
 

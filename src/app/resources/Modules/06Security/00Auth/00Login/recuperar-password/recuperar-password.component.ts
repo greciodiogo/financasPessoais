@@ -1,6 +1,6 @@
 import {Component, ElementRef, Input, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
 import {Router, ActivatedRoute} from '@angular/router';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {UntypedFormBuilder, UntypedFormGroup, Validators} from '@angular/forms';
 import {finalize, first} from 'rxjs/operators';
 import { ResetpasswordService } from '@core/security/authentication/resetpassword.service';
 import { AuthService } from '@app/core/security/authentication/auth.service';
@@ -13,7 +13,7 @@ import { AuthService } from '@app/core/security/authentication/auth.service';
 })
 export class RecuperarPasswordComponent implements OnInit {
 
-  recuperarPasswordForm: FormGroup;
+  recuperarPasswordForm: UntypedFormGroup;
   loading = false;
   submitted = false;
   returnUrl: string;
@@ -22,7 +22,7 @@ export class RecuperarPasswordComponent implements OnInit {
 
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     public auth: AuthService,
     public recuperarPassword: ResetpasswordService,
     private router: Router,

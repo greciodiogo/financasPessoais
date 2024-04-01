@@ -9,11 +9,12 @@ import { NgxLoadingModule } from "ngx-loading";
 import { SharedMaterialModule } from "./sharedMaterial.module";
 import { NotificationsModule } from "./components/notifications/notificacions.module";
 import { LoadingComponent } from "./components/loading1/loading.component";
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 @NgModule({
   declarations: [LoadingComponent],
   imports: [
-    CommonModule,
+  CommonModule,
     FormsModule,
     ReactiveFormsModule,
     NgxPaginationModule,
@@ -21,6 +22,7 @@ import { LoadingComponent } from "./components/loading1/loading.component";
     NgxLoadingModule,
     SharedMaterialModule,
     NotificationsModule,
+    SweetAlert2Module
   ],
   
   exports: [
