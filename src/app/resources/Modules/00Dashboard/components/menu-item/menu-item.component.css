@@ -49,6 +49,7 @@
   align-items: center;
   justify-content: center;
   gap: 5px;
+  background-color: transparent;
 }
 
 .group-column .service_title {

@@ -45,20 +45,20 @@
               </i>
             </div>
             <span class="user-details-title">cartão virtual</span>
-            <h5 class="user-name">{{userSession?.usuario?.nome || 'user'}}</h5>
+            <h5 class="user-name">{{ this.authenticated?.user?.nome || 'unknown'}}</h5>
           </div>
         </div>
 
         <div class="services-container">
          <app-menu-item iconeTitle="income.png" itemTitle="Receber" (click)="toggleRecieveBtn(1)"></app-menu-item>
          <app-menu-item iconeTitle="withdraw.png" itemTitle="Retirar" (click)="toggleRecieveBtn(2)"></app-menu-item>
-         <app-menu-item iconeTitle="money.png" itemTitle="Finanças"></app-menu-item>
+         <app-menu-item iconeTitle="money.png" itemTitle="Finanças" (click)="toggleMultpileTransaction()"></app-menu-item>
          <app-menu-item iconeTitle="document-file.png" itemTitle="Histórico"></app-menu-item>
         </div>
 
         <div class="credit-card">
           <div class="credit-title">
-            <h5>{{userSession?.moeda?.descricao}}</h5>
+            <h5>Angola Kwanza</h5>
           </div>
           <div class="credit-date">
             <div class="credit-date-container">
@@ -67,7 +67,7 @@
           </div>
           <div class="credit-group">
             <span>Total Disponível</span>
-            <h4>{{configService.numberFormat(userSession.saldo_actual)}} {{userSession?.moeda?.codigo_iso}}</h4>
+            <h4>{{configService.numberFormat(transactionData?.data[0]?.conta?.saldo_actual)}} AOA</h4>
           </div>
         </div>
 
@@ -90,3 +90,5 @@
     </div>
    
 </div>
+
+<app-multiple-transaction-form [activePosition]="activeMultipleTransactionForm" (close)="onCloseModal()"></app-multiple-transaction-form>

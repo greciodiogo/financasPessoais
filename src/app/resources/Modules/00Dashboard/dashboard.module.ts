@@ -14,6 +14,7 @@ import { DashboardHomeComponent } from './components/dashboards-home/dashboard-h
 import { TransactionFullComponent } from './components/transaction-full/transaction-full.component';
 import { MenuItemComponent } from './components/menu-item/menu-item.component';
 import { SlideShowComponent } from './components/slide-show/slide-show.component';
+import { MultipleTransactionFormComponent } from './components/multiple-transaction-form/multiple-transaction-form.component';
 @NgModule({
   imports: [
     DashboardRoutingModule,
@@ -24,6 +25,6 @@ import { SlideShowComponent } from './components/slide-show/slide-show.component
     BackdropBlurModule,
     SharedGlobalModule,
   ],
-  declarations: [DashboardComponent, SlideShowComponent, MoneyControlFormComponent, MenuItemComponent, TransactionComponent, TransactionFullComponent, DashboardHomeComponent, GraficoComponent]
+  declarations: [DashboardComponent, SlideShowComponent, MoneyControlFormComponent, MenuItemComponent, TransactionComponent, TransactionFullComponent, DashboardHomeComponent, GraficoComponent, MultipleTransactionFormComponent]
 })
 export class DashboardModule { }
