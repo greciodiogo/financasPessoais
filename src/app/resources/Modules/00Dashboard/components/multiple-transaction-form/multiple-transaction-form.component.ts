@@ -51,6 +51,7 @@ export class MultipleTransactionFormComponent implements OnInit {
 
   ngOnInit() {
     this.getTransacaoTipos()
+    this.initTRX()
     this.numberOfTransactions.push(this.moneyControlForm.value)
   }
 
@@ -69,7 +70,7 @@ export class MultipleTransactionFormComponent implements OnInit {
     return this.moneyControlForm.controls['data'] as UntypedFormArray
   }
 
-  public handleAddTransacao(){
+  public initTRX() {
     const dataTransactions = this.formBuilder.group({
       id: [{ value: null, disabled: true }],
       transacaoDescricao: [null, Validators.required],
@@ -79,6 +80,10 @@ export class MultipleTransactionFormComponent implements OnInit {
       created_at: [null, Validators.required]
     })
     this.trx.push(dataTransactions)
+  }
+
+  public handleAddTransacao(){
+    this.initTRX()
   }
 
   public handleRemoveTransacao(index){
