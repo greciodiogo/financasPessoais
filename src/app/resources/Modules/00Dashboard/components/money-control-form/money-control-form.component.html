@@ -35,8 +35,9 @@
 
     <div class="registar-form-group">
       <!-- <label for="">Valor</label> -->
-      <input class="form-control" type="number" formControlName="valor" [(ngModel)]="valor" placeholder="Valor" min="0" required
-      [ngClass]="{ 'is-invalid': submitted && f.valor.errors, 'is-valid': f.valor.touched && !f.valor.errors }">
+      <input class="form-control" type="number" formControlName="valor" placeholder="Valor" min="0" required
+      [ngClass]="{ 'is-invalid': submitted && f.valor.errors, 'is-valid': f.valor.touched && !f.valor.errors }"
+       (input)="updateValor($event.target.value)">
       <!-- <div *ngIf="submitted && f['valor'].errors" class="invalid-feedback">
         <div *ngIf="f['valor'].errors.required">O campo Equipa é obrigatório</div>
       </div> -->
@@ -51,7 +52,7 @@
     </div>
     <button type="submit">
       {{formType== 1 ? 'Receber' : 'Retirar'}} 
-      <span *ngIf="valor">{{this.configService.numberFormat(valor)}} AOA</span>
+      <span *ngIf="valorNumber">{{this.configService.numberFormat(valorNumber)}} AOA</span>
     </button>
 </form>
 

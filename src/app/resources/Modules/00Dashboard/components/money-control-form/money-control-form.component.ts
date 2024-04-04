@@ -156,4 +156,8 @@ export class MoneyControlFormComponent implements OnInit {
     this.getImageTitles()
   }
 
+  public valorNumber= 0 
+  updateValor(value) {
+    this.valorNumber = value;
+  }  
 }
