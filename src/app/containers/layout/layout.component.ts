@@ -118,17 +118,11 @@ export class LayoutComponent implements OnInit, OnDestroy {
       };
   }
 
-  cssApp(cssclass){
-    // Pega o atributo do link clicado para definir qual será o valor a ser trocado.
-    $("#temacss").attr("href",`/assets/css/themes/${cssclass}.css`);
-  }
-
   /**
    * @method ngOnInit
    */
   ngOnInit() {
 
-  this.cssApp(env.app);
     this.router.events.subscribe((event: RouterEvent) => {
       this.navigationInterceptor(event);
     });
