@@ -1,17 +1,17 @@
 
 import { createReducer, on } from "@ngrx/store";
 import { TransactionsState } from "./Repositorio.State";
-import { addtransactionsuccess, deletetransactionsuccess, gettransactionsuccess, loadtransactionsuccess, updatetransactionsuccess } from "./Repositorio.Action";
+import { addmultipletransactionsuccess, addtransactionsuccess, deletetransactionsuccess, gettransactionsuccess, loadtransactionsuccess, updatetransactionsuccess } from "./Repositorio.Action";
 
 const _transactionReducer = createReducer(TransactionsState,
     on(loadtransactionsuccess, (state, action) => {
         return {
             ...state,
-            data: [...action.data],
-            page: action.page, 
-            perPage: action.perPage, 
-            total: action.total, 
-            lastPage: action.lastPage,
+            data: [...action.transaction.data],
+            page: action.transaction.page, 
+            perPage: action.transaction.perPage, 
+            total: action.transaction.total, 
+            lastPage: action.transaction.lastPage,
         }
     }),
     on(gettransactionsuccess, (state, action) => {
@@ -21,7 +21,16 @@ const _transactionReducer = createReducer(TransactionsState,
     }),
     on(addtransactionsuccess, (state, action) => {
         const _maxid = Math.max(...state.data.map(o => o.id));
-        const _newdata = { ...action.inputdata };
+        const _newdata = { ...action.transaction };
+        _newdata.id = _maxid + 1;
+        return {
+            ...state,
+            data: [...state.data, _newdata],
+        }
+    }),
+    on(addmultipletransactionsuccess, (state, action) => {
+        const _maxid = Math.max(...state.data.map(o => o.id));
+        const _newdata = { ...action.transaction };
         _newdata.id = _maxid + 1;
         return {
             ...state,
@@ -30,7 +39,7 @@ const _transactionReducer = createReducer(TransactionsState,
     }),
     on(updatetransactionsuccess, (state, action) => {
         const _newdata = state.data.map(o => {
-            return o.id === action.inputdata.id ? action.inputdata : o
+            return o.id === action.transaction.id ? action.transaction : o
         })
         return {
             ...state,

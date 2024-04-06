@@ -18,16 +18,16 @@ export const GET_TRANSACTION='[transaction page]get transaction'
 export const GET_TRANSACTION_SUCCESS='[transaction page]get transaction success'
 
 export const loadtransaction=createAction(LOAD_TRANSACTION)
-export const loadtransactionsuccess=createAction(LOAD_TRANSACTION_SUCCESS,props<{data:Transactions[], page: number, perPage: number, total: number, lastPage: number}>())
+export const loadtransactionsuccess=createAction(LOAD_TRANSACTION_SUCCESS,props<{transaction: {data:Transactions[], page: number, perPage: number, total: number, lastPage: number}}>())
 
-export const addtransaction=createAction(ADD_TRANASACTION,props<{inputdata:Transactions}>())
-export const addtransactionsuccess=createAction(ADD_TRANASACTION_SUCCESS,props<{inputdata:Transactions}>())
+export const addtransaction=createAction(ADD_TRANASACTION,props<{transaction:Transactions}>())
+export const addtransactionsuccess=createAction(ADD_TRANASACTION_SUCCESS,props<{transaction:Transactions}>())
 
-export const addmultipletransaction=createAction(ADD_MULTIPLE_TRANASACTION,props<{inputdata:Transactions}>())
-export const addmultipletransactionsuccess=createAction(ADD_MULTIPLE_TRANASACTION_SUCCESS,props<{inputdata:Transactions}>())
+export const addmultipletransaction=createAction(ADD_MULTIPLE_TRANASACTION,props<{transaction:Transactions}>())
+export const addmultipletransactionsuccess=createAction(ADD_MULTIPLE_TRANASACTION_SUCCESS,props<{transaction:Transactions}>())
 
-export const updatetransaction=createAction(UPDATE_TRANSACTION,props<{inputdata:Transactions}>())
-export const updatetransactionsuccess=createAction(UPDATE_TRANSACTION_SUCCESS,props<{inputdata:Transactions}>())
+export const updatetransaction=createAction(UPDATE_TRANSACTION,props<{transaction:Transactions}>())
+export const updatetransactionsuccess=createAction(UPDATE_TRANSACTION_SUCCESS,props<{transaction:Transactions}>())
 
 export const deleteetransaction=createAction(DELETE_TRANSACTION,props<{code:number}>())
 export const deletetransactionsuccess=createAction(DELETE_TRANSACTION_SUCCESS,props<{code:number}>())

@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core"
 import { Actions, createEffect, ofType } from "@ngrx/effects";
-import { addtransaction, addtransactionsuccess, deletetransactionsuccess, deleteetransaction, gettransaction, gettransactionsuccess, loadtransaction, loadtransactionsuccess, updatetransaction, updatetransactionsuccess } from "./Repositorio.Action";
+import { addtransaction, addtransactionsuccess, deletetransactionsuccess, deleteetransaction, gettransaction, gettransactionsuccess, loadtransaction, loadtransactionsuccess, updatetransaction, updatetransactionsuccess, addmultipletransactionsuccess, addmultipletransaction } from "./Repositorio.Action";
 import { of } from "rxjs";
 import { catchError, exhaustMap, map, switchMap } from "rxjs/operators";
 import { DashboardService } from "@app/shared/services/dashboard.service";
@@ -18,11 +18,13 @@ export class TransactionEffects {
                 return this.service.findAllTransactions().pipe(
                     map((response) => {
                         return loadtransactionsuccess({ 
-                            data: response.data, 
-                            page: response.page, 
-                            perPage: response.perPage, 
-                            total: response.total, 
-                            lastPage: response.lastPage, 
+                            transaction: {
+                                data: response.data,
+                                page: response.page, 
+                                perPage: response.perPage, 
+                                total: response.total,
+                                lastPage: response.lastPage
+                            }, 
                         })
                     }),
                     catchError((_error) => of(showalert({ message: 'Failed to fetch data :' + _error.message, resulttype: 'fail' })))
@@ -45,20 +47,37 @@ export class TransactionEffects {
     //     )
     // )
 
-    // _addtransaction = createEffect(() =>
-    //     this.actin$.pipe(
-    //         ofType(addtransaction),
-    //         switchMap((action) => {
-    //             return this.service.storeOrUpdate(action.inputdata).pipe(
-    //                 switchMap((data) => {
-    //                     return of(addtransactionsuccess({ inputdata: action.inputdata }),
-    //                         showalert({ message: 'Created successfully.', resulttype: 'pass' }))
-    //                 }),
-    //                 catchError((_error) => of(showalert({ message: 'Failed to create transaction', resulttype: 'fail' })))
-    //             )
-    //         })
-    //     )
-    // )
+    _addtransaction = createEffect(() =>
+        this.actin$.pipe(
+            ofType(addtransaction),
+            switchMap((action) => {
+                return this.service.storeOrUpdate(action.transaction).pipe(
+                    switchMap((data) => {
+                        console.log(action)
+                        return of(addtransactionsuccess({ transaction: action.transaction }),
+                            showalert({ message: 'Created successfully.', resulttype: 'pass' }))
+                    }),
+                    catchError((_error) => of(showalert({ message: 'Failed to create transaction', resulttype: 'fail' })))
+                )
+            })
+        )
+    )
+
+    _addmultipletransaction = createEffect(() =>
+        this.actin$.pipe(
+            ofType(addmultipletransaction),
+            switchMap((action) => {
+                return this.service.createMultiplasTransacoes(action.transaction).pipe(
+                    switchMap((data) => {
+                        console.log(action)
+                        return of(addmultipletransactionsuccess({ transaction: action.transaction }),
+                            showalert({ message: 'Created successfully.', resulttype: 'pass' }))
+                    }),
+                    catchError((_error) => of(showalert({ message: 'Failed to create transaction', resulttype: 'fail' })))
+                )
+            })
+        )
+    )
 
     // _updatetransaction = createEffect(() =>
     //     this.actin$.pipe(
