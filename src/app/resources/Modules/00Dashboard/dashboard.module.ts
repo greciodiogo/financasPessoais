@@ -15,6 +15,8 @@ import { TransactionFullComponent } from './components/transaction-full/transact
 import { MenuItemComponent } from './components/menu-item/menu-item.component';
 import { SlideShowComponent } from './components/slide-show/slide-show.component';
 import { MultipleTransactionFormComponent } from './components/multiple-transaction-form/multiple-transaction-form.component';
+import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
+
 @NgModule({
   imports: [
     DashboardRoutingModule,
@@ -24,6 +26,7 @@ import { MultipleTransactionFormComponent } from './components/multiple-transact
     CommonModule,
     BackdropBlurModule,
     SharedGlobalModule,
+    NgbCarouselModule
   ],
   declarations: [DashboardComponent, SlideShowComponent, MoneyControlFormComponent, MenuItemComponent, TransactionComponent, TransactionFullComponent, DashboardHomeComponent, GraficoComponent, MultipleTransactionFormComponent]
 })

@@ -9,26 +9,30 @@
       </div>
         
       <div class="slideshow-container">
-        <ng-container>
-          <!-- <div class="slide" [class.active]="true">
-            <div class="dashboard-title font-sm">
-              Estatística
+        <ngb-carousel>
+          <ng-template ngbSlide>
+            <div class="slide" [class.active]="false">
+              <div class="dashboard-title">
+                Últimos Movimentos
+              </div>
+              <div class="transactions-container">
+                <app-transaction-full [largeSize]="true" [pagination]="pagination"
+                (handleEdit)="handleEditTransaction($event)"
+                ></app-transaction-full>
+              </div>
             </div>
-            <div class="grafico-left">
-              <app-grafico [dashboard]="this.dashboard"></app-grafico>
+          </ng-template>
+          <ng-template ngbSlide>
+            <div class="slide" [class.active]="true">
+              <div class="dashboard-title font-sm">
+                Estatística
+              </div>
+              <div class="grafico-left">
+                <app-grafico [dashboard]="this.dashboard"></app-grafico>
+              </div>
             </div>
-          </div> -->
-          <div class="slide" [class.active]="false">
-            <div class="dashboard-title">
-              Últimos Movimentos
-            </div>
-            <div class="transactions-container">
-              <app-transaction-full [largeSize]="true" [transactionData]="transactionData" [pagination]="pagination"
-              (loadList)="getPageFilterData($event)" (handleEdit)="handleEditTransaction($event)"
-              ></app-transaction-full>
-            </div>
-          </div>
-        </ng-container>
+          </ng-template>
+        </ngb-carousel>
     </div>
     
   </div>
@@ -67,7 +71,7 @@
           </div>
           <div class="credit-group">
             <span>Total Disponível</span>
-            <h4>{{configService.numberFormat(transactionData?.data[0]?.conta?.saldo_actual)}} AOA</h4>
+            <h4>{{configService.numberFormat(totalDisponivel)}} AOA</h4>
           </div>
         </div>
 

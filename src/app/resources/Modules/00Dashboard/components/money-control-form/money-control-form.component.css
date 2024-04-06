@@ -7,7 +7,7 @@
 .registar_transacao {
   width: 100%;
   position: absolute;
-  bottom: -500px;
+  /* bottom: -500px; */
   opacity: 0;
   left: 0;
   width: 100%;

@@ -13,6 +13,8 @@ import { LanguageService } from "@app/shared/services/language.service";
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from "@angular/forms";
 import { DashboardService } from '@app/shared/services/dashboard.service';
 import { first } from "rxjs/operators";
+import { Store } from '@ngrx/store';
+import { addtransaction } from "@app/resources/Store/Repositorio/Repositorio.Action";
 
 @Component({
   selector: "app-money-control-form",
@@ -43,6 +45,7 @@ export class MoneyControlFormComponent implements OnInit {
     public configService: FnService,
     public formBuilder: UntypedFormBuilder,
     public dashboardService: DashboardService,
+    private store: Store
   ) {
     this.createForm()
   }
@@ -96,26 +99,16 @@ export class MoneyControlFormComponent implements OnInit {
 
     this.moneyControlForm.patchValue({
       categoria_id: categoryValidate
-      
       });
-    this.dashboardService.storeOrUpdate(formulario.value, id)
-    .pipe(first())
-    .subscribe(
-        (response) => {
-          this.submitted = false;
-          this.loading = false;
-          this.loadList.emit(response);
-          if (isCreate) {
-            formulario.reset();
-          }
-          this.loadList.emit(Object(response).data);
-          this.close.emit();
-        },
-        (error) => {
-        this.submitted = false;
-        this.dashboardService.loading = false;
-      }
-    )
+
+      // this.loading = true
+      this.store.dispatch(addtransaction({ transaction: formulario.value }))
+      this.loading = false;
+      this.submitted = false;
+      if (isCreate) {
+          formulario.reset();
+        }
+        this.close.emit();
   }
 
   public imageTitle: string ="income.png"

@@ -17,6 +17,9 @@ import { Pagination } from "@app/shared/models/pagination";
 import { Observable, Subject } from "rxjs";
 import { MoneyControlFormComponent } from "../components/money-control-form/money-control-form.component";
 import { AuthService } from "@app/core/security/authentication/auth.service";
+import { Store } from "@ngrx/store";
+import { gettransaction, loadtransaction, loadtransactionsuccess } from "@app/resources/Store/Repositorio/Repositorio.Action";
+import { NgbCarouselConfig } from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
   selector: "app-dashboard",
@@ -57,28 +60,22 @@ export class DashboardComponent implements OnInit, OnDestroy {
     public authenticated: AuthService,
     public dashboardService: DashboardService,
     public configService: FnService,
-  ) {}
-
-  public getDashboardInit() {
-    // this.dashboardService.getDashboardByClienteId(this.data).subscribe(
-    //   (data) => {
-    //     setTimeout(() => {
-    //       // Atualizar o valor dentro da zona Angular
-    //       this.ngZone.run(() => {
-    //         this.dashboard = data;
-    //         this.dashboardService.loading = false;
-    //         this.graficoComponent.chartts(this.dashboard?.qtdFacturasMes);
-    //         this.cdr.detectChanges(); // Forçar a detecção de mudanças
-    //       });
-    //     }, 2000);
-    //   },
-    //   (error) => (this.dashboardService.loading = false)
-    // );
+    private store: Store,
+    public config: NgbCarouselConfig
+  ) {
+    config.interval = 4000;
+    config.showNavigationArrows = false;
+    config.showNavigationIndicators = true;
   }
 
   ngOnInit() {
-    this.getDashboardInit();
-    this.findAllTransactions()
+    this.store.dispatch(loadtransaction());
+    this.store.select(loadtransactionsuccess).subscribe(response => {
+      if (response.transaction.data.length > 0) {
+        this.totalDisponivel = response.transaction.data[0].conta.saldo_actual;
+        this.lastTransaction = response.transaction.data[0];
+      } 
+    })
   }
 
   ngOnDestroy(): void {}
@@ -115,22 +112,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
       nome: ""
   }
 
-  public findAllTransactions(){
-    this.dashboardService.loading = true
-    this.dashboardService.findAllTransactions().subscribe(
-      (response)=>{
-        this.transactionData = response;
-        this.pagination.page = response.page;
-        this.pagination.perPage = response.perPage;
-        this.pagination.lastPage = response.lastPage;
-        this.pagination.total = response.total;
-        
-        this.lastTransaction =response?.data[0]
-        this.dashboardService.loading = false
-      },
-      (error) => (this.dashboardService.loading = false)
-      )
-    }
     public getPageFilterData(page: number) {
       if (this.pagination.perPage == null) {
         return;
@@ -138,13 +119,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
     this.pagination.page = page;
     this.subjectObj.next(this.pagination.page);
   }
-  slides = [{},{}
-    // { template: this.estatisticaTemplate }, // Template para Estatística
-    // { template: this.movimentosTemplate }   // Template para Últimos Movimentos
-  ];
-
-  // currentIndex = 0;
-  // slideInterval = 8000; // 8 segundos
   
   @ViewChild(MoneyControlFormComponent, { static: true })
   public moneyControlFormComponent: MoneyControlFormComponent;
@@ -152,4 +126,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
     this.moneyControlFormComponent.setTransaction(transaction)
     this.toggleRecieveBtn(3)
   }
+
+  public totalDisponivel: any ;
+ 
 }
