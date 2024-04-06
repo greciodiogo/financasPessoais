@@ -32,7 +32,11 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { NotificationsModule } from './shared/components/notifications/notificacions.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
-
+import { StoreModule } from '@ngrx/store'
+import { EffectsModule } from '@ngrx/effects';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { transactionReducer } from './resources/Store/Repositorio/Repositorio.Reducer';
+import { TransactionEffects } from './resources/Store/Repositorio/Repositorio.Effects';
 @NgModule({
   declarations: [
     LayoutComponent,
@@ -77,7 +81,9 @@ import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
     Ng2IziToastModule,
     ModalModule.forRoot(),
     NgbModule,
-    NgxSkeletonLoaderModule
+    NgxSkeletonLoaderModule,
+    StoreModule.forRoot({transaction: transactionReducer}),
+    EffectsModule.forRoot([TransactionEffects])
 
   ],
   providers: [
