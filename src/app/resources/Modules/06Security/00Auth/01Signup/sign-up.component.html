@@ -14,7 +14,7 @@
               <div class="registar-form-row">
                     <div class="registar-form-group">
                       <!-- <label for="">Descrição</label> -->
-                      <input class="form-control" type="text" placeholder="Nome" [(ngModel)]="cliente.first_name" formControlName="name" required
+                      <input class="form-control" type="text" placeholder="Nome" formControlName="name" required autocomplete="name"
                       [ngClass]="{ 'is-invalid': submitted && f.name.errors, 'is-valid': f.name.touched && !f.name.errors }">
                       <!-- <div *ngIf="submitted && f['name'].errors" class="invalid-feedback">
                         <div *ngIf="f['name'].errors.required">O campo Nome é obrigatório</div>
@@ -22,7 +22,7 @@
                     </div>
                     <div class="registar-form-group">
                       <!-- <label for="">Descrição</label> -->
-                      <input class="form-control" type="text" placeholder="Sobrenome" [(ngModel)]="cliente.last_name" formControlName="username" required
+                      <input class="form-control" type="text" placeholder="Sobrenome" formControlName="username" required autocomplete="name"
                       [ngClass]="{ 'is-invalid': submitted && f.username.errors, 'is-valid': f.username.touched && !f.name.errors }">
                       <!-- <div *ngIf="submitted && f['username'].errors" class="invalid-feedback">
                         <div *ngIf="f['username'].errors.required">O campo Sobrenome é obrigatório</div>
@@ -31,7 +31,7 @@
               </div>
               <div class="registar-form-group">
                 <!-- <label for="">Descrição</label> -->
-                <input class="form-control" type="email" placeholder="Email" [(ngModel)]="cliente.email" formControlName="email" required
+                <input class="form-control" type="email" placeholder="Email" formControlName="email" required autocomplete="email"
                 [ngClass]="{ 'is-invalid': submitted && f.email.errors, 'is-valid': f.email.touched && !f.email.errors }">
                 <!-- <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
                   <div *ngIf="f['email'].errors.required">O campo Email é obrigatório</div>
@@ -42,7 +42,7 @@
               <div class="registar-form-row">         
                   <div class="registar-form-group">
                     <!-- <label for="">Descrição</label> -->
-                    <input class="form-control" type="password" placeholder="senha" formControlName="password" required
+                    <input class="form-control" type="password" placeholder="senha" autocomplete="current-password" formControlName="password" required
                     [ngClass]="{ 'is-invalid': submitted && f.password.errors, 'is-valid': f.password.touched && !f.password.errors }">
                     <!-- <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
                       <div *ngIf="f['password'].errors.required">O campo Password é obrigatório</div>
@@ -51,7 +51,7 @@
 
                   <div class="registar-form-group">
                     <!-- <label for="">Descrição</label> -->
-                    <input class="form-control" type="password" placeholder="Repetir senha" formControlName="confirmpassword" required
+                    <input class="form-control" type="password" placeholder="Repetir senha" autocomplete="current-password" formControlName="confirmpassword" required
                     [ngClass]="{ 'is-invalid': submitted && f.confirmpassword.errors, 'is-valid': f.confirmpassword.touched && !f.confirmpassword.errors }">
                     <!-- <div *ngIf="submitted && f['confirmpassword'].errors" class="invalid-feedback">
                       <div *ngIf="f['confirmpassword'].errors.required">O campo Password é obrigatório</div>
