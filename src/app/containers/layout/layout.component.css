@@ -12,6 +12,10 @@
     margin: 0 auto;
 }
 
+.max_width{
+    max-width: 100% !important;
+}
+
 .content-wrapper {
     flex: 1;
     /* background-color: var(--mainColor); */

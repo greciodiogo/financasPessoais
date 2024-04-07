@@ -5,8 +5,8 @@
   <p style="color:white; font-size: 22px"> Carregando... </p>
 </ngx-spinner>
 
-  <div class="wrapper" >
-    <app-menu-sidebar></app-menu-sidebar>
+  <div class="wrapper" [class.max_width]="!this.userData">
+    <app-menu-sidebar *ngIf="this.userData"></app-menu-sidebar>
 
     <div class="content-wrapper {{ layout.layoutNavigationTop?'content-wrapper-left': ''}}">
     <!-- <app-menu-header [themeApp]="themeApp" class="{{ layout.layoutNavigationTop?'content-wrapper-left': ''}}" *ngIf="layout.customLayout" [layoutNavigationTop]="layout.layoutNavigationTop" [authenticated]="auth"></app-menu-header> -->

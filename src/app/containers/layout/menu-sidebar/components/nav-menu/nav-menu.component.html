@@ -10,7 +10,7 @@
           <span>Dashboard</span>
         </a>
       </li>
-      <li id="minhas-contas" class="nav-item dropdown2">
+      <li id="simulador" class="nav-item dropdown2">
         <a routerLink="/simulador" routerLinkActive="active" class="nav-link">
           <i class="fa fa-folder">
             <img width="20" height="20" src="../../../../../../assets/img/sidebar/credit-card.png" alt="">
@@ -18,7 +18,7 @@
           <span>Metas</span>
         </a>
       </li>
-      <li id="dashboard" class="nav-item dropdown2">
+      <!-- <li id="dashboard" class="nav-item dropdown2">
         <a  routerLink="/#" routerLinkActive="active" class="nav-link">
           <i class="fa fa-folder-open">
             <img width="20" height="20" src="../../../../../../assets/img/sidebar/wallet.png" alt="">
@@ -39,15 +39,15 @@
             <i class="fa fa-shopping-cart">
               <img width="20" height="20" src="../../../../../../assets/img/sidebar/gear-settings.png" alt="">
             </i>
-            <span>Investimentos</span>
+            <span>Definições</span>
           </a>
-        </li> 
+        </li>  -->
         <li id="simulador" class="nav-item dropdown2">
-          <a  routerLink="/#" routerLinkActive="active" class="nav-link">
+          <a  href="#" class="nav-link" (click)="this.authenticated.logout()">
             <i class="fa fa-shopping-cart">
               <img width="20" height="20" src="../../../../../../assets/img/sidebar/log-out.png" alt="">
             </i>
-            <span>Definições</span>
+            <span>Logout</span>
           </a>
         </li> 
     </ul>
