@@ -38,7 +38,8 @@
                             <div class="registar-form-group">
                                 <!-- <label for="">Valor</label> -->
                                 <input class="form-control" type="number" formControlName="valor" placeholder="Valor" min="0" required
-                                [ngClass]="{ 'is-invalid': submitted && f.get('valor').errors, 'is-valid': f.get('valor').touched && !f.get('valor').errors }">
+                                [ngClass]="{ 'is-invalid': submitted && f.get('valor').errors, 'is-valid': f.get('valor').touched && !f.get('valor').errors }"
+                                (input)="updateValor($event.target.value)">
                                 <!-- <div *ngIf="submitted && f.get('valor').errors" class="invalid-feedback">
                                 <div *ngIf="f.get('valor').errors.required">O campo Equipa é obrigatório</div>
                                 </div> -->
@@ -67,7 +68,7 @@
             <button mat-mini-fab class="btnAddTransacao" type="button" (click)="handleAddTransacao()"><mat-icon class="add-course-btn">add</mat-icon></button>
             <button class="btnSubmit" type="submit">
                 {{formType== 1 ? 'Receber' : 'Retirar'}} 
-                <span *ngIf="valor">{{this.configService.numberFormat(valor)}} AOA</span>
+                <span *ngIf="soma">{{this.configService.numberFormat(soma)}} AOA</span>
             </button>
         </form>
     

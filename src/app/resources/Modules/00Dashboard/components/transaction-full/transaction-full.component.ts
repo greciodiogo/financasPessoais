@@ -16,6 +16,8 @@ import { Observable, Subject } from "rxjs";
 import { Pagination } from "@app/shared/models/pagination";
 import { MoneyControlFormComponent } from "../money-control-form/money-control-form.component";
 import { DashboardComponent } from "../../pages/dashboard.component";
+import { Store } from '@ngrx/store';
+import { loadtransaction, loadtransactionsuccess } from "@app/resources/Store/Repositorio/Repositorio.Action";
 
 @Component({
   selector: "app-transaction-full",
@@ -25,7 +27,7 @@ import { DashboardComponent } from "../../pages/dashboard.component";
 
 export class TransactionFullComponent implements OnInit {
   
-  @Input() transactionData: any = []
+  public transactionData: any = []
   @Input() largeSize: boolean = false;
   @Output() public handleEdit = new EventEmitter<any>();
   @Output() public loadList = new EventEmitter<any>();
@@ -47,7 +49,8 @@ export class TransactionFullComponent implements OnInit {
 
   constructor(
     public configService: FnService,
-    public dashboardService: DashboardService
+    public dashboardService: DashboardService,
+    private store: Store
     // public languageservice: LanguageService,
     // public translate: TranslateService,
 
@@ -57,12 +60,26 @@ export class TransactionFullComponent implements OnInit {
     // this.languageservice.currentLanguage$.subscribe((language) => {
     //   this.translate.use(language);
     // });
+    this.store.dispatch(loadtransaction());
+    this.store.select(loadtransactionsuccess).subscribe(response => {
+      if (response.transaction.data.length > 0) {
+        this.transactionData= response.transaction
+        this.pagination.page = response.transaction.page
+        this.pagination.perPage = response.transaction.perPage
+        this.pagination.lastPage = response.transaction.lastPage
+        this.pagination.total = response.transaction.total
+      } 
+    })
   }
 
   public transactionTitle = ""
 
   public getPageFilterData(page) {
-    this.loadList.emit(page);
+    if (this.pagination.perPage == null) {
+      return;
+    }
+    this.pagination.page = page;
+    this.subjectObj.next(this.pagination.page);
   }
 
   public onHandleEdit(data){

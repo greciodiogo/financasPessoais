@@ -118,7 +118,7 @@ export abstract class BaseStorageService implements StateModuleApiInterface {
    * @param params
    */
 
-  storeOrUpdate(form: UntypedFormGroup, id = null): Observable<any> {
+  storeOrUpdate(form: UntypedFormGroup|Object, id = null): Observable<any> {
     return id == null ? this.store(form) : this.update(form, id);
   }
 

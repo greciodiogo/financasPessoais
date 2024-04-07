@@ -13,6 +13,8 @@ import { LanguageService } from "@app/shared/services/language.service";
 import { UntypedFormArray, UntypedFormBuilder, UntypedFormGroup, Validators } from "@angular/forms";
 import { DashboardService } from '@app/shared/services/dashboard.service';
 import { first } from "rxjs/operators";
+import { Store } from "@ngrx/store";
+import { addmultipletransaction } from "@app/resources/Store/Repositorio/Repositorio.Action";
 
 @Component({
   selector: "app-multiple-transaction-form",
@@ -31,7 +33,7 @@ export class MultipleTransactionFormComponent implements OnInit {
   
   public valor: number;
   @Input() transaction: any ;
-  @Input() formType: number =1
+  @Input() formType: number =2
   @Input() activePosition: boolean = false
   @Output() public close = new EventEmitter<any>();
   @Output() loadList: EventEmitter<any> = new EventEmitter<any>()
@@ -45,6 +47,7 @@ export class MultipleTransactionFormComponent implements OnInit {
     public configService: FnService,
     public formBuilder: UntypedFormBuilder,
     public dashboardService: DashboardService,
+    private store: Store
   ) {
     this.createForm()
   }
@@ -121,27 +124,16 @@ export class MultipleTransactionFormComponent implements OnInit {
 
     this.moneyControlForm.patchValue({
       categoria_id: categoryValidate
-      
-      });
-      
-    this.dashboardService.createMultiplasTransacoes(formulario.value)
-    .pipe(first())
-    .subscribe(
-        (response) => {
+    });
+
+    // this.loading = true
+    this.store.dispatch(addmultipletransaction({ transaction: formulario.value }))
+    this.loading = false;
           this.submitted = false;
-          this.loading = false;
-          this.loadList.emit(response);
           if (isCreate) {
-            formulario.reset();
-          }
-          this.loadList.emit(Object(response).data);
-          this.close.emit();
-        },
-        (error) => {1
-        this.submitted = false;
-        this.dashboardService.loading = false;
-      }
-    )
+              formulario.reset();
+            }
+            this.close.emit();
   }
 
   public imageTitle: string ="income.png"
@@ -181,5 +173,16 @@ export class MultipleTransactionFormComponent implements OnInit {
   public ngOnChanges(changes: SimpleChanges) {
     this.getImageTitles()
   }
+
+  public valorNumber= 0 
+  public soma = 0
+  updateValor(value) {
+    let somatorio = 0
+    this.valorNumber = value;
+    this.moneyControlForm.value.data.forEach(element => {
+      somatorio += element.valor
+    });
+    this.soma = somatorio
+  }  
 
 }
