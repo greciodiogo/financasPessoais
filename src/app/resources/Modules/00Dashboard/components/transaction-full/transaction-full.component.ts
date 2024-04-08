@@ -41,8 +41,7 @@ export class TransactionFullComponent implements OnInit {
   public imageTitle = "income.png"
   public categoriasTransaction
   
-  @Input() pagination: Pagination
-
+  public pagination: Pagination
   
   public observableObj: Observable<any>;
   public subjectObj = new Subject<number>();
@@ -62,12 +61,14 @@ export class TransactionFullComponent implements OnInit {
     // });
     this.store.dispatch(loadtransaction());
     this.store.select(loadtransactionsuccess).subscribe(response => {
-      if (response.transaction.data.length > 0) {
+      if (response.transaction && response.transaction.data.length > 0) {
         this.transactionData= response.transaction
-        this.pagination.page = response.transaction.page
-        this.pagination.perPage = response.transaction.perPage
-        this.pagination.lastPage = response.transaction.lastPage
-        this.pagination.total = response.transaction.total
+        this.pagination = {
+          page: response.transaction.page,
+          perPage: response.transaction.perPage,
+          lastPage: response.transaction.lastPage,
+          total: response.transaction.total
+        }
       } 
     })
   }
