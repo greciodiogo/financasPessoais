@@ -41,7 +41,8 @@ export class SignUpComponent implements OnInit {
     public userService: UserService,
     private router: Router,
     public auth: AuthService, 
-    public login: LoginService
+    public authenticationService: LoginService,
+    private route: ActivatedRoute, 
   ) { 
     
   }
@@ -52,11 +53,11 @@ export class SignUpComponent implements OnInit {
       name: [''],
       username: [''],
       email: [''],
-      telephone: [null],
       password: [null, Validators.required],
       confirmpassword: [null, Validators.required],
-      country_code: [null],
     }); 
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/dashboard';
+
   }
 
   // convenience getter for easy access to form fields
@@ -65,18 +66,9 @@ export class SignUpComponent implements OnInit {
   }
 
 
-  sendCodeToPhone(){ 
+  registerUser(){ 
     if(this.signupForm.value.password == this.signupForm.value.confirmpassword){
-      if(this.showModal == 1) this.showModal = 2;
-        // this.clienteService.sendCodeTo([this.telephone]).subscribe(
-          // (response) => {
-          //   // this.verifyCodeComponent.startMinute()
-          //   this.password = this.signupForm.value.password;           
-          // },
-          // (error) => {
-          //   console.log(error)
-          // }
-        // )
+      this.autenticate()
     }else{
       Swal.fire({
         icon: "error",
@@ -87,26 +79,24 @@ export class SignUpComponent implements OnInit {
     } 
   }
 
-  public autenticate(user: any) {
-    this.login.login(user.telephone, user.password)
-      .pipe(first(), finalize(() => { }))
+  public autenticate() {
+
+    this.submitted = true;
+
+    // stop here if form is invalid
+    if (this.signupForm.invalid) {
+      return;
+    }
+
+    this.loading = true;
+    this.authenticationService.signup(this.signupForm.value)
+      .pipe(first(), finalize(()=>{ this.loading = false; }))
       .subscribe(
         data => {
-          this.router.navigate([this.returnUrl]);
+          window.location.replace(this.returnUrl);
         },
         error => {
-          console.log(error);
+          this.loading = false;
         });
-  }
-
-  public async registerClient(user: any) {
-    this.userService.store(user).subscribe(
-      (response) => {   
-        this.autenticate(this.user);
-      },
-      (error) => {
-        console.log(error)
-      }
-    )
   }
 }

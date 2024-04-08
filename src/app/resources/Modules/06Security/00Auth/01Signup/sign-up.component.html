@@ -6,7 +6,7 @@
         <h3 class="logo">Finanças Pessoais</h3>
         <app-loading [show]="this.userService.loading" title="Aguarde" subTitle="Estamos processar a informação"></app-loading>
 
-        <form class="login-form" [formGroup]="signupForm" style="position: relative;">
+        <form class="login-form" [formGroup]="signupForm" (ngSubmit)="registerUser()" style="position: relative;">
           <app-loading [show]="loading" title="Aguarde" subTitle="Estamos a validar as suas credenciais de acesso"></app-loading> 
           <div class="row">
  
@@ -62,7 +62,7 @@
           </div>
           <div class="row">
             <button class="btnLogin"  data-toggle="modal"
-           type="submit" (click)="sendCodeToPhone()" [class.optionalBtn]="this.signupForm.pristine || this.signupForm.invalid" [disabled]="this.signupForm.pristine || this.signupForm.invalid">Seguinte</button>
+           type="submit" [class.optionalBtn]="this.signupForm.pristine || this.signupForm.invalid" [disabled]="this.signupForm.pristine || this.signupForm.invalid">Seguinte</button>
           </div>
     
           <div class="row help-password" style="border: 1px solid #fff;margin-top: 10px; border-radius: 4px;"> 

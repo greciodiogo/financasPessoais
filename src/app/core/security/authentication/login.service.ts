@@ -32,4 +32,17 @@ export class LoginService {
       })
     );
   }
-}
+
+  public signup(requestData) {
+    return this.api.post('security/auth/signup', requestData, false).pipe(
+      finalize(() => {}),
+      map((response) => {
+        const data = response.data;
+        if (data) {
+          localStorage.setItem('frase','0')
+          this.auth.setItemLocalStorage(data);
+        }
+      })
+    );
+  }
+  }
