@@ -17,7 +17,8 @@
               : {
                   itemsPerPage: pagination?.perPage,
                   currentPage: pagination?.page,
-                  totalItems: pagination?.total
+                  totalItems: pagination?.total,
+                  id: 'listTransactionFull'
                 };
           index as i">
         <td width="50" class="titleWrapper">
@@ -59,7 +60,7 @@
         </div>
         <div class="pagination-container">
           <pagination-controls (pageChange)="getPageFilterData($event)" previousLabel="prev" maxSize="6"
-            nextLabel="next" directionLinks="true" responsive="true"></pagination-controls>
+            nextLabel="next" directionLinks="true" responsive="true" id="listTransactionFull"></pagination-controls>
         </div>
     </div>
 </div>

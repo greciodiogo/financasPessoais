@@ -13,16 +13,16 @@
           <ng-template ngbSlide>
             <div class="slide" [class.active]="false">
               <div class="dashboard-title">
-                Últimos Movimentos
+                {{ transactionData?.data?.length > 0 ? 'Últimos' : 'Sem'}} Movimentos
               </div>
-              <div class="transactions-container">
-                <app-transaction-full [largeSize]="true" [pagination]="pagination"
+              <div class="transactions-container"  *ngIf=" transactionData?.data?.length > 0">
+                <app-transaction-full [largeSize]="true"
                 (handleEdit)="handleEditTransaction($event)"
                 ></app-transaction-full>
               </div>
             </div>
           </ng-template>
-          <ng-template ngbSlide>
+          <ng-template ngbSlide *ngIf="transactionData?.data?.length > 0">
             <div class="slide" [class.active]="true">
               <div class="dashboard-title font-sm">
                 Estatística
@@ -45,7 +45,9 @@
           <div class="user-details-container">
             <div class="user-details-avatar">
               <i class="fa fa-home">
-                <img width="70" height="70" src="../../../../../../assets/img/Grécio_Diogo.png" alt="">
+                <img width="70" *ngIf="this.authenticated?.user?.id==1" height="70" src="../../../../../../assets/img/Grécio_Diogo.png" alt="">
+                <img width="70" *ngIf="this.authenticated?.user?.id!=1" height="70" src="https://avatar.iran.liara.run/username?username={{ this.authenticated?.user?.nome || 'unknown'}}" alt="">
+
               </i>
             </div>
             <span class="user-details-title">cartão virtual</span>
@@ -71,7 +73,7 @@
           </div>
           <div class="credit-group">
             <span>Total Disponível</span>
-            <h4>{{configService.numberFormat(totalDisponivel)}} AOA</h4>
+            <h4>{{configService.numberFormat(totalDisponivel || 0)}} AOA</h4>
           </div>
         </div>
 
@@ -79,12 +81,12 @@
       </div>
       
       
-      <div class="dashboard-title sc-color">
+      <div class="dashboard-title sc-color" *ngIf="transactionData?.data?.length > 0">
         Últimos Movimentos
       </div>
-      <app-transaction [transaction]="lastTransaction"></app-transaction>
+      <app-transaction [transaction]="lastTransaction" *ngIf="transactionData?.data?.length > 0"></app-transaction>
 
-      <div class="transactions see-all">
+      <div class="transactions see-all" *ngIf=" transactionData?.data?.length > 0">
         <button>
           Ver todos Movimentos
           <span>→</span>

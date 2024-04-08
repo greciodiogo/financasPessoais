@@ -4,6 +4,8 @@ import { BaseStorageService } from '@app/core/services/base-storage.service';
 import { map, finalize } from 'rxjs/operators';
 import { ApiService } from '@core/providers/api.service';
 import { PermissionService } from '@app/core/security/authentication/permission.service';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
 
 @Injectable({
   providedIn: 'root',
@@ -12,7 +14,13 @@ export class DashboardService extends BaseStorageService{
 
   private route:string =`transacoes`;
   public loading:boolean=false
-  constructor(protected http: ApiService, public Permission: PermissionService) {
+  private apiUrl = 'https://currency-conversion-and-exchange-rates.p.rapidapi.com/convert';
+  private apiUrl2 = 'https://currency-conversion-and-exchange-rates.p.rapidapi.com/latest';
+  private headers = new HttpHeaders({
+    'X-RapidAPI-Key': 'b679ec4e1dmsh00851a579aef8a4p12ee3ejsnbc8a1bbb852f',
+    'X-RapidAPI-Host': 'currency-conversion-and-exchange-rates.p.rapidapi.com'
+  });
+  constructor(protected http: ApiService,private httpclient: HttpClient, public Permission: PermissionService) {
     super(`transacoes`);
   }
 
@@ -72,6 +80,11 @@ export class DashboardService extends BaseStorageService{
       //this.loading = false;
     }), map((data) => Object(data).data)
     );
+  }
+
+  getConversionRates(fromCurrency: string, toCurrencies: string[],amount): Observable<any> {
+    const url = `${this.apiUrl}?from=${fromCurrency}&to=${toCurrencies.join(',')}&amount=${amount}`;
+    return this.httpclient.get(url, { headers: this.headers });
   }
 }
   

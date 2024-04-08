@@ -63,7 +63,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
     private store: Store,
     public config: NgbCarouselConfig
   ) {
-    config.interval = 4000;
+    config.interval = 6000;
     config.showNavigationArrows = false;
     config.showNavigationIndicators = true;
   }
@@ -72,6 +72,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
     this.store.dispatch(loadtransaction());
     this.store.select(loadtransactionsuccess).subscribe(response => {
       if (response.transaction.data.length > 0) {
+        this.transactionData = response.transaction
         this.totalDisponivel = response.transaction.data[0].conta.saldo_actual;
         this.lastTransaction = response.transaction.data[0];
       } 
