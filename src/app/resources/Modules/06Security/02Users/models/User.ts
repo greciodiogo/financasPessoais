@@ -1,10 +1,11 @@
 import { Deserializable } from '@app/shared/models/deserializable';
 export class User implements Deserializable {
+  [x: string]: any;
   id?: number = null;
   email: string;
   username: string;
   password: string;
-  name: string = null;
+  nome: string = null;
   telefone: string;
   is_actived: boolean;
   perfil: any = [];

@@ -15,6 +15,8 @@ import { DashboardService } from '@app/shared/services/dashboard.service';
 import { first } from "rxjs/operators";
 import { Store } from '@ngrx/store';
 import { addtransaction } from "@app/resources/Store/Repositorio/Repositorio.Action";
+import { WebSocketService } from "@app/core/services/web-socket";
+import { AuthService } from "@app/core/security/authentication/auth.service";
 
 @Component({
   selector: "app-money-control-form",
@@ -45,7 +47,9 @@ export class MoneyControlFormComponent implements OnInit {
     public configService: FnService,
     public formBuilder: UntypedFormBuilder,
     public dashboardService: DashboardService,
-    private store: Store
+    private store: Store,
+    public webSocketService: WebSocketService,
+    public authenticated: AuthService,
   ) {
     this.createForm()
   }
@@ -103,12 +107,13 @@ export class MoneyControlFormComponent implements OnInit {
 
       // this.loading = true
       this.store.dispatch(addtransaction({ transaction: formulario.value }))
+      this.transactionWsNotification()
       this.loading = false;
       this.submitted = false;
       if (isCreate) {
-          formulario.reset();
+          // formulario.reset();
         }
-        this.close.emit();
+        // this.close.emit();
   }
 
   public imageTitle: string ="income.png"
@@ -153,4 +158,13 @@ export class MoneyControlFormComponent implements OnInit {
   updateValor(value) {
     this.valorNumber = value;
   }  
+
+  transactionWsNotification(){
+    this.webSocketService.connection('notification');
+    this.webSocketService.sendCall('CREATE_TRANSACTION', {
+      username: this.authenticated?.user?.nome,
+      created_at: new Date(),
+      tipo: this.formType==1 ? 'Crédito' : 'Débito'
+    })
+  }
 }

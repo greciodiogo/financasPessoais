@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core'; 
 
 import 'babel-polyfill';
-// import * as Ws from "@adonisjs/websocket-client";
+import * as Ws from "@adonisjs/websocket-client";
 import { environment as env } from '@env/environment';
 
 @Injectable({
@@ -20,7 +20,7 @@ export abstract class WebSocketService {
   connection(channelName){
     this.channelName = channelName;
     const wsUrl = "ws://"+env.host+":"+env.port;
-    // this.socket = Ws(wsUrl, {});
+    this.socket = Ws(wsUrl, {});
   }
 
   createdChannel(channelName:string){
@@ -40,10 +40,9 @@ export abstract class WebSocketService {
   }
 
   // esse método será responsável por enviar um evento para o canal
-  public sendCall() {
-    this.channel.emit("call", {
-        /*params*/
-    });
-}
+  public sendCall(channelMessage:string, obj: {}) {
+    this.channel = this.createdChannel(this.channelName)
+    this.channel.emit(channelMessage, obj);
+  }
 
 }

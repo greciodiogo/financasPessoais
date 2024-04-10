@@ -20,6 +20,7 @@ import { AuthService } from "@app/core/security/authentication/auth.service";
 import { Store } from "@ngrx/store";
 import { gettransaction, loadtransaction, loadtransactionsuccess } from "@app/resources/Store/Repositorio/Repositorio.Action";
 import { NgbCarouselConfig } from "@ng-bootstrap/ng-bootstrap";
+import { WebSocketService } from "@app/core/services/web-socket";
 
 @Component({
   selector: "app-dashboard",
@@ -61,7 +62,8 @@ export class DashboardComponent implements OnInit, OnDestroy {
     public dashboardService: DashboardService,
     public configService: FnService,
     private store: Store,
-    public config: NgbCarouselConfig
+    public config: NgbCarouselConfig,
+    public webSocketService: WebSocketService,
   ) {
     config.interval = 6000;
     config.showNavigationArrows = false;
@@ -76,6 +78,15 @@ export class DashboardComponent implements OnInit, OnDestroy {
         this.totalDisponivel = response.transaction.data[0].conta.saldo_actual;
         this.lastTransaction = response.transaction.data[0];
       } 
+    })
+    this.getAllWsNotifications()
+  }
+  
+  getAllWsNotifications(){
+    this.webSocketService.connection('notification');
+    let notifications = {}
+    this.webSocketService.on('Notifications_FEEDBACK', (response)=> {
+      localStorage.setItem("notifications", JSON.stringify(response))
     })
   }
 
