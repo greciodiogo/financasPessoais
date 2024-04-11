@@ -40,10 +40,9 @@ export abstract class WebSocketService {
   }
 
   // esse método será responsável por enviar um evento para o canal
-  public sendCall() {
-    this.channel.emit("call", {
-        /*params*/
-    });
+  public sendCall(channelMessage:string, obj={}) {
+    this.channel = this.createdChannel(this.channelName)
+    this.channel.emit(channelMessage, obj);
 }
 
 }

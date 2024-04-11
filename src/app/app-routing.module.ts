@@ -68,6 +68,16 @@ export const routes: Routes = [
   {
     path: '',
     data: {
+      title: 'configurações da conta',
+    },
+    loadChildren: () =>
+      import('./resources/Modules/01Conta-Configs/conta-configs.module').then(
+        (m) => m.ContaConfigsModule
+      ),
+  },
+  {
+    path: '',
+    data: {
       title: 'Login',
     },
     children: [

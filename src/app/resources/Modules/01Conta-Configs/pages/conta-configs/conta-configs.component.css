@@ -1,0 +1,149 @@
+html, body {
+  height: 100% !important;
+}
+
+.login {
+  background-color: var(--sc-bg);
+  height: 100vh;
+  padding: 4rem;
+  overflow: hidden;
+  /* background: linear-gradient(96.82deg, rgb(19, 19, 19) 0%, rgba(19, 19, 19, 0) 95%, rgba(19, 19, 19, 0) 100%), url('/../assets/img/financas-pessoais.webp');
+  background-size: cover; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-container {
+  background-color: white;
+  box-shadow: 0rem 0rem 2rem rgb(0,0,0,.1);
+  width: 100%;
+  height: 650px;
+  display: flex;
+  max-width: 650px;
+  border-radius: 24px;
+  /* margin-top: 200px; */
+  flex-direction: row;
+}
+
+.login-container>:first-child {
+  height: 100%;
+  flex-shrink: 0;
+}
+
+
+.form-side {
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.btnLogin {
+  margin-top: 20px;
+  font-size: 17px;
+  background-color: var(--details-color);
+  color: white;
+  padding: 7px 24px;
+  border-radius: 6px;
+  /* width: 100%; */
+}
+
+.optionalBtn{
+  background-color: var(--sc-bg);
+}
+
+.login-form {
+    display: block;
+    margin: auto;
+    width: 100%;
+    font-size: 18px;
+    flex: 1;
+}
+
+.logo{
+  color: var(--details-color);
+  margin: 0 auto;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-infix {
+  padding: .6em !important;
+}
+
+.help-password {
+  padding: 10px;
+  /* margin-top: 5px; */
+}
+
+.login-form .help-password .forgot-password>a, .login-form .help-password .rememberme {
+  color: #a4aab2;
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.form-title {
+  opacity: .85;
+  margin: 15px 0;
+}
+
+.rememberme a{
+  color: var(--details-color) !important;
+}
+
+.registar-form-group{
+  width: 100%;
+  margin: 7px 0;
+  /* margin: 7px 15px; */
+}
+
+.registar-form-row{
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  /* gap: 10px; */
+}
+
+.row{
+  margin: 0 15px;
+}
+
+.registar-form-group input{
+  border-radius: 8px;
+}
+
+.login-form .help-password .forgot-password>a:hover {
+  color: var(--details-color);
+  text-decoration: none
+}
+
+.login-form .help-password .rememberme>input {
+  height: 25px;
+  width: 25px;
+  position: relative;
+  top: 5px;
+}
+
+.copyright {
+  color: #a4aab2;
+  text-align: center;
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.main-footer{
+    display: none;
+}
+
+.content, .col-12{
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.steps-buttons-container {
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
