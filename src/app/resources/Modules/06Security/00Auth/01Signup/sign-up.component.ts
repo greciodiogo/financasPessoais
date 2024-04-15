@@ -56,7 +56,7 @@ export class SignUpComponent implements OnInit {
       password: [null, Validators.required],
       confirmpassword: [null, Validators.required],
     }); 
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/dashboard';
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/configuracoes-conta';
 
   }
 

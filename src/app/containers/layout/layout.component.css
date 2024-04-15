@@ -33,3 +33,12 @@
     background: linear-gradient(180deg,rgba(var(--v-theme-background),70%) 44%,rgba(var(--v-theme-background),43%) 73%,rgba(var(--v-theme-background),0%));
     width: 100%;
 }
+
+.content_margin {
+    /* margin: 0 !important;  */
+}
+
+.hide_max_width {
+    max-width: 100%;
+    width: 100%;
+}   

@@ -5,9 +5,11 @@ import { of } from "rxjs";
 import { catchError, exhaustMap, map, switchMap } from "rxjs/operators";
 import { DashboardService } from "@app/shared/services/dashboard.service";
 import { showalert } from "../Common/App.Action";
+import { HttpParams } from "@angular/common/http";
 
 @Injectable()
 export class TransactionEffects {
+     conta_id = 1
     constructor(private actin$: Actions, private service: DashboardService) {
     }
 
@@ -15,6 +17,8 @@ export class TransactionEffects {
         this.actin$.pipe(
             ofType(loadtransaction),
             exhaustMap((action) => {
+                
+
                 return this.service.findAllTransactions().pipe(
                     map((response) => {
                         return loadtransactionsuccess({ 

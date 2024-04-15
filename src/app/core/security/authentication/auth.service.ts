@@ -73,6 +73,15 @@ export class AuthService {
     return this.subjLoggedIn$.asObservable();
   }
 
+  public hasAccount(): Observable<boolean> {
+    const token = this.getItemLocalStorage;
+    if (!token.user.hasUserAccount) {
+      this.subjLoggedIn$.next(true);
+      return of(true);
+    }
+    return this.subjLoggedIn$.asObservable();
+  }
+
   public get isLoggedIn(): boolean {
     const token = this.getItemLocalStorage;
     return token ? true : false;

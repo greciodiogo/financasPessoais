@@ -1,11 +1,11 @@
-<div class="login">
-  <div class="login-container">
+<div class="conta-configs">
+  <div class="conta-configs-container">
     
       <div class="form-side"> 
         <h3 class="logo">Criar Conta</h3>
         <app-loading [show]="this.loading" title="Aguarde" subTitle="Estamos processar a informação"></app-loading>
 
-        <form class="login-form" [formGroup]="loginForm" style="position: relative;">
+        <form class="conta-configs-form" [formGroup]="loginForm" style="position: relative;">
           <app-loading [show]="loading" title="Aguarde" subTitle="Estamos a validar as suas credenciais de acesso"></app-loading> 
           <div class="row">
  
@@ -63,7 +63,8 @@
         </form>
 
         <div class="steps-buttons-container">
-          <button class="btnLogin"  data-toggle="modal"
+          <a routerLink="/user-panel" class="btnContaConfigs">Pular</a>
+          <button class="btnContaConfigs"  data-toggle="modal"
           type="submit" [class.optionalBtn]="this.loginForm.pristine || this.loginForm.invalid" [disabled]="this.loginForm.pristine || this.loginForm.invalid">Próximo</button>
         </div>
     

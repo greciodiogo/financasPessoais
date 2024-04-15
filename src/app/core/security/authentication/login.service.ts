@@ -2,11 +2,14 @@ import { Injectable } from '@angular/core';
 import { ApiService } from '@providers/api.service';
 import { map, finalize } from 'rxjs/operators';
 import { AuthService } from './auth.service';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class LoginService {
+  public loading:boolean=false
+
   constructor(private api: ApiService, private auth: AuthService) {}
 
   /**
@@ -40,9 +43,23 @@ export class LoginService {
         const data = response.data;
         if (data) {
           localStorage.setItem('frase','0')
-          this.auth.setItemLocalStorage(data);
+          this.auth.setItemLocalStorage({
+            ...data,
+            user: {
+              ...data.user,
+              hasUserAccount: false
+            }
+          });
         }
       })
     );
   }
+    
+  public findMember(userDetail: string): Observable<any> {
+    this.loading = true;
+  return this.api.get(`usuarios/findMember/${userDetail}`).pipe(finalize(() => {
+    //this.loading = false;
+  }), map((data) => Object(data).data)
+  );
+}
   }

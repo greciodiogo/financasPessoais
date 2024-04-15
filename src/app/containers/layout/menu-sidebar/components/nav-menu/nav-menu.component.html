@@ -2,7 +2,7 @@
     <div class="max__content">
     <!-- Left navbar links -->
     <ul class="navbar-nav nav__items">
-      <li id="home" class="nav-item dropdown2">
+      <li *ngIf="!this.authenticated.user.hasUserAccount == false" id="home" class="nav-item dropdown2">
         <a routerLink="/dashboard" routerLinkActive="active" class="nav-link">
           <i class="fa fa-home">
             <img width="20" height="20" src="../../../../../../assets/img/sidebar/grid-even.png" alt="">
@@ -10,7 +10,15 @@
           <span>Dashboard</span>
         </a>
       </li>
-      <li id="simulador" class="nav-item dropdown2">
+      <li id="user-panel" class="nav-item dropdown2">
+        <a routerLink="/user-panel" routerLinkActive="active" class="nav-link">
+          <i class="fa fa-folder">
+            <img width="20" height="20" src="../../../../../../assets/img/sidebar/doc-paper.png" alt="">
+          </i>
+          <span>Painel</span>
+        </a>
+      </li>
+      <li *ngIf="!this.authenticated.user.hasUserAccount== false" id="simulador" class="nav-item dropdown2">
         <a routerLink="/simulador" routerLinkActive="active" class="nav-link">
           <i class="fa fa-folder">
             <img width="20" height="20" src="../../../../../../assets/img/sidebar/credit-card.png" alt="">

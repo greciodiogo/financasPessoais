@@ -1,0 +1,140 @@
+<div class="dashboard">
+
+    <div class="cards-wrapper">
+      <div class="dashboard-title">
+        Configurações da <span class="title-gradient">Conta</span> 
+      </div>
+      <div class="config-box-container">
+        <!-- <app-dashboard-home ></app-dashboard-home> -->
+        <a routerLink="/configuracoes-conta" class="config-box">
+          <div class="config-box-banner">
+            <img width="48" height="48" src="/assets/img/icons/pagamento.png" />
+          </div>
+          <div class="config-box-content">
+            <p>Adicionar conta</p>
+          </div>
+        </a>
+        <a routerLink="/configuracoes-conta" [class.configs_blocked]="this.authenticated?.user?.hasUserAccount == 0" class="config-box">
+          <div class="config-box-banner">
+            <img width="48" height="48" src="/assets/img/icons/navegador.png" />
+          </div>
+          <div class="config-box-content">
+            <p>Gerir Contas</p>
+          </div>
+        </a>
+        <a routerLink="/configuracoes-conta" [class.configs_blocked]="this.authenticated?.user?.hasUserAccount == 0" class="config-box">
+          <div class="config-box-banner">
+            <img width="48" height="48" src="/assets/img/icons/lista-de-controle.png" />
+          </div>
+          <div class="config-box-content">
+            <p>Ver Pedidos</p>
+          </div>
+        </a>
+      </div>
+      <div class="dashboard-title">
+        Configurações do <span class="title-gradient">Utilizador</span>
+      </div>
+      <div class="config-box-container">
+        <!-- <app-dashboard-home ></app-dashboard-home> -->
+        <a routerLink="/configuracoes-conta" class="config-box">
+          <div class="config-box-banner">
+            <img width="48" height="48" src="/assets/img/icons/lista-de-controle.png" />
+          </div>
+          <div class="config-box-content">
+            <p>Ver Perfil</p>
+          </div>
+        </a>
+        <a routerLink="/configuracoes-conta" [class.configs_blocked]="this.authenticated?.user?.hasUserAccount == 0" class="config-box">
+          <div class="config-box-banner">
+            <img width="48" height="48" src="/assets/img/icons/lista-de-controle.png" />
+          </div>
+          <div class="config-box-content">
+            <p>lorem item</p>
+          </div>
+        </a>
+        <a routerLink="/configuracoes-conta" [class.configs_blocked]="this.authenticated?.user?.hasUserAccount == 0" class="config-box">
+          <div class="config-box-banner">
+            <img width="48" height="48" src="/assets/img/icons/lista-de-controle.png" />
+          </div>
+          <div class="config-box-content">
+            <p>lorem item</p>
+          </div>
+        </a>
+        <a routerLink="/configuracoes-conta" [class.configs_blocked]="this.authenticated?.user?.hasUserAccount == 0" class="config-box">
+          <div class="config-box-banner">
+            <img width="48" height="48" src="/assets/img/icons/lista-de-controle.png" />
+          </div>
+          <div class="config-box-content">
+            <p>lorem item</p>
+          </div>
+        </a>
+        <a routerLink="/configuracoes-conta" [class.configs_blocked]="this.authenticated?.user?.hasUserAccount == 0" class="config-box">
+          <div class="config-box-banner">
+            <img width="48" height="48" src="/assets/img/icons/lista-de-controle.png" />
+          </div>
+          <div class="config-box-content">
+            <p>lorem item</p>
+          </div>
+        </a>
+        <a routerLink="/configuracoes-conta" [class.configs_blocked]="this.authenticated?.user?.hasUserAccount == 0" class="config-box">
+          <div class="config-box-banner">
+            <img width="48" height="48" src="/assets/img/icons/lista-de-controle.png" />
+          </div>
+          <div class="config-box-content">
+            <p>lorem item</p>
+          </div>
+        </a>
+        <a routerLink="/configuracoes-conta" [class.configs_blocked]="this.authenticated?.user?.hasUserAccount == 0" class="config-box">
+          <div class="config-box-banner">
+            <img width="48" height="48" src="/assets/img/icons/lista-de-controle.png" />
+          </div>
+          <div class="config-box-content">
+            <p>lorem item</p>
+          </div>
+        </a>
+        <a routerLink="/configuracoes-conta" [class.configs_blocked]="this.authenticated?.user?.hasUserAccount == 0" class="config-box">
+          <div class="config-box-banner">
+            <img width="48" height="48" src="/assets/img/icons/lista-de-controle.png" />
+          </div>
+          <div class="config-box-content">
+            <p>lorem item</p>
+          </div>
+        </a>
+        <a routerLink="/configuracoes-conta" [class.configs_blocked]="this.authenticated?.user?.hasUserAccount == 0" class="config-box">
+          <div class="config-box-banner">
+            <img width="48" height="48" src="/assets/img/icons/lista-de-controle.png" />
+          </div>
+          <div class="config-box-content">
+            <p>lorem item</p>
+          </div>
+        </a>
+
+      </div>
+       
+    
+  </div>
+
+    <div class="feature-side">
+      
+      <div class="feature-container">
+<!-- 
+        <div class="user-details">
+          <div class="user-details-container">
+            <div class="user-details-avatar">
+              <i class="fa fa-home">
+                <img width="70" *ngIf="this.authenticated?.user?.id==1" height="70" src="../../../../../../assets/img/Grécio_Diogo.png" alt="">
+                <img width="70" *ngIf="this.authenticated?.user?.id!=1" height="70" src="https://avatar.iran.liara.run/username?username={{ this.authenticated?.user?.nome || 'unknown'}}" alt="">
+
+              </i>
+            </div>
+            <span class="user-details-title">cartão virtual</span>
+            <h5 class="user-name">{{ this.authenticated?.user?.nome || 'unknown'}}</h5>
+          </div>
+        </div>
+
+      </div> -->
+      
+      
+    </div>
+   
+</div>

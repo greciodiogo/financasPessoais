@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
     private route: ActivatedRoute, 
   ) {
     if (this.auth.isAuthenticated()) {
-      this.router.navigate(['/']);
+      this.redirectUser();
     }
   }
  
@@ -41,7 +41,6 @@ export class LoginComponent implements OnInit {
     });
 
     // get return url from route parameters or default to '/'
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/dashboard';
   }
 
   // convenience getter for easy access to form fields
@@ -65,12 +64,20 @@ export class LoginComponent implements OnInit {
         data => {
           // this.router.navigate([this.returnUrl]);
           //location.reload();
-          window.location.replace(this.returnUrl);
+          this.redirectUser();
         },
         error => {
           //console.log('status',error);
           this.loading = false;
         });
   }
+
+  private redirectUser() {
+    if (this.auth.isAuthenticated() && this.auth.user.hasUserAccount) {
+      this.router.navigate(['/dashboard']);
+    } 
+    if (this.auth.isAuthenticated() && !this.auth.user.hasUserAccount) 
+      this.router.navigate(['/user-panel']);
+    }
 
 }

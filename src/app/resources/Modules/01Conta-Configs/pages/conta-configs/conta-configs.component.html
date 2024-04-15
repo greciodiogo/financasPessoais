@@ -1,70 +1,55 @@
-<div class="login">
-  <div class="login-container">
+<div class="conta-configs">
+  <div class="conta-configs-container">
     
       <div class="form-side"> 
         <h3 class="logo">Criar Conta</h3>
         <app-loading [show]="this.loading" title="Aguarde" subTitle="Estamos processar a informação"></app-loading>
 
-        <form class="login-form" [formGroup]="loginForm" style="position: relative;">
+        <form class="conta-configs-form" [formGroup]="contaForm" style="position: relative;">
           <app-loading [show]="loading" title="Aguarde" subTitle="Estamos a validar as suas credenciais de acesso"></app-loading> 
           <div class="row">
  
               <h4 class="form-title">Dados da Conta</h4>
               <div class="registar-form-row">
                     <div class="registar-form-group">
-                      <!-- <label for="">Descrição</label> -->
-                      <input class="form-control" type="text" placeholder="Nome da Conta" formControlName="name" required autocomplete="name"
-                      [ngClass]="{ 'is-invalid': submitted && f.name.errors, 'is-valid': f.name.touched && !f.name.errors }">
-                      <!-- <div *ngIf="submitted && f['name'].errors" class="invalid-feedback">
-                        <div *ngIf="f['name'].errors.required">O campo Nome é obrigatório</div>
-                      </div> -->
+                      <input class="form-control" type="text" placeholder="Nome da Conta" formControlName="contaDescricao" required autocomplete="name"
+                      [ngClass]="{ 'is-invalid': submitted && f.contaDescricao.errors, 'is-valid': f.contaDescricao.touched && !f.contaDescricao.errors }">
                     </div>
+
                     <div class="registar-form-group">
-                      <!-- <label for="">Descrição</label> -->
-                      <input class="form-control" type="text" placeholder="Sobrenome" formControlName="username" required autocomplete="name"
-                      [ngClass]="{ 'is-invalid': submitted && f.username.errors, 'is-valid': f.username.touched && !f.name.errors }">
-                      <!-- <div *ngIf="submitted && f['username'].errors" class="invalid-feedback">
-                        <div *ngIf="f['username'].errors.required">O campo Sobrenome é obrigatório</div>
-                      </div> -->
+                      <select class="form-control" formControlName="moeda_id" name="moeda" id="moeda">
+                        <option value="1" selected>Kwanza</option>
+                        <option value="2">Dólar</option>
+                        <option value="4">Euro</option>
+                      </select>
                     </div>
+              </div>  
+              <h4 class="form-title">Adicionar Membros a Conta</h4>
+              <div class="registar-form-row">
+                    <div class="registar-form-group width-60">
+                      <input class="form-control" type="text" placeholder="Email ou nº Telefone do utilizador" 
+                      [(ngModel)]="this.memberDetail" [ngModelOptions]="{standalone: true}" required autocomplete="name">
+                    </div>
+
+                    <div class="registar-form-group width-40">
+                    <button class="btnValidar" (click)="findUser(this.memberDetail)">Validar e Adicionar</button>
+                    </div>
+              </div>  
+              <h4 class="form-title" *ngIf="contaMembers.length >= 1">Lista de <span>Membros</span> a Adicionar</h4>
+              <h4 class="form-title" *ngIf="contaMembers.length < 1">Sem <span>Membros</span> Adicionados</h4>
+              <div class="membersList">
+                <ul class="membersList-wrapper">
+                  <li *ngFor="let member of contaMembers; index as i">{{member.nome}}</li>
+                </ul>
               </div>
-              <div class="registar-form-group">
-                <!-- <label for="">Descrição</label> -->
-                <input class="form-control" type="email" placeholder="Email" formControlName="email" required autocomplete="email"
-                [ngClass]="{ 'is-invalid': submitted && f.email.errors, 'is-valid': f.email.touched && !f.email.errors }">
-                <!-- <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
-                  <div *ngIf="f['email'].errors.required">O campo Email é obrigatório</div>
-                </div> -->
-              </div>    
-              
-              <h4 class="form-title">Credenciais</h4>
-              <div class="registar-form-row">         
-                  <div class="registar-form-group">
-                    <!-- <label for="">Descrição</label> -->
-                    <input class="form-control" type="text" placeholder="senha" autocomplete="current-password" formControlName="password" required
-                    [ngClass]="{ 'is-invalid': submitted && f.password.errors, 'is-valid': f.password.touched && !f.password.errors }">
-                    <!-- <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
-                      <div *ngIf="f['password'].errors.required">O campo Password é obrigatório</div>
-                    </div> -->
-                </div>      
-
-                  <div class="registar-form-group">
-                    <!-- <label for="">Descrição</label> -->
-                    <input class="form-control" type="text" placeholder="Repetir senha" autocomplete="current-password" formControlName="confirmpassword" required
-                    [ngClass]="{ 'is-invalid': submitted && f.confirmpassword.errors, 'is-valid': f.confirmpassword.touched && !f.confirmpassword.errors }">
-                    <!-- <div *ngIf="submitted && f['confirmpassword'].errors" class="invalid-feedback">
-                      <div *ngIf="f['confirmpassword'].errors.required">O campo Password é obrigatório</div>
-                    </div> -->
-                  </div>
-
-                </div>
-          </div>
+            </div>
 
         </form>
 
         <div class="steps-buttons-container">
-          <button class="btnLogin"  data-toggle="modal"
-          type="submit" [class.optionalBtn]="this.loginForm.pristine || this.loginForm.invalid" [disabled]="this.loginForm.pristine || this.loginForm.invalid">Próximo</button>
+          <a routerLink="/user-panel" class="btnContaConfigs">Pular</a>
+          <button class="btnContaConfigs"
+          type="submit" (click)="onSubmit()" [class.optionalBtn]="this.contaForm.pristine || this.contaForm.invalid" [disabled]="this.contaForm.pristine || this.contaForm.invalid">Próximo</button>
         </div>
     
       </div>    

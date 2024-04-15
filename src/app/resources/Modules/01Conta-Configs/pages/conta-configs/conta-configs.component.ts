@@ -1,13 +1,14 @@
 import {Component, OnInit, TemplateRef, ViewEncapsulation, inject} from '@angular/core';
 import {Router, ActivatedRoute} from '@angular/router';
-import {UntypedFormBuilder, UntypedFormGroup, Validators} from '@angular/forms';
+import {FormGroup, UntypedFormBuilder, UntypedFormGroup, Validators} from '@angular/forms';
 import {finalize, first} from 'rxjs/operators';
 import { LoginService } from '@core/security/authentication/login.service';
 import { AuthService } from '@app/core/security/authentication/auth.service';
 import { WebSocketService } from '@app/core/services/web-socket';
 
 import { ModalDismissReasons, NgbDatepickerModule, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-//import {ToasterConfig, ToasterService} from 'angular2-toaster';
+import { ToastrService } from 'ngx-toastr';
+import { ContaService } from '../../services/conta.service';
 
 @Component({
   selector: 'app-conta-configs',
@@ -18,29 +19,28 @@ import { ModalDismissReasons, NgbDatepickerModule, NgbModal } from '@ng-bootstra
 })
 export class ContaConfigsComponent implements OnInit {
   
-  loginForm: UntypedFormGroup;
+  contaForm: UntypedFormGroup;
   loading = false;
   submitted = false;
   returnUrl: string;
-  
+  public memberDetail 
   constructor(
     private formBuilder: UntypedFormBuilder,
     public auth: AuthService,
-    public login: LoginService,
-    private router: Router,
+    public userService: LoginService,
     private route: ActivatedRoute, 
     public authenticated: AuthService,
     public webSocketService: WebSocketService,
+    public toasterService: ToastrService,
+    public contaService: ContaService
   ) {}
   
   
   ngOnInit() {
-    this.loginForm = this.formBuilder.group({
-      email: [null],
-      name: [null],
-      username: ['', Validators.required],
-      password: ['', Validators.required],
-      confirmpassword: ['', Validators.required],
+    this.contaForm = this.formBuilder.group({
+      id: [{value:null, disabled:true}],
+      contaDescricao: [null],
+      moeda_id: [1],
     });
     
     // get return url from route parameters or default to '/'
@@ -50,13 +50,56 @@ export class ContaConfigsComponent implements OnInit {
   
   // convenience getter for easy access to form fields
   get f() {
-    return this.loginForm.controls;
+    return this.contaForm.controls;
+  }
+
+  onSubmit() {
+    this.submitted = true;
+
+    // parar aquei se o formulário for inválido
+    if (this.contaForm.invalid) {
+      return;
+    }
+    this.loading = true;
+    const id = this.contaForm.getRawValue().id;
+
+    // TODO: usado para fazer a requisição com a api de criação de objsct or update
+
+    this.createOrEdit(this.contaForm, id === null ? true : false, id);
+  }
+
+  createOrEdit(formulario: FormGroup, isCreate: boolean = true, id) {
+    // TODO: usado para fazer a requisição com a api de criação de object
+
+    this.contaService.loading = true;
+    this.contaService
+      .storeOrUpdate(formulario.value, id)
+      .pipe(first())
+      .subscribe(
+        (response) => {
+          this.submitted = false;
+          if (isCreate) {
+            formulario.reset();
+          }
+          this.contaService.loading = false;
+          window.location.replace(this.returnUrl);
+        },
+        (error) => {
+          this.submitted = false;
+          this.contaService.loading = false;
+        }
+      );
+  }
+
+  onReset() {
+    this.submitted = false;
+    this.contaForm.reset();
   }
 
 
   loginWsNotification(){
     this.webSocketService.sendCall('LOGIN', {
-      username: this.loginForm.value.username,
+      username: this.contaForm.value.username,
       created_at: new Date(),
     })
   }
@@ -87,5 +130,29 @@ export class ContaConfigsComponent implements OnInit {
 				return `with: ${reason}`;
 		}
 	}
+
+  public contaMembers = []
+  public findUser(userDetail){
+    this.userService.findMember(userDetail).subscribe(
+      (response) => {
+        if (this.isMemberInArray(response)) {
+        this.toasterService.warning(`'O usuário já foi adicionado a lista'`);
+        return
+        } 
+        this.contaMembers.push(response);
+      },
+      (error) => {
+        console.log(error);
+      }
+    )
+  }
+
+  public removeUser(index: number): void {
+    this.contaMembers.splice(index, 1);
+  }
+
+  private isMemberInArray(member: any): boolean {
+    return this.contaMembers.some(existingMember => existingMember.id === member.id);
+  }
 
 }

@@ -12,6 +12,7 @@ export class User implements Deserializable {
   direccao_id: number;
   loja:any;
   empresa:any;
+  hasUserAccount?:boolean = false
   deserialize(input: any): this {
     return Object.assign(this, input);
   }

@@ -1,9 +1,11 @@
+
 import {
   Component,
   OnInit,
   Compiler,
   ChangeDetectorRef,
   OnDestroy,
+  SimpleChanges,
 } from '@angular/core';
 import {
   Router,
@@ -22,6 +24,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 // import { PermissionService } from '@app/core/security/authentication/permission.service';
 import { environment as env } from '@env/environment';
  import { Theme } from '@app/containers/layout/themeApp';
+ import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'layout',
@@ -35,6 +38,7 @@ export class LayoutComponent implements OnInit, OnDestroy {
   public sidebarLeftHeight: number;
   public windowInnerHeight: number;
 
+  public returnUrl
   public titleTag: string;
   public navigationEnd: boolean;
   public subscriptions = [];
@@ -44,12 +48,15 @@ export class LayoutComponent implements OnInit, OnDestroy {
   };
   
   public userData = JSON.parse(localStorage?.getItem('accessToken'));
+  public userControl = JSON.parse(localStorage?.getItem('accessToken'));
 
   public showOverlay = true;
 
   public themeApp: Theme;
 
   isFaqPagina: boolean;
+
+  showSidebar: boolean = true;
 
   /*
   currentUser : User//{id:'', name:''};
@@ -78,6 +85,19 @@ export class LayoutComponent implements OnInit, OnDestroy {
     // this.route.url.subscribe((segments) => {
     //   this.isFaqPagina = segments.some((segment) => segment.path === 'faqs');
     // });
+    // Inscreva-se nas mudanças de rota
+    this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd)
+    ).subscribe((event: NavigationEnd) => {
+      // Verifique a rota atual
+      if (event.url === '/login' || event.url === '/configuracoes-conta' || event.url === '/login?returnUrl=%2Fdashboard') {
+        // Se a rota atual for sua rota específica, defina showSidebar como false
+        this.showSidebar = false;
+      } else {
+        // Caso contrário, mostre o sidebar
+        this.showSidebar = true;
+      }
+    });
 
     this.compiler.clearCache();
     this.themeApp = {
@@ -121,11 +141,30 @@ export class LayoutComponent implements OnInit, OnDestroy {
   /**
    * @method ngOnInit
    */
+  private isLoginUrl(): boolean {
+    return this.route.snapshot.url.some(segment => segment.path === 'login');
+  }
+  
   ngOnInit() {
+    this.userControl = JSON.parse(localStorage?.getItem('accessToken'));
 
     this.router.events.subscribe((event: RouterEvent) => {
       this.navigationInterceptor(event);
     });
+
+        // Inscreva-se nas mudanças de rota
+        this.router.events.pipe(
+          filter(event => event instanceof NavigationEnd)
+        ).subscribe((event: NavigationEnd) => {
+          // Verifique a rota atual
+          if (event.url === '/login' || event.url === '/configuracoes-conta' || event.url === '/signup' || event.url === '/login?returnUrl=%2Fdashboard') {
+            // Se a rota atual for sua rota específica, defina showSidebar como false
+           console.log(event)
+            this.showSidebar = false;
+          } else {
+            // Caso contrário, mostre o sidebar
+            this.showSidebar = true;
+          }}) 
 
     this.titleTag = this.titleService.getTitle();
 

@@ -68,6 +68,16 @@ export const routes: Routes = [
   {
     path: '',
     data: {
+      title: 'Painel do Usuário',
+    },
+    loadChildren: () =>
+      import('./resources/Modules/02User-Painel/user-painel.module').then(
+        (m) => m.UserPainelModule
+      ),
+  },
+  {
+    path: '',
+    data: {
       title: 'configurações da conta',
     },
     loadChildren: () =>
