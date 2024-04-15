@@ -25,6 +25,7 @@ import { SelectMelhoradoModule } from "./components/select-melhorado/select-melh
 import { TranslateModule, TranslateLoader, TranslateService } from "@ngx-translate/core";
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 import { HttpClient } from "@angular/common/http";
+import { CreditCardModule } from "./components/credit-card/credit-card.module";
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -48,6 +49,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ModalModule.forRoot(),
     NotificationsModule,
     TableModule,
+    CreditCardModule,
     SelectMelhoradoModule,
     NgbTooltipModule,
     MgxCircularProgressBarModule,
@@ -75,6 +77,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     DeleteDataModule,
     ButtonFileUploadModule,
     TableModule,
+    CreditCardModule,
     SelectMelhoradoModule,
     NgbTooltipModule,
     MgxCircularProgressBarModule,

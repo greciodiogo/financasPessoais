@@ -5,8 +5,9 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { BackdropBlurModule } from '@app/shared/components/backdrop-blur/backdrop-blur.module';
 import { SharedGlobalModule } from '@app/shared/sharedGlobal.module';
-import { UserPainelComponent } from './pages/user-painel.component';
+import { UserPainelComponent } from './pages/user-painel/user-painel.component';
 import { UserPainelRoutingModule } from './user-painel-routing.module';
+import { UserContasComponent } from './pages/user-contas/user-contas.component';
 
 @NgModule({
   imports: [
@@ -18,6 +19,6 @@ import { UserPainelRoutingModule } from './user-painel-routing.module';
     BackdropBlurModule,
     SharedGlobalModule,
   ],
-  declarations: [UserPainelComponent]
+  declarations: [UserPainelComponent,UserContasComponent]
 })
 export class UserPainelModule { }

@@ -1,0 +1,48 @@
+<div class="dashboard">
+
+    <div class="cards-wrapper">
+      <div class="dashboard-title">
+        Lista de <span class="title-gradient">Contas</span> 
+      </div>
+      <div class="config-box-container">
+        <app-credit-card
+        [totalDisponivel]="20000"
+        cardTitle="Familia"
+      ></app-credit-card>
+        <app-credit-card
+        [totalDisponivel]="76000"
+        cardTitle="Pessoal"
+      ></app-credit-card>
+        <app-credit-card
+        [totalDisponivel]="10000"
+        cardTitle="Trabalho"
+      ></app-credit-card>
+      </div>
+       
+    
+  </div>
+
+    <div class="feature-side">
+      
+      <div class="feature-container">
+<!-- 
+        <div class="user-details">
+          <div class="user-details-container">
+            <div class="user-details-avatar">
+              <i class="fa fa-home">
+                <img width="70" *ngIf="this.authenticated?.user?.id==1" height="70" src="../../../../../../assets/img/Grécio_Diogo.png" alt="">
+                <img width="70" *ngIf="this.authenticated?.user?.id!=1" height="70" src="https://avatar.iran.liara.run/username?username={{ this.authenticated?.user?.nome || 'unknown'}}" alt="">
+
+              </i>
+            </div>
+            <span class="user-details-title">cartão virtual</span>
+            <h5 class="user-name">{{ this.authenticated?.user?.nome || 'unknown'}}</h5>
+          </div>
+        </div>
+
+      </div> -->
+      
+      
+    </div>
+   
+</div>

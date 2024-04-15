@@ -83,7 +83,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
   public activePosition: boolean = false;
   public activeMultipleTransactionForm: boolean = false;
-  public diaMes  = `${new Date().getDate()} / ${new Date().getMonth() + 1}`
 
   toggleRecieveBtn(type): void {
     this.activePosition = true;

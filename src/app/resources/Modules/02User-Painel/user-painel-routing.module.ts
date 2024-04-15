@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {AuthGuard} from '@core/security/guards/auth.guard'
 import {PermissionGuard} from '@core/security/guards/permission.guard'
-import { UserPainelComponent } from './pages/user-painel.component';
+import { UserPainelComponent } from './pages/user-painel/user-painel.component';
+import { UserContasComponent } from './pages/user-contas/user-contas.component';
 
 const routes: Routes = [
   {
@@ -11,6 +12,19 @@ const routes: Routes = [
     canActivate: [AuthGuard, PermissionGuard],
     data: {
       title: "Painel do Usuário",
+      expectedPermission: "dashboard",
+      layout:{
+        customLayout: true,
+        layoutNavigationTop: true,
+      }
+    }
+  },
+  {
+    path: 'user-panel/user-contas',
+    component: UserContasComponent,
+    canActivate: [AuthGuard, PermissionGuard],
+    data: {
+      title: "Contas do Usuário",
       expectedPermission: "dashboard",
       layout:{
         customLayout: true,
