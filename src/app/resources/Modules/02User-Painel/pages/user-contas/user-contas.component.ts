@@ -14,6 +14,7 @@ import { Store } from "@ngrx/store";
 import { gettransaction, loadtransaction, loadtransactionsuccess } from "@app/resources/Store/Repositorio/Repositorio.Action";
 import { NgbCarouselConfig } from "@ng-bootstrap/ng-bootstrap";
 import { ActivatedRoute, Router } from "@angular/router";
+import { ContaService } from './../../../01Conta-Configs/services/conta.service';
 
 @Component({
   selector: "app-user-contas",
@@ -41,13 +42,14 @@ export class UserContasComponent implements OnInit, OnDestroy {
     public authenticated: AuthService,
     public configService: FnService,
     private router: Router,
+    public contaService: ContaService
   ) {
     if (!this.authenticated.user.hasUserAccount) {
       this.router.navigate(['/user-panel'])
     }}
 
   ngOnInit() {
-
+    this.findAllContas()
   }
 
   ngOnDestroy(): void {}
@@ -76,5 +78,21 @@ export class UserContasComponent implements OnInit, OnDestroy {
   }
 
   public totalDisponivel: any ;
+
+  public userContas: any = []
+  public findAllContas(){
+    this.contaService.loading = true;
+    this.contaService.list().subscribe((response)=> {
+      response.data.forEach(user => {
+          this.userContas = user.contas
+      });
+      this.contaService.loading = false;
+    }, 
+    (err)=>(
+      this.contaService.loading = false
+
+    )
+    )
+  }
  
 }

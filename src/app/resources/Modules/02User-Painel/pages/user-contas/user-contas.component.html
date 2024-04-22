@@ -5,17 +5,9 @@
         Lista de <span class="title-gradient">Contas</span> 
       </div>
       <div class="config-box-container">
-        <app-credit-card
-        [totalDisponivel]="20000"
-        cardTitle="Familia"
-      ></app-credit-card>
-        <app-credit-card
-        [totalDisponivel]="76000"
-        cardTitle="Pessoal"
-      ></app-credit-card>
-        <app-credit-card
-        [totalDisponivel]="10000"
-        cardTitle="Trabalho"
+        <app-credit-card *ngFor="let uConta of userContas; i as index"
+        [totalDisponivel]="uConta.saldo_actual"
+        [cardTitle]="uConta.contaDescricao"
       ></app-credit-card>
       </div>
        

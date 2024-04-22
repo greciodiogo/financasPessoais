@@ -4,6 +4,9 @@ import { PermissionService } from '@app/core/security/authentication/permission.
 import { AuthService } from '@app/core/security/authentication/auth.service';
 import { ToastrService } from 'ngx-toastr';
 import * as moment from 'moment';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { finalize, first, map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root',
 })
@@ -14,16 +17,43 @@ export class FnService {
   public permission: PermissionService = new PermissionService(
     new AuthService(null, null, null)
   );
-  constructor(private http: ApiService, public toasterService: ToastrService) { }
+  constructor(private http: ApiService, public httpclient: HttpClient, public toasterService: ToastrService) { }
+
+  private apiUrl = 'https://currency-conversion-and-exchange-rates.p.rapidapi.com/convert';
+  private headers = new HttpHeaders({
+    'X-RapidAPI-Key': 'b679ec4e1dmsh00851a579aef8a4p12ee3ejsnbc8a1bbb852f',
+    'X-RapidAPI-Host': 'currency-conversion-and-exchange-rates.p.rapidapi.com'
+  });
 
   public numberFormat(number) {
-    return new Intl.NumberFormat('de-DE', {
-      style: 'currency',
-      currency: 'EUR',
-    })
-      .format(number)
-      .replace('€', '')
-      .trim();
+    const appDefaultMoeda = localStorage.getItem('accessToken');
+    const { defaultMoeda } = JSON.parse(appDefaultMoeda)
+    switch(defaultMoeda){
+      case 'EUR':
+        return new Intl.NumberFormat('de-DE', {
+          style: 'currency',
+          currency: 'USD',
+        })
+          .format(number*0.00121)
+          .replace('€', '')
+          .trim();
+      case 'AOA':
+        return new Intl.NumberFormat('de-DE', {
+          style: 'currency',
+          currency: 'EUR',
+        })
+          .format(number)
+          .replace('€', '')
+          .trim();
+    }
+  }
+
+  getAmountConverted(fromCurrency: string, toCurrencies: string[],amount): Observable<any> {
+    const url = `${this.apiUrl}?from=${fromCurrency}&to=${toCurrencies.join(',')}&amount=${amount}`;
+    return this.httpclient.get(url, { headers: this.headers }).pipe(finalize(() => {
+      //this.loading = false;
+    }), map((data) => Object(data).data)
+    );
   }
 
   public formatNumber(number) {

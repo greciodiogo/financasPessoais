@@ -16,7 +16,7 @@ export class ContaService extends BaseStorageService{
   public loading:boolean=false
 
   constructor(protected http: ApiService, public Permission: PermissionService) {
-    super(`contas`);
+    super(`usuarios/findLoggedUserDetalhes`);
   }
 
 }
