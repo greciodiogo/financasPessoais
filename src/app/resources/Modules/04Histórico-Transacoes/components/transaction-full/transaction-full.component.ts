@@ -14,7 +14,6 @@ import { Transaction } from "../../interfaces/transaction";
 import { DashboardService } from '@app/shared/services/dashboard.service';
 import { Observable, Subject } from "rxjs";
 import { Pagination } from "@app/shared/models/pagination";
-import { MoneyControlFormComponent } from "../money-control-form/money-control-form.component";
 import { HistoricoTransacoesComponent } from "../../pages/historico-transacoes.component";
 import { Store } from '@ngrx/store';
 import { loadtransaction, loadtransactionsuccess } from "@app/resources/Store/Repositorio/Repositorio.Action";
@@ -32,9 +31,6 @@ export class TransactionFullComponent implements OnInit {
   @Input() authenticated
   @Output() public handleEdit = new EventEmitter<any>();
   @Output() public loadList = new EventEmitter<any>();
-  
-  @ViewChild(MoneyControlFormComponent, { static: true })
-  public moneyControlFormComponent: MoneyControlFormComponent;
 
   @ViewChild(HistoricoTransacoesComponent, { static: true })
   public historicoTransacoesComponent: HistoricoTransacoesComponent;

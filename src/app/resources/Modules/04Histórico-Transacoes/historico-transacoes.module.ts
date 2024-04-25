@@ -7,9 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { BackdropBlurModule } from '@app/shared/components/backdrop-blur/backdrop-blur.module';
 import { SharedGlobalModule } from '@app/shared/sharedGlobal.module';
-import { MoneyControlFormComponent } from './components/money-control-form/money-control-form.component';
 import { TransactionFullComponent } from './components/transaction-full/transaction-full.component';
-import { MenuItemComponent } from './components/menu-item/menu-item.component';
 import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
@@ -23,6 +21,6 @@ import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
     SharedGlobalModule,
     NgbCarouselModule
   ],
-  declarations: [ HistoricoTransacoesComponent, MoneyControlFormComponent, MenuItemComponent, TransactionFullComponent]
+  declarations: [ HistoricoTransacoesComponent, TransactionFullComponent]
 })
 export class HistoricoTransacoesModule { }
