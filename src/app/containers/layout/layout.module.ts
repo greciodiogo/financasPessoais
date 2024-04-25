@@ -3,8 +3,6 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
  
 import { FooterModule } from './footer/footer.module';
-import { SidebarModule } from './sidebar/sidebar.module';  
-import { BreadcrumbsModule } from './breadcrumbs/breadcrumbs.module';
 
 import { LayoutService } from './layout.service';
 import { LayoutState } from './layout.state';
@@ -16,7 +14,6 @@ import { NgIdleKeepaliveModule } from '@ng-idle/keepalive';
 import { ModalModule } from 'ngx-bootstrap/modal'; 
 import { ScreenModule } from './screen/screen.module';
 import { FaqHelperModule } from './faq-helper/faq-helper.module';
-import { MenuHeaderModule } from './menu-header/menu-header.module';
 import { MenuSidebarModule } from './menu-sidebar/menu-sidebar.module';
 @NgModule({
   imports: [
@@ -27,10 +24,7 @@ import { MenuSidebarModule } from './menu-sidebar/menu-sidebar.module';
   ],
   exports: [
     FooterModule,
-    MenuHeaderModule,
     MenuSidebarModule,
-    SidebarModule,
-    BreadcrumbsModule,
     ScreenModule,
     FaqHelperModule,
   ],
