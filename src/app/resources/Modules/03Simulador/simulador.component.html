@@ -10,7 +10,7 @@
         <div class="dashboard-item">
           <div class="dashboard-item-icon">
             <span class="">
-              <i class="fa fa-home" *ngIf="!dashboardService.loading">
+              <i class="fa fa-home">
                 <img width="20" height="20" src="../../../../../../assets/img/sidebar/money-bank.png" alt="">
               </i>
             </span>
@@ -19,14 +19,14 @@
             <!-- <ngx-skeleton-loader *ngIf="dashboardService.loading" [theme]="{width: '200px', 'border-radius': '0', height: '17px',
                 'margin-bottom': '10px'}">
             </ngx-skeleton-loader> -->
-            <span class="dashboard-item-label" *ngIf="!dashboardService.loading">Total Disponível</span>
-              <span class="dashboard-item-price" *ngIf="!dashboardService.loading">{{configService.numberFormat(userSession.saldo_actual)}} {{userSession?.moeda?.codigo_iso}}</span>
+            <span class="dashboard-item-label">Total Disponível</span>
+              <span class="dashboard-item-price">{{configService.numberFormat(userSession.saldo_actual)}} {{userSession?.moeda?.codigo_iso}}</span>
           </div>
         </div>
         <div class="dashboard-item">
           <div class="dashboard-item-icon">
             <span class="">
-              <i class="fa fa-home" *ngIf="!dashboardService.loading">
+              <i class="fa fa-home">
                 <img width="20" height="20" src="../../../../../../assets/img/sidebar/money-integral.png" alt="">
               </i>
             </span>
@@ -35,8 +35,8 @@
             <!-- <ngx-skeleton-loader *ngIf="dashboardService.loading" [theme]="{width: '200px', 'border-radius': '0', height: '17px',
                 'margin-bottom': '10px'}">
             </ngx-skeleton-loader> -->
-            <span class="dashboard-item-label" *ngIf="!dashboardService.loading">Poupanças</span>
-              <span class="dashboard-item-price" *ngIf="!dashboardService.loading">{{ this.configService.numberFormat(dashboard.dividas || 0)
+            <span class="dashboard-item-label">Poupanças</span>
+              <span class="dashboard-item-price">{{ this.configService.numberFormat(dashboard.dividas || 0)
                 }} AOA</span>
           </div>
         </div>

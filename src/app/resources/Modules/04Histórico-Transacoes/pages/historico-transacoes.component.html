@@ -1,0 +1,43 @@
+<div class="dashboard">
+
+    <div class="cards-wrapper">
+      <div class="slide" [class.active]="false">
+        <div class="dashboard-title">
+          {{ transactionData?.data?.length > 0 ? '' : 'Sem'}} Movimentos
+        </div>
+        <div class="transacoes-estados-btn-container" style="visibility: hidden;">
+          <button class="transacoes-estados-btn">Todos</button>
+          <button class="transacoes-estados-btn">Sucesso</button>
+          <button class="transacoes-estados-btn">Cancelados</button>
+        </div>
+        <div class="filters-container">
+          <div class="filter-group">
+            <select name="" id="">
+              <option value="5" selected>5</option>
+              <option value="10">10</option>
+              <option value="20">20</option>
+            </select>
+          </div>
+          <div class="filter-group-row">
+            <div class="filter-group">
+              <label for="typeFilter">Pesquisar Por</label>
+              <select name="typeFilter" id="typeFilter">
+                <option value="">Titulo</option>
+                <option value="">Categoria</option>
+              </select>
+            </div>
+            <div class="filter-group">
+              <input type="text" placeholder="Pesquisar...">
+            </div>
+          </div>
+        </div>
+        <div class="transactions-container"  *ngIf=" transactionData?.data?.length > 0">
+          <app-transaction-full [largeSize]="true" [authenticated]="authenticated"
+          (handleEdit)="handleEditTransaction($event)"
+          ></app-transaction-full>
+        </div>
+      </div>
+    
+  </div>
+   
+</div>

@@ -258,13 +258,14 @@ input[type="date"] {
 }
 
 .slide {
+  height: 100%;
   width: 100%;
   transition: transform 0.5s ease-in-out;
 }
 
 
 .slide.active {
-  flex: 1 0 100%;
+  flex: 1 1 100%;
 }
 
 :host ::ng-deep .dashboard-title {

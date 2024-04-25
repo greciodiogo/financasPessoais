@@ -88,6 +88,16 @@ export const routes: Routes = [
   {
     path: '',
     data: {
+      title: 'Histórico de Transações',
+    },
+    loadChildren: () =>
+      import('./resources/Modules/04Histórico-Transacoes/historico-transacoes.module').then(
+        (m) => m.HistoricoTransacoesModule
+      ),
+  },
+  {
+    path: '',
+    data: {
       title: 'Login',
     },
     children: [

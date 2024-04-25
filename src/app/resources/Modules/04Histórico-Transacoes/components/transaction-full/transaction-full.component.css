@@ -1,0 +1,162 @@
+.transaction-item {
+  width: 100%;
+  position: relative;
+  gap: 15px;
+  /* justify-content: space-between; */
+  align-items: center;
+}
+
+.transaction-item table {
+  width: 100%;
+  border-radius: 12px !important;
+}
+
+.transaction-item table thead {
+  width: 100%;
+  background-color: rgb(37 81 88 / 92%);
+  box-shadow: 0 4px 18px rgba(43, 43, 61,.1); 
+  border-radius: 12px !important;
+  padding: 0 2rem;
+  display: flex;
+  margin-bottom: 10px;
+  opacity: .80;
+}
+
+.transaction-item table thead tr{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 8px !important;
+}
+
+.transaction-item table tbody {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.transaction-item table tbody tr{
+  width: 100%;
+  background-color: var(--sc-bg);
+  box-shadow: 0 4px 18px rgba(43, 43, 61,.1); 
+  border-radius: 12px !important;
+  padding: .6rem 2rem;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  opacity: .85;  
+}
+
+.transaction-item table thead tr,
+.transaction-item table tbody tr{
+  text-align: center;
+}
+
+.lg_size {
+  display: flex;
+  flex-direction: column;
+}
+
+.titleWrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: flex-start;
+  color: white;
+}
+
+.titleWrapper i{
+  opacity: .8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.692);
+  padding: 10px;
+  border-radius: 50%;
+}
+
+.titleWrapper i img{
+  padding: 2px;
+}
+
+.titleWrapper span {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.transaction-group {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.transaction-date {
+  color: white;
+  opacity: .75;
+  font-size: 13px;
+}
+
+.transaction-category {
+  color: rgb(255, 102, 0);
+  font-weight: 600;
+}
+
+.transaction-price {
+  border-radius: 24px;
+  /* background-color: rgba(0, 0, 0, 0.203); */
+  color: white;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  font-size: 16px;
+  font-weight: 600;
+  color: rgba(255, 0, 0, 0.838);
+}
+
+.transaction-credit {
+  color: rgb(0, 48, 0);
+}
+
+table{
+  background: transparent;
+}
+
+.pagination_legend{
+  color: white;
+  font-size: 11px;
+  margin-left: 10px;
+}
+
+.td-transactionType{
+  background-color: rgba(255, 0, 0, 0.205);
+  color: rgb(255, 0, 0);
+  font-weight: 600;
+  font-size: 13px;
+  width: 70px;
+  border-radius: 4px;
+  padding-bottom: 2px;
+}
+
+.type-credit {
+  background-color: rgba(0, 255, 0, 0.205);
+  color: rgba(51, 234, 51, 0.623);
+
+}
+
+.td-action{
+  cursor: pointer;
+  padding: 2px 0px;
+  opacity: .8;
+  background-color: rgba(0, 0, 0, 0.203);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+}

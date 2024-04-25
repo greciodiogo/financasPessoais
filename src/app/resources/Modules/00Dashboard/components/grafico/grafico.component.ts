@@ -57,9 +57,9 @@ export class GraficoComponent implements OnInit {
     return "Meses"
   }
 
-  public data = [12,7,8,9,5,9]
+  public data = [30,7,40,9,5,30]
 
-  public data2 = [6,10,20,18,10,6]
+  public data2 = [20,10,20,18,10,6]
 
   public chartts(facturas) {
 
@@ -69,76 +69,81 @@ export class GraficoComponent implements OnInit {
         labels: this.meses,
         datasets: [
           {
-            label: '# Facturas',
+            label: 'Despesas',
             data: this.data,
             borderCapStyle: 'round',
             borderColor: 'rgb(255 101 0 / 79%)',
             backgroundColor: 'transparent',
             pointBorderColor: 'transparent',
             pointBackgroundColor: 'transparent',
-            hideInLegendAndTooltip: true,
+            hideInLegendAndTooltip: false,
             pointBorderWidth: 1,
-            fill: true
+            fill: false
           },
           {
-            label: '# Recibos',
+            label: 'Receitas',
             data: this.data2,
             borderCapStyle: 'round',
             borderColor: 'rgb(255 255 255 / 55%)',
             backgroundColor: 'transparent',
             pointBorderColor: 'transparent',
             pointBackgroundColor: 'transparent',
-            hideInLegendAndTooltip: true,
+            hideInLegendAndTooltip: false,
             pointBorderWidth: 1,
-            fill: true
+            fill: false
           },
         ],
       },
       options: {
         responsive: true,
-        legend: { display: false },
-        scales: {
-          yAxes: [{
-            ticks: {
-              beginAtZero: true,
-              callback: function (value: number, index: number, values: number[]) {
-                // Personalizar o formato dos números no eixo Y
-                let qtdFact = this.dashboard?.totalTransacoes;
-
-                if (qtdFact > 0) {
-                  if (Number.isInteger(value)) {
-                    return value.toFixed(0);
-                  } else {
-                    // Se não for um número inteiro, retorna null para não exibir
-                    return null;
-                  }
-                } else {
-                  return value * 10;
-                }
-
-              }
-            },
-            gridLines: {
-              color: '#254d53a6',
-              zeroLineColor: '#254d53a6'  // Optional: make zero line transparent as well
-            },
-
-            display: false,
-            scaleLabel: {
-              display: true,
-              labelString: this.Facturas + ' (Qtd)'
-            }
-          }],
-          xAxes: [{
-            ticks:{
-            fontColor: 'white'
+        legend: { display: true },
+        plugins: {
+          legend: {
+            position: 'top',
           },
-          gridLines: {
-            color: '#254d53a6',
-            zeroLineColor: '#254d53a6'  // Optional: make zero line transparent as well
-          },
-        }]
         },
+        // scales: {
+        //   yAxes: [{
+        //     ticks: {
+        //       beginAtZero: true,
+        //       callback: function (value: number, index: number, values: number[]) {
+        //         // Personalizar o formato dos números no eixo Y
+        //         let qtdFact = this.dashboard?.totalTransacoes;
+
+        //         if (qtdFact > 0) {
+        //           if (Number.isInteger(value)) {
+        //             return value.toFixed(0);
+        //           } else {
+        //             // Se não for um número inteiro, retorna null para não exibir
+        //             return null;
+        //           }
+        //         } else {
+        //           return value * 10;
+        //         }
+
+        //       }
+        //     },
+        //     gridLines: {
+        //       color: '#254d53a6',
+        //       zeroLineColor: '#254d53a6'  // Optional: make zero line transparent as well
+        //     },
+
+        //     display: true,
+        //     scaleLabel: {
+        //       display: true,
+        //       labelString: this.Facturas + ' (Qtd)'
+        //     }
+        //   }],
+        //   xAxes: [{
+        //     ticks:{
+        //     fontColor: 'white'
+        //   },
+        //   gridLines: {
+        //     color: '#254d53a6',
+        //     zeroLineColor: '#254d53a6'  // Optional: make zero line transparent as well
+        //   },
+        // }]
+        // },
         title: {
           display: true,
           text: this.TotaisFactPano + ' ' + this.data_atual,
