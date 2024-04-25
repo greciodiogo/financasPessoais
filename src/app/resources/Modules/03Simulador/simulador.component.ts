@@ -70,8 +70,6 @@ export class SimuladorComponent implements OnInit, OnDestroy {
 
 
   ngOnInit() {
-    this.findDefaultUser()
-
     this.form = this.fb.group({
       valorFinanciamento: [this.valorFinanciamento, Validators.required],
       prazoFinanciamento: [this.prazoFinanciamento, Validators.required],
@@ -114,16 +112,5 @@ export class SimuladorComponent implements OnInit, OnDestroy {
     usuario: {
       nome: ""
     }
-  }
-
-  public findDefaultUser(){
-    this.dashboardService.loading = true
-    this.dashboardService.findDefaultUser().subscribe(
-      (response)=>{
-        this.userSession = response;
-        this.dashboardService.loading = false
-    },
-    (error) => (this.dashboardService.loading = false)
-    )
   }
 }

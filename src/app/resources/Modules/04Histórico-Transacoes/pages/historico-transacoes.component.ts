@@ -9,31 +9,23 @@ import {
   Output,
 } from "@angular/core";
 import { FnService } from "@app/shared/services/fn.helper.service";
-import { GraficoComponent } from "../components/grafico/grafico.component";
 import { DashboardService } from "@app/shared/services/dashboard.service";
 
-import { Transaction } from "../interfaces/transaction";
 import { Pagination } from "@app/shared/models/pagination";
 import { Observable, Subject } from "rxjs";
-import { MoneyControlFormComponent } from "../components/money-control-form/money-control-form.component";
 import { AuthService } from "@app/core/security/authentication/auth.service";
 import { Store } from "@ngrx/store";
-import { gettransaction, loadtransaction, loadtransactionsuccess } from "@app/resources/Store/Repositorio/Repositorio.Action";
+import { loadtransaction, loadtransactionsuccess } from "@app/resources/Store/Repositorio/Repositorio.Action";
 import { NgbCarouselConfig } from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
-  selector: "app-dashboard",
-  templateUrl: "./dashboard.component.html",
-  styleUrls: ["./dashboard.component.css"],
+  selector: "app-historico-transacoes",
+  templateUrl: "./historico-transacoes.component.html",
+  styleUrls: ["./historico-transacoes.component.css"],
 })
-export class DashboardComponent implements OnInit, OnDestroy {
-  
+export class HistoricoTransacoesComponent implements OnInit, OnDestroy {
   
   @Output() public close = new EventEmitter<any>();
-  
-  @ViewChild(GraficoComponent, { static: true })
-  public graficoComponent: GraficoComponent;
-
 
   public transactionData: any
   public lastTransaction: any
@@ -63,7 +55,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
     private store: Store,
     public config: NgbCarouselConfig
   ) {
-    config.interval = 10000;
+    config.interval = 6000;
     config.showNavigationArrows = false;
     config.showNavigationIndicators = true;
   }
@@ -118,13 +110,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
       }
     this.pagination.page = page;
     this.subjectObj.next(this.pagination.page);
-  }
-  
-  @ViewChild(MoneyControlFormComponent, { static: true })
-  public moneyControlFormComponent: MoneyControlFormComponent;
-  handleEditTransaction(transaction){
-    this.moneyControlFormComponent.setTransaction(transaction)
-    this.toggleRecieveBtn(3)
   }
 
   public totalDisponivel: any ;

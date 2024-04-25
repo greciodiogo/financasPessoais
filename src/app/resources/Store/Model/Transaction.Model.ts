@@ -5,12 +5,15 @@ export interface Transactions{
     transacaoDescricao?: string;
     transacaoTipo?: {};
     transacaoMotivo?: string;
+    transacao_estado?: string;
+    transacao_author?: string;
     conta?: {
         saldo_actual: number;
     }
     valor?: number;
     estado?: number;
     created_At?: string;
+    saldo_actual?: number;
 }
 
 export interface TransactionModel{

@@ -1,0 +1,71 @@
+<div class="transaction-item" [class.lg_size]="largeSize">
+
+  <table>
+    <thead>
+      <tr>
+        <th width="50">Item</th>
+        <th width="100">Titulo</th>
+        <th width="100">Movimento</th>
+        <th width="100">Categoria</th>
+        <th width="100">Estado</th>
+        <!-- <th width="100">Realizada Por</th> -->
+        <th width="150">Data Movimento</th>
+        <th width="140">Valor</th>
+        <th width="20"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let transaction of transactionData?.data | paginate
+              : {
+                  itemsPerPage: pagination?.perPage,
+                  currentPage: pagination?.page,
+                  totalItems: pagination?.total,
+                  id: 'listTransactionFull'
+                };
+          index as i">
+        <td width="50" class="titleWrapper">
+            <i class="fa fa-home">
+              <img
+                width="20"
+                height="20"
+                [src]="'../../../../../../assets/img/sidebar/' + (transaction?.categoria_id==1 ? 'income.png' : 'withdraw.png')"
+                alt=""
+              />
+            </i>
+        </td>
+        <td width="100">{{transaction?.transacaoDescricao }}</td>
+        <td width="100" class="td-transactionType {{transaction?.categoria_id==1 && 'type-credit'}}">{{transaction?.categoria?.categoriaDescricao || '---' }}</td>
+        <td width="100" class="transaction-category">{{ transaction?.transacaoTipo?.descricao || "---" }}</td>
+        <td width="100" class="transaction-date">{{ transaction?.transacaoEstado?.descricao || '---' }}</td>
+        <!-- <td width="100" class="transaction-date">{{ this.authenticated?.user?.nome || 'unknown'}}</td> -->
+        <!-- <td width="150" class="transaction-date">{{ transaction?.transacao_author || '---' }}</td> -->
+        <td width="150" class="transaction-date">{{ transaction && transaction?.created_at }}</td>
+        <td width="120" class="transaction-price  {{transaction?.categoria_id==1 && 'transaction-credit'}}">
+          <span>{{transaction?.categoria_id==1 ? '+' : '-'}}</span>  
+          {{configService.formatNumber(transaction?.valor || 0) }}
+        </td>
+        <td width="20" class="td-action">
+          <a class="fa fa-home" (click)="onHandleEdit(transaction)">
+            <img
+              width="16"
+              height="20"
+              src="../../../../../../assets/img/three-dots-vertical.png"
+              alt=""
+            />
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+    <div class="pagination" style="width: 100%">
+        <div class="pagination_legend">
+          Mostrando de {{ this.pagination.page }} a
+          {{ this.pagination.perPage }} de
+          {{ this.pagination.total }} Movimentos
+        </div>
+        <div class="pagination-container">
+          <pagination-controls (pageChange)="getPageFilterData($event)" previousLabel="prev" maxSize="6"
+            nextLabel="next" directionLinks="true" responsive="true" id="listTransactionFull"></pagination-controls>
+        </div>
+    </div>
+</div>
