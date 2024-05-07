@@ -1,0 +1,196 @@
+/* You can add global styles to this file, and also import other style files */
+:root {
+    --mainColor: #010f1f;
+    /* --sc-bg: #020c17; */
+    --sc-bg: rgb(40, 40, 40);
+    --sc-bg: rgb(37 81 88 / 40%);
+    --details-color: rgb(255 101 0 / 79%);
+    --tc: rgba(2, 2, 2, 0.723);
+  }
+  
+  .c-fluid {
+    overflow: hidden;
+    background-color: transparent;
+    // background: linear-gradient(96.82deg, rgb(19, 19, 19) 0%, rgba(19, 19, 19, 0) 95%, rgba(19, 19, 19, 0) 100%), url('/assets/img/financas-pessoais.webp');
+    background-size: cover;
+    border-radius: 24px;
+    background-color: rgba(37, 81, 88, 0.275);
+  }
+  
+  .user-list-card {
+    background-color: var(--sc-bg);
+    // border-top-left-radius: 12px;
+    // border-bottom-left-radius: 12px;
+    border-radius: 24px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    height: calc(100vh - 100px);
+    margin: 10px;
+    padding: 10px;
+
+    .user-list-card-top{
+      margin: 10px 0;
+
+
+      h4{
+        color: white;
+      }
+    }
+  
+    .user-card {
+      display: flex;
+      padding: 10px;
+      cursor: pointer;
+  
+      &.active {
+        // background-color: #EDEDED;
+        background-color: var(--sc-bg);
+      }
+  
+      .avatar {
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin: 0 15px 0 0;
+      }
+  
+      .username {
+        font-size: 13px;
+        color: white;
+        opacity: .9;
+        font-weight: 500;
+        margin-bottom: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  
+    .user-card:not(:last-child) {
+      // border-bottom: 1px solid #bbbbbb;
+    }
+  }
+  
+  .chat-container {
+    // background-color: var(--sc-bg);
+    border-radius: 24px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    height: calc(100vh - 100px);
+    position: relative;
+    overflow: hidden;
+    margin-right: 10px;
+    // padding: 10px;
+  
+    .chat-header {
+      height: 70px;
+      width: 100%;
+      border-radius: 24px;
+      // background-color: #254d53d4;
+      // background-color: #010f1f;
+      background-color: var(--sc-bg);
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+  
+      .avatar {
+        height: 25px;
+        width: 25px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin: 0 20px;
+      }
+  
+      .username {
+        font-size: 14px;
+        font-weight: 500;
+        margin-bottom: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  
+    .chat-body {
+      // background-image: url(./assets/bg-image.jpg);
+      background-color: transparent;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;
+      height: calc(100vh - 125px);
+      padding: 30px;
+      overflow-y: auto;
+  
+      .message-container {
+        background-color: transparent;
+        padding: 7px;
+        border-radius: 24px;
+        width: fit-content;
+        max-width: 92%;
+        margin-bottom: 15px;
+      }
+  
+      .guest-user {
+        .message-container {
+          background-color: var(--details-color);
+        }
+      }
+
+      .same-user {
+        display: flex;
+        justify-content: flex-end;
+  
+        .message-container {
+          background-color: lightskyblue;
+        }
+      }
+    }
+  
+    .chat-footer {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      // background-color: #254d53d4;
+      // background-color: #010f1f;
+      border-radius: 12px;
+      padding: 5px 20px;
+      
+      .form-control {
+        background-color: var(--sc-bg);
+        box-sizing: border-box;
+        border-radius: 12px;
+        font-size: 1rem;
+        color: black;
+      }
+    }
+  }
+  
+  input {
+    width: 90% !important;
+  }
+  
+  .chat-message {
+    display: grid;
+    grid-template-columns: 27% 73%;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    border-radius: 24px;
+  }
+  
+  *::-webkit-scrollbar {
+    width: 0;
+  }
+  
+  *::-webkit-scrollbar-track {
+    background: transparent;
+    border: 3px solid transparent;
+  }
+  
+  *::-webkit-scrollbar-thumb {
+    background: rgb(204, 204, 204);
+    border: 9px solid white;
+    border-radius: 24px;
+    width: 0;
+  } 
+  

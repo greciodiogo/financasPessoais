@@ -90,8 +90,8 @@ export class LayoutComponent implements OnInit, OnDestroy {
       filter(event => event instanceof NavigationEnd)
     ).subscribe((event: NavigationEnd) => {
       // Verifique a rota atual
-      if (event.url === '/login' || event.url === '/configuracoes-conta' || event.url === '/login?returnUrl=%2Fdashboard') {
-        // Se a rota atual for sua rota específica, defina showSidebar como false
+      if (event.url === '/login' || event.url === '/configuracoes-conta' || event.url === '/login?returnUrl=%2Fdashboard' || event.url === '/login?returnUrl=%2Fuser-panel') {
+        // Se a rota atual for sua rota específica, defina showSidebar como fals
         this.showSidebar = false;
       } else {
         // Caso contrário, mostre o sidebar
@@ -157,9 +157,8 @@ export class LayoutComponent implements OnInit, OnDestroy {
           filter(event => event instanceof NavigationEnd)
         ).subscribe((event: NavigationEnd) => {
           // Verifique a rota atual
-          if (event.url === '/login' || event.url === '/configuracoes-conta' || event.url === '/signup' || event.url === '/login?returnUrl=%2Fdashboard') {
+          if (event.url === '/login' || event.url === '/configuracoes-conta' || event.url === '/signup' || event.url === '/login?returnUrl=%2Fdashboard' || event.url === '/login?returnUrl=%2Fuser-panel') {
             // Se a rota atual for sua rota específica, defina showSidebar como false
-           console.log(event)
             this.showSidebar = false;
           } else {
             // Caso contrário, mostre o sidebar

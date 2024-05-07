@@ -76,7 +76,7 @@ export class LoginComponent implements OnInit {
     if (this.auth.isAuthenticated() && this.auth.user.hasUserAccount) {
       this.router.navigate(['/dashboard']);
     } 
-    if (this.auth.isAuthenticated() && !this.auth.user.hasUserAccount) 
+    else if (this.auth.isAuthenticated() && !this.auth.user.hasUserAccount) 
       this.router.navigate(['/user-panel']);
     }
 

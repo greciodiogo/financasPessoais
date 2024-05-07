@@ -69,6 +69,12 @@ export class DashboardComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    this.findAllTransactions()
+  }
+
+  ngOnDestroy(): void {}
+
+  findAllTransactions(){
     this.store.dispatch(loadtransaction());
     this.store.select(loadtransactionsuccess).subscribe(response => {
       if (response.transaction.data.length > 0) {
@@ -78,8 +84,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
       } 
     })
   }
-
-  ngOnDestroy(): void {}
 
   public activePosition: boolean = false;
   public activeMultipleTransactionForm: boolean = false;

@@ -108,7 +108,7 @@ export class MoneyControlFormComponent implements OnInit {
       if (isCreate) {
           formulario.reset();
         }
-        this.close.emit();
+        this.loadList.emit(Object(addtransaction({ transaction: formulario.value })).data);
   }
 
   public imageTitle: string ="income.png"

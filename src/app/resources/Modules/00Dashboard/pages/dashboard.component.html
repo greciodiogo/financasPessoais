@@ -88,4 +88,4 @@
    
 </div>
 
-<app-multiple-transaction-form [activePosition]="activeMultipleTransactionForm" (close)="onCloseModal()"></app-multiple-transaction-form>
+<app-multiple-transaction-form [activePosition]="activeMultipleTransactionForm" (close)="onCloseModal()" (loadList)="this.findAllTransactions()"></app-multiple-transaction-form>

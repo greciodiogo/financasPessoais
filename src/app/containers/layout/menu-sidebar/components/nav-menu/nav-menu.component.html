@@ -18,6 +18,30 @@
           <span>Painel</span>
         </a>
       </li>
+      <li *ngIf="!this.authenticated.user.hasUserAccount== false" id="simulador" class="nav-item dropdown2">
+        <a routerLink="/charts" routerLinkActive="active" class="nav-link">
+          <i class="fa fa-folder">
+            <img width="20" height="20" src="../../../../../../assets/img/sidebar/charts.png" alt="">
+          </i>
+          <span>Projecções</span>
+        </a>
+      </li>
+      <li *ngIf="!this.authenticated.user.hasUserAccount== false" id="simulador" class="nav-item dropdown2">
+        <a routerLink="/orcamento" routerLinkActive="active" class="nav-link">
+          <i class="fa fa-folder">
+            <img width="20" height="20" src="../../../../../../assets/img/sidebar/statistics.png" alt="">
+          </i>
+          <span>Orçamento</span>
+        </a>
+      </li>
+      <li *ngIf="!this.authenticated.user.hasUserAccount== false" id="simulador" class="nav-item dropdown2">
+        <a routerLink="/simulador" routerLinkActive="active" class="nav-link">
+          <i class="fa fa-folder">
+            <img width="20" height="20" src="../../../../../../assets/img/sidebar/credit-card.png" alt="">
+          </i>
+          <span>Metas</span>
+        </a>
+      </li>
       <li id="historico-transacoes" class="nav-item dropdown2">
         <a routerLink="/historico-transacoes" routerLinkActive="active" class="nav-link">
           <i class="fa fa-folder">
@@ -27,11 +51,11 @@
         </a>
       </li>
       <li *ngIf="!this.authenticated.user.hasUserAccount== false" id="simulador" class="nav-item dropdown2">
-        <a routerLink="/simulador" routerLinkActive="active" class="nav-link">
+        <a routerLink="/chat-message" routerLinkActive="active" class="nav-link">
           <i class="fa fa-folder">
-            <img width="20" height="20" src="../../../../../../assets/img/sidebar/credit-card.png" alt="">
+            <img width="22" height="22" src="../../../../../../assets/img/sidebar/message-circle.png" alt="">
           </i>
-          <span>Metas</span>
+          <span>Mensagens</span>
         </a>
       </li>
       <!-- <li id="dashboard" class="nav-item dropdown2">

@@ -1,6 +1,6 @@
 {
-  "name": "unig4telco",
-  "version": "0.0.0",
+  "name": "financas-pessoais",
+  "version": "1.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -30,6 +30,7 @@
     "@ngrx/effects": "15",
     "@ngrx/store": "15",
     "@ngrx/store-devtools": "15",
+    "@types/socket.io-client": "^3.0.0",
     "@ngx-translate/core": "^13.0.0",
     "@ngx-translate/http-loader": "^6.0.0",
     "@sweetalert2/ngx-sweetalert2": "^12.3.0",
@@ -42,6 +43,7 @@
     "chart.js": "^2.9.4",
     "exceljs": "^4.4.0",
     "extenso": "^2.0.1",
+    "engine.io-parser": "^5.2.1",
     "file-saver": "^2.0.5",
     "html2canvas": "^1.4.1",
     "jquery": "^3.7.1",
@@ -49,7 +51,7 @@
     "jspdf-autotable": "^3.8.2",
     "mgx-circular-progress-bar": "0.0.2",
     "moment": "^2.30.1",
-    "ng-apexcharts": "^1.9.0",
+    "ng-apexcharts": "^1.10.0",
     "ng-connection-service": "^9.0.3",
     "ng-multiselect-dropdown": "^0.3.9",
     "ng2-charts": "^2.4.3",
@@ -77,7 +79,8 @@
     "rxjs": "^6.6.7",
     "rxjs-compat": "^6.6.7",
     "select-autocomplete": "0.0.1",
-    "sweetalert2": "^11.10.7",
+    "socket.io-client": "^3",
+    "sweetalert2": "^11.10.8",
     "tslib": "^2.6.2",
     "xlsx": "^0.17.5",
     "zone.js": "~0.11.4"

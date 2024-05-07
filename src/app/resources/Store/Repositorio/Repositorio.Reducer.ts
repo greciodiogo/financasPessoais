@@ -19,13 +19,10 @@ const _transactionReducer = createReducer(TransactionsState,
             ...state,
         }
     }),
-    on(addtransactionsuccess, (state, action) => {
-        const _maxid = Math.max(...state.data.map(o => o.id));
-        const _newdata = { ...action.transaction };
-        _newdata.id = _maxid + 1;
+    on(addtransactionsuccess, (state, action) => {;
         return {
             ...state,
-            data: [...state.data, _newdata],
+            data: [...state.data],
         }
     }),
     on(addmultipletransactionsuccess, (state, action) => {

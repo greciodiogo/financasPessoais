@@ -98,6 +98,16 @@ export const routes: Routes = [
   {
     path: '',
     data: {
+      title: 'Chat Message',
+    },
+    loadChildren: () =>
+      import('./resources/Modules/05Chat-Message/chat-message.module').then(
+        (m) => m.ChatMessageModule
+      ),
+  },
+  {
+    path: '',
+    data: {
       title: 'Login',
     },
     children: [
