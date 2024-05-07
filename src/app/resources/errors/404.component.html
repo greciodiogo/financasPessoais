@@ -1,21 +1,17 @@
-<br><br><br><br><br><br><br><br><br><br><br>
-<div class="error-page">
-  <h2 class="headline text-warning">404</h2>
-
+<br><br><br>
+<div class="error-page" style="width: 500px; margin: 0 auto;">
+  
   <div class="error-content">
-    <h3><i class="fas fa-exclamation-triangle text-warning"></i> <b>Oops! Página Não Encontrada</b></h3>
-
-    <p>
-      A página solicitada não foi encontrada
-    </p>
-    <div class="row">
-        <div class="col-md-6">
-            <button class="btn btn-info btn-block btn-lg" onclick="document.location.href = '/dashboard';">Back to dashboard</button>
-        </div>
-        <div class="col-md-6">
-            <button class="btn btn-primary btn-block btn-lg" onclick="history.back();">Previous page</button>
-        </div>
+    <div class="svg-container">
+      <img width="200" height="240" src="/assets/img/icons/business-3d-businessman.png" alt="">
     </div>
+    <!-- <h2 class="headline text-warning">404</h2> -->
+    <h3 style="color: var(--details-color)"><i class="fas fa-exclamation-triangle text-warning"></i> <b>Oops! Página Não Encontrada</b></h3>
+
+    <p style="color: white;">
+      Não conseguimos encontrar a página solicitada. Vamos ajudá-lo a voltar home!!!
+    </p>
+    <button class="btn-back-home" style="background-color: var(--details-color);" onclick="document.location.href = '/dashboard';">Voltar para Home</button>
   </div>
 </div>
 
